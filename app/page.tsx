@@ -437,13 +437,13 @@ export default async function Home() {
                       interactive calendars, and social networking capabilities.
                     </p>
                   </div>
-                  <div className="relative sm:order-1 sm:col-span-2">
+                  <div className="relative w-full sm:order-1 sm:col-span-2">
                     <Image
                       src={`${S3_PORTFOLIO_URL}/tkstn-01.png`}
                       alt="Takostan Global Music Resource preview"
                       width={200}
                       height={125}
-                      className="aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:translate-y-1"
+                      className="w-full aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:w-auto sm:translate-y-1"
                       priority
                     />
                   </div>
@@ -495,7 +495,8 @@ export default async function Home() {
                       alt="Form Health website preview"
                       width={200}
                       height={125}
-                      className="aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:translate-y-1"
+                      className="w-full aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:w-auto sm:translate-y-1"
+                      priority
                     />
                   </div>
                 </div>
@@ -546,7 +547,8 @@ export default async function Home() {
                       alt="SOLIDWORKS platform preview"
                       width={200}
                       height={125}
-                      className="aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:translate-y-1"
+                      className="w-full aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:w-auto sm:translate-y-1"
+                      priority
                     />
                   </div>
                 </div>
@@ -597,7 +599,8 @@ export default async function Home() {
                       alt="Apps for Kids platform preview"
                       width={200}
                       height={125}
-                      className="aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:translate-y-1"
+                      className="w-full aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:w-auto sm:translate-y-1"
+                      priority
                     />
                   </div>
                 </div>
