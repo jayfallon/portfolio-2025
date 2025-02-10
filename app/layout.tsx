@@ -126,7 +126,7 @@ export default async function RootLayout({
                   <div className="group/spotlight relative">{children}</div>
                 </div>
                 <footer>
-                  <div className="text-sm text-center w-full py-4 text-slate-200 ">
+                  <div className="text-sm text-center w-1/2 mx-auto md:w-full py-4 text-slate-400 ">
                     I drew full inspiration from{" "}
                     <Link
                       className="hover:text-teal-300"
