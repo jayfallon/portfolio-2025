@@ -15,15 +15,15 @@ export default async function Home() {
             <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
               Jay Fallon
             </h1>
-            <h3 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+            <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
               Full Stack Software Engineer
-            </h3>
-            <h3 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+            </h2>
+            <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
               User Experience Designer
-            </h3>
-            <h3 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+            </h2>
+            <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
               Product Strategist
-            </h3>
+            </h2>
             <p className="mt-4 max-w-xs leading-normal">
               I build scalable systems, design engaging experiences, and develop product strategies
               that drive business growth.
@@ -115,7 +115,14 @@ export default async function Home() {
           </ul>
         </header>
         <div className="pt-24 lg:w-[52%] lg:py-24">
-          <section className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" id="about">
+          <section
+            className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+            id="about"
+            aria-label="About Jay Fallon"
+          >
+            <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200">About</h2>
+            </div>
             <p className="mb-4">
               As a seasoned <strong>full-stack developer</strong> specializing in the{" "}
               <strong>JavaScript ecosystem</strong>, I bring over a decade of experience
@@ -158,6 +165,11 @@ export default async function Home() {
             </p>
           </section>
           <section className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" id="experience">
+            <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200">
+                Experience
+              </h2>
+            </div>
             <ul>
               <li className="mb-12">
                 <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
@@ -268,7 +280,7 @@ export default async function Home() {
                         >
                           <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                           <span>
-                            Senior Software Engineer ·{" "}
+                            Consulting Engineer ·{" "}
                             <span className="inline-block">
                               Form Health
                               <svg
@@ -292,8 +304,9 @@ export default async function Home() {
                     <p className="mt-2 text-sm leading-normal">
                       As a consultant, worked with the marketing team on the redesign and
                       development of the customer-facing website for this leading medical weight
-                      loss platform. Implemented modern web development practices and improved user
-                      experience through responsive design and optimized performance.
+                      loss platform. Implemented modern web development practices and a
+                      comprehensive design system to ensure consistency across the platform.
+                      Improved user experience through responsive design and optimized performance.
                     </p>
                     <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
                       <li className="mr-1.5 mt-2">
@@ -387,7 +400,164 @@ export default async function Home() {
                       </li>
                       <li className="mr-1.5 mt-2">
                         <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                          CSS
+                        </div>
+                      </li>
+                      <li className="mr-1.5 mt-2">
+                        <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
                           Cassandra
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li className="mb-12">
+                <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                  <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                  <header
+                    className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2"
+                    aria-label="2018 to 2019"
+                  >
+                    2018 — 2019
+                  </header>
+                  <div className="z-10 sm:col-span-6">
+                    <h3 className="font-medium leading-snug text-slate-200">
+                      <div>
+                        <a
+                          className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
+                          href="https://www.syrinx.com/"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          aria-label="Senior UX/UI Developer at Syrinx Consulting (opens in a new tab)"
+                        >
+                          <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                          <span>
+                            Sr. UX/UI Developer ·{" "}
+                            <span className="inline-block">
+                              Syrinx Consulting
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </a>
+                      </div>
+                    </h3>
+                    <p className="mt-2 text-sm leading-normal">
+                      Contracted to Bose Corporation to develop targeted applications as part of
+                      their initiative to create agile, customer-focused solutions. Specialized in
+                      building rapid prototypes and MVPs to address specific customer segment needs
+                      while maintaining high standards of user experience and interface design.
+                    </p>
+                    <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
+                      <li className="mr-1.5 mt-2">
+                        <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                          Next.js
+                        </div>
+                      </li>
+                      <li className="mr-1.5 mt-2">
+                        <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                          JavaScript
+                        </div>
+                      </li>
+                      <li className="mr-1.5 mt-2">
+                        <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                          Node.js
+                        </div>
+                      </li>
+                      <li className="mr-1.5 mt-2">
+                        <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                          Express.js
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li className="mb-12">
+                <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+                  <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
+                  <header
+                    className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2"
+                    aria-label="2014 to 2016"
+                  >
+                    2014 — 2016
+                  </header>
+                  <div className="z-10 sm:col-span-6">
+                    <h3 className="font-medium leading-snug text-slate-200">
+                      <div>
+                        <a
+                          className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
+                          href="https://www.cengage.com/"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          aria-label="UX Designer and Developer at Cengage Learning (opens in a new tab)"
+                        >
+                          <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                          <span>
+                            UX Designer and Developer ·{" "}
+                            <span className="inline-block">
+                              Cengage Learning
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                className="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </a>
+                      </div>
+                    </h3>
+                    <p className="mt-2 text-sm leading-normal">
+                      Developed an in-house CSS framework and reusable component library while
+                      providing design direction across multiple projects. Led initiatives in legacy
+                      code conversion and cross-platform CSS standardization. Collaborated with
+                      senior management to define design and technical requirements for platform
+                      releases, while conducting component design and user testing.
+                    </p>
+                    <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
+                      <li className="mr-1.5 mt-2">
+                        <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                          CSS
+                        </div>
+                      </li>
+                      <li className="mr-1.5 mt-2">
+                        <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                          JavaScript
+                        </div>
+                      </li>
+                      <li className="mr-1.5 mt-2">
+                        <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                          Angular.js
+                        </div>
+                      </li>
+                      <li className="mr-1.5 mt-2">
+                        <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                          React
+                        </div>
+                      </li>
+                      <li className="mr-1.5 mt-2">
+                        <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
+                          Sass
                         </div>
                       </li>
                     </ul>
@@ -397,6 +567,11 @@ export default async function Home() {
             </ul>
           </section>
           <section className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" id="projects">
+            <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200">
+                Projects
+              </h2>
+            </div>
             <ul>
               <li className="mb-12">
                 <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
@@ -408,11 +583,11 @@ export default async function Home() {
                         href="https://www.takostan.com"
                         target="_blank"
                         rel="noreferrer noopener"
-                        aria-label="Takostan Music Platform (opens in a new tab)"
+                        aria-label="Takostan Global Music Resource (opens in a new tab)"
                       >
                         <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                         <span>
-                          Takostan Music Platform{" "}
+                          Takostan Global Music Resource{" "}
                           <span className="inline-block">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -437,13 +612,13 @@ export default async function Home() {
                       interactive calendars, and social networking capabilities.
                     </p>
                   </div>
-                  <div className="relative sm:order-1 sm:col-span-2">
+                  <div className="relative w-full sm:order-1 sm:col-span-2">
                     <Image
                       src={`${S3_PORTFOLIO_URL}/tkstn-01.png`}
-                      alt="Takostan Music Platform preview"
+                      alt="Takostan Global Music Resource preview"
                       width={200}
                       height={125}
-                      className="aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:translate-y-1"
+                      className="w-full aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:w-auto sm:translate-y-1"
                       priority
                     />
                   </div>
@@ -484,7 +659,7 @@ export default async function Home() {
                     </h3>
                     <p className="mt-2 text-sm leading-normal">
                       Led the redesign and development of Form Health's customer-facing website,
-                      implementing modern web development practices and optimizing for performance.
+                      implementing modern web development practices and optimized for performance.
                       The project focused on improving user experience and conversion rates through
                       responsive design and seamless content management integration.
                     </p>
@@ -495,7 +670,8 @@ export default async function Home() {
                       alt="Form Health website preview"
                       width={200}
                       height={125}
-                      className="aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:translate-y-1"
+                      className="w-full aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:w-auto sm:translate-y-1"
+                      priority
                     />
                   </div>
                 </div>
@@ -546,7 +722,8 @@ export default async function Home() {
                       alt="SOLIDWORKS platform preview"
                       width={200}
                       height={125}
-                      className="aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:translate-y-1"
+                      className="w-full aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:w-auto sm:translate-y-1"
+                      priority
                     />
                   </div>
                 </div>
@@ -597,7 +774,8 @@ export default async function Home() {
                       alt="Apps for Kids platform preview"
                       width={200}
                       height={125}
-                      className="aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:translate-y-1"
+                      className="w-full aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:w-auto sm:translate-y-1"
+                      priority
                     />
                   </div>
                 </div>
