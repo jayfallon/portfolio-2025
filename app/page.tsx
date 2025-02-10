@@ -15,15 +15,15 @@ export default async function Home() {
             <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
               Jay Fallon
             </h1>
-            <h3 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+            <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
               Full Stack Software Engineer
-            </h3>
-            <h3 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+            </h2>
+            <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
               User Experience Designer
-            </h3>
-            <h3 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+            </h2>
+            <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
               Product Strategist
-            </h3>
+            </h2>
             <p className="mt-4 max-w-xs leading-normal">
               I build scalable systems, design engaging experiences, and develop product strategies
               that drive business growth.
