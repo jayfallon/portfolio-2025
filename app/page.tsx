@@ -408,11 +408,11 @@ export default async function Home() {
                         href="https://www.takostan.com"
                         target="_blank"
                         rel="noreferrer noopener"
-                        aria-label="Takostan Music Platform (opens in a new tab)"
+                        aria-label="Takostan Global Music Resource (opens in a new tab)"
                       >
                         <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                         <span>
-                          Takostan Music Platform{" "}
+                          Takostan Global Music Resource{" "}
                           <span className="inline-block">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -440,7 +440,7 @@ export default async function Home() {
                   <div className="relative sm:order-1 sm:col-span-2">
                     <Image
                       src={`${S3_PORTFOLIO_URL}/tkstn-01.png`}
-                      alt="Takostan Music Platform preview"
+                      alt="Takostan Global Music Resource preview"
                       width={200}
                       height={125}
                       className="aspect-video object-cover rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:translate-y-1"
