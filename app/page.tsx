@@ -25,8 +25,8 @@ export default async function Home() {
               Product Strategist
             </h2>
             <p className="mt-4 max-w-xs leading-normal">
-              I build scalable systems, design engaging experiences, and develop product strategies
-              that drive business growth.
+              I design, build, and deliver scalable systems with engaging user experiences, crafting
+              product strategies that drive growth.
             </p>
           </div>
           <nav className="nav hidden lg:block">
@@ -138,44 +138,90 @@ export default async function Home() {
               <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200">About</h2>
             </div>
             <p className="mb-4">
-              As a seasoned <strong>full-stack developer</strong> specializing in the{" "}
-              <strong>JavaScript ecosystem</strong>, I bring over a decade of experience
-              architecting and implementing sophisticated web applications. My expertise spans the
-              entire development lifecycle, from designing intuitive user interfaces to building
-              robust backend systems that scale. Having worked with industry leaders like{" "}
-              <strong>Form Health</strong>, <strong>Dassault Systèmes</strong>,{" "}
-              <strong>Bose</strong>, and <strong>Cengage</strong>, I&apos;ve developed a deep
-              understanding of enterprise-level software development and system architecture.
+              As a seasoned full-stack developer specializing in the JavaScript ecosystem, I bring
+              over a decade of experience architecting and implementing sophisticated web
+              applications. My expertise spans the entire development lifecycle, from designing
+              intuitive user interfaces to building robust backend systems that scale. Having worked
+              with industry leaders like{" "}
+              <Link
+                href="https://www.formhealth.com"
+                className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Form Health
+              </Link>
+              ,{" "}
+              <Link
+                href="https://www.3ds.com"
+                className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Dassault Systèmes
+              </Link>
+              ,{" "}
+              <Link
+                href="https://www.bose.com"
+                className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Bose
+              </Link>
+              , and{" "}
+              <Link
+                href="https://www.cengagegroup.com"
+                className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Cengage
+              </Link>
+              , I&apos;ve developed a deep understanding of enterprise-level software development
+              and system architecture.
             </p>
             <p className="mb-4">
-              My unique background combines{" "}
-              <strong>technical prowess with strong business acumen</strong>, backed by a{" "}
-              <strong>Bachelor&apos;s in Business Administration</strong> with majors in
-              International Business and Finance, complemented by a{" "}
-              <strong>Master&apos;s degree in Digital Design</strong>. This interdisciplinary
-              foundation enables me to bridge the gap between technical requirements and business
-              objectives, ensuring solutions that not only function flawlessly but also drive
-              meaningful business outcomes.
+              My unique background combines technical expertise with strong business acumen, backed
+              by a{" "}
+              <Link
+                href="https://www.harvard.edu/"
+                className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Bachelor&apos;s in Business Administration
+              </Link>{" "}
+              with majors in International Business and Finance, complemented by a{" "}
+              <Link
+                href="https://www.harvard.edu/"
+                className="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Master&apos;s degree in Digital Design
+              </Link>
+              . This interdisciplinary foundation enables me to bridge the gap between technical
+              requirements and business objectives, ensuring solutions that not only function
+              flawlessly but also drive meaningful business outcomes.
             </p>
             <p className="mb-4">
               Throughout my career, I&apos;ve had the privilege of working on diverse projects
-              ranging from <strong>global enterprise systems</strong> handling thousands of users to
-              custom solutions for small businesses. This versatility has honed my ability to adapt
-              development approaches based on project scope, team dynamics, and business
-              requirements. I&apos;m particularly passionate about creating{" "}
-              <strong>scalable architectures</strong>, implementing{" "}
-              <strong>clean code practices</strong>, and mentoring development teams.
+              ranging from global enterprise systems handling thousands of users to custom solutions
+              for small businesses. This versatility has honed my ability to adapt development
+              approaches based on project scope, team dynamics, and business requirements. I&apos;m
+              particularly passionate about creating scalable architectures, implementing clean code
+              practices, and mentoring development teams.
             </p>
             <p className="mb-4">
               My approach to development centers on building high-performance, scalable solutions
-              with a strong emphasis on <strong>accessibility and SEO</strong>. I specialize in
-              optimizing web vitals, implementing semantic HTML structures, and ensuring WCAG
-              compliance across all projects. Whether I&apos;m architecting microservices for scale,
-              fine-tuning Core Web Vitals, or implementing advanced SEO strategies, I focus on
-              creating inclusive digital experiences that perform exceptionally well for all users.
-              I maintain a deep commitment to web standards and best practices, consistently
-              delivering solutions that excel in both technical performance metrics and
-              accessibility benchmarks.
+              with a strong emphasis on accessibility and SEO. I specialize in optimizing web
+              vitals, implementing semantic HTML structures, and ensuring WCAG compliance across all
+              projects. Whether I&apos;m architecting microservices for scale, fine-tuning Core Web
+              Vitals, or implementing advanced SEO strategies, I focus on creating inclusive digital
+              experiences that perform exceptionally well for all users. I maintain a deep
+              commitment to web standards and best practices, consistently delivering solutions that
+              excel in both technical performance metrics and accessibility benchmarks.
             </p>
           </section>
           <section className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" id="experience">
