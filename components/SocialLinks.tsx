@@ -20,7 +20,7 @@ export default function SocialLinks({ links }: { links: SocialLink[] }) {
               target="_blank"
               title={`View ${link.platform} Profile`}
               aria-label={`Visit Jay Fallon's ${link.platform} profile`}
-              className="flex items-center gap-2 text-sm font-medium text-slate-200 hover:text-teal-300"
+              className="flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-teal-300"
             >
               <Icon size={20} />
               <span className="sr-only">{link.platform}</span>

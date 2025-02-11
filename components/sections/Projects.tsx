@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { ProjectsSection } from "@/types/portfolio";
 
+const S3_PORTFOLIO_URL = "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com";
+
 export default function Projects({ data }: { data: ProjectsSection }) {
   return (
     <section
@@ -15,7 +17,7 @@ export default function Projects({ data }: { data: ProjectsSection }) {
         {data.items.map((project, index) => (
           <div
             key={index}
-            className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50"
+            className="mb-12 group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50"
           >
             <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
             <div className="z-10 sm:order-2 sm:col-span-6">
@@ -61,7 +63,7 @@ export default function Projects({ data }: { data: ProjectsSection }) {
             </div>
             <div className="relative sm:order-1 sm:col-span-2">
               <Image
-                src={project.image.src}
+                src={`${S3_PORTFOLIO_URL}${project.image.src}`}
                 alt={project.image.alt}
                 width={200}
                 height={125}
