@@ -1,0 +1,187 @@
+{
+  "personalInfo": {
+    "name": "Jay Fallon",
+    "titles": ["Full Stack Software Engineer", "User Experience Designer", "Product Strategist"],
+    "summary": "I design, build, and deliver scalable systems with engaging user experiences, crafting product strategies that drive growth.",
+    "socialLinks": [
+      {
+        "platform": "GitHub",
+        "url": "https://github.com/jayfallon",
+        "icon": "Github"
+      },
+      {
+        "platform": "LinkedIn",
+        "url": "https://www.linkedin.com/in/jayfallon/",
+        "icon": "Linkedin"
+      },
+      {
+        "platform": "Instagram",
+        "url": "https://www.instagram.com/jayfallon/",
+        "icon": "Instagram"
+      }
+    ]
+  },
+  "navigation": [
+    {
+      "label": "About",
+      "href": "#about",
+      "section": "about"
+    },
+    {
+      "label": "Experience",
+      "href": "#experience",
+      "section": "experience"
+    },
+    {
+      "label": "Education",
+      "href": "#education",
+      "section": "education"
+    },
+    {
+      "label": "Projects",
+      "href": "#projects",
+      "section": "projects"
+    }
+  ],
+  "sections": {
+    "about": {
+      "title": "About",
+      "content": [
+        "As a seasoned full-stack developer specializing in the JavaScript ecosystem, I bring over a decade of experience architecting and implementing sophisticated web applications. My expertise spans the entire development lifecycle, from designing intuitive user interfaces to building robust backend systems that scale. Having worked with industry leaders like [Form Health](https://www.formhealth.com), [Dassault Systèmes](https://www.3ds.com), [Bose](https://www.bose.com), and [Cengage](https://www.cengagegroup.com), I've developed a deep understanding of enterprise-level software development and system architecture.",
+
+        "My unique background combines technical expertise with strong business acumen, backed by a [Bachelor's in Business Administration](https://www.harvard.edu/) with majors in International Business and Finance, complemented by a [Master's degree in Digital Design](https://www.harvard.edu/). This interdisciplinary foundation enables me to bridge the gap between technical requirements and business objectives, ensuring solutions that not only function flawlessly but also drive meaningful business outcomes.",
+
+        "Throughout my career, I've had the privilege of working on diverse projects ranging from global enterprise systems handling thousands of users to custom solutions for small businesses. This versatility has honed my ability to adapt development approaches based on project scope, team dynamics, and business requirements. I'm particularly passionate about creating scalable architectures, implementing clean code practices, and mentoring development teams.",
+
+        "My approach to development centers on building high-performance, scalable solutions with a strong emphasis on accessibility and SEO. I specialize in optimizing web vitals, implementing semantic HTML structures, and ensuring WCAG compliance across all projects. Whether I'm architecting microservices for scale, fine-tuning Core Web Vitals, or implementing advanced SEO strategies, I focus on creating inclusive digital experiences that perform exceptionally well for all users. I maintain a deep commitment to web standards and best practices, consistently delivering solutions that excel in both technical performance metrics and accessibility benchmarks."
+      ]
+    },
+    "experience": {
+      "title": "Experience",
+      "items": [
+        {
+          "title": "Founder, Designer & Principal Engineer",
+          "company": "Takomedia",
+          "url": "https://www.takostan.com",
+          "dateRange": "2024 — Present",
+          "description": "Designed and developed a full-stack application for artists, venues, and festivals, creating a comprehensive promotion and social engagement platform. Implemented scalable architecture and real-time features to enhance user interaction and event promotion capabilities.",
+          "technologies": [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Supabase",
+            "Redis",
+            "AWS",
+            "Anthropic"
+          ]
+        },
+        {
+          "title": "Consulting Engineer",
+          "company": "Form Health",
+          "url": "https://www.formhealth.co",
+          "dateRange": "2022 — 2024",
+          "description": "As a consultant, worked with the marketing team on the redesign and development of the customer-facing website for this leading medical weight loss platform. Implemented modern web development practices and a comprehensive design system to ensure consistency across the platform. Improved user experience through responsive design and optimized performance.",
+          "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Prismic", "Storybook"]
+        },
+        {
+          "title": "Senior Software Engineering Manager",
+          "company": "Dassault Systèmes",
+          "url": "https://www.3ds.com/",
+          "dateRange": "2019 — 2023",
+          "description": "Led development teams across multiple products within The 3DEXPERIENCE platform, including SOLIDWORKS - a leading 3D CAD software, Apps for Kids, and Apps for Kids Classroom. Managed the development of innovative solutions for desktop and cloud-based CAD applications while ensuring high performance and reliability.",
+          "technologies": ["Angular.js", "JavaScript", "CSS", "Cassandra"]
+        },
+        {
+          "title": "Sr. UX/UI Developer",
+          "company": "Syrinx Consulting",
+          "url": "https://www.syrinx.com/",
+          "dateRange": "2018 — 2019",
+          "description": "Contracted to Bose Corporation to develop targeted applications as part of their initiative to create agile, customer-focused solutions. Specialized in building rapid prototypes and MVPs to address specific customer segment needs while maintaining high standards of user experience and interface design.",
+          "technologies": ["Next.js", "JavaScript", "Node.js", "Express.js"]
+        },
+        {
+          "title": "UX Designer and Developer",
+          "company": "Cengage Learning",
+          "url": "https://www.cengage.com/",
+          "dateRange": "2014 — 2016",
+          "description": "Developed an in-house CSS framework and reusable component library while providing design direction across multiple projects. Led initiatives in legacy code conversion and cross-platform CSS standardization. Collaborated with senior management to define design and technical requirements for platform releases, while conducting component design and user testing.",
+          "technologies": ["CSS", "JavaScript", "Angular.js", "React", "Sass"]
+        }
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "items": [
+        {
+          "degree": "Master's in Digital Design",
+          "school": "Harvard University",
+          "url": "https://www.extension.harvard.edu/",
+          "dateRange": "2017 — 2019",
+          "description": "Completed Master's degree in Digital Design, focusing on user experience design, interaction design, and digital media. Developed comprehensive understanding of design principles, user research methodologies, and digital product development.",
+          "areas": ["UX Design", "Digital Media", "Interaction Design", "User Research"]
+        },
+        {
+          "degree": "B.S. in Business Administration",
+          "school": "Northeastern University",
+          "url": "https://www.northeastern.edu/",
+          "dateRange": "1993 — 1998",
+          "description": "Majored in International Business and Finance with a focus on global operations and marketing. Participated in Northeastern's renowned cooperative education program, completing assignments at Boston's Better Snacks, FMRC, and PictureTel, gaining hands-on experience in operations, marketing, technical documentation, and internationalization.",
+          "areas": ["International Business", "Finance", "Operations", "Marketing"]
+        }
+      ]
+    },
+    "projects": {
+      "title": "Projects",
+      "items": [
+        {
+          "title": "Takostan Global Music Resource",
+          "url": "https://www.takostan.com",
+          "description": "A comprehensive platform for artists, venues, and festivals to promote their events and engage with their audience. Features include real-time updates, interactive calendars, and social networking capabilities.",
+          "image": {
+            "src": "/tkstn-01.png",
+            "alt": "Takostan Global Music Resource preview"
+          },
+          "technologies": [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Supabase",
+            "Redis",
+            "AWS",
+            "Anthropic"
+          ]
+        },
+        {
+          "title": "Form Health Website",
+          "url": "https://www.formhealth.co",
+          "description": "Led the redesign and development of Form Health's customer-facing website, implementing modern web development practices and optimized for performance. The project focused on improving user experience and conversion rates through responsive design and seamless content management integration.",
+          "image": {
+            "src": "/fh-01.png",
+            "alt": "Form Health website preview"
+          },
+          "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Prismic", "Storybook"]
+        },
+        {
+          "title": "SOLIDWORKS Cloud Platform",
+          "url": "https://www.solidworks.com",
+          "description": "Managed the development of cloud-based CAD applications within The 3DEXPERIENCE platform. Led initiatives to modernize the user interface and improve system performance, resulting in enhanced user experience and increased adoption rates.",
+          "image": {
+            "src": "/solidworks-01.png",
+            "alt": "SOLIDWORKS platform preview"
+          },
+          "technologies": ["Angular.js", "JavaScript", "CSS", "Cassandra"]
+        },
+        {
+          "title": "Apps for Kids Platform",
+          "url": "https://www.3ds.com/products/apps-for-kids",
+          "description": "Directed the development of an educational platform designed to introduce children to 3D design concepts. The project included creating intuitive interfaces for both students and teachers, implementing classroom management features, and ensuring a secure, child-friendly environment.",
+          "image": {
+            "src": "/afk-01.png",
+            "alt": "Apps for Kids platform preview"
+          },
+          "technologies": ["Next.js", "JavaScript", "Node.js", "Express.js"]
+        }
+      ]
+    }
+  }
+}

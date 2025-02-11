@@ -97,11 +97,7 @@ function AuthenticatedLayout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default async function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
   const {
     data: { user },
