@@ -70,6 +70,7 @@
             "TypeScript",
             "Tailwind CSS",
             "Supabase",
+            "PostgreSQL",
             "Redis",
             "AWS",
             "Anthropic"
@@ -92,7 +93,7 @@
           "technologies": ["Angular.js", "JavaScript", "CSS", "Cassandra"]
         },
         {
-          "title": "Sr. UX/UI Developer",
+          "title": "Senior UX/UI Developer",
           "company": "Syrinx Consulting",
           "url": "https://www.syrinx.com/",
           "dateRange": "2018 — 2019",
