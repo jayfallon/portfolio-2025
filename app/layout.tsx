@@ -1,4 +1,3 @@
-import DeployButton from "@/components/deploy-button";
 import HeaderAuth from "@/components/header-auth";
 import { Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
@@ -6,6 +5,7 @@ import Link from "next/link";
 import "./globals.css";
 import { createClient } from "@/utils/supabase/server";
 import MouseSpotlight from "@/app/components/MouseSpotlight";
+import UploadPortfolioButton from "@/components/upload-portfolio-button";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -84,7 +84,7 @@ function AuthenticatedLayout({ children }: { children: React.ReactNode }) {
               <div className="flex gap-5 items-center font-semibold">
                 <Link href={"/"}>Next.js Supabase Starter</Link>
                 <div className="flex items-center gap-2">
-                  <DeployButton />
+                  <UploadPortfolioButton />
                 </div>
               </div>
               <HeaderAuth />
@@ -97,11 +97,7 @@ function AuthenticatedLayout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default async function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
   const {
     data: { user },
@@ -126,7 +122,7 @@ export default async function RootLayout({
                   <div className="group/spotlight relative">{children}</div>
                 </div>
                 <footer>
-                  <div className="text-sm text-center w-full py-4 text-slate-200 ">
+                  <div className="text-sm text-center w-1/2 mx-auto md:w-full py-4 text-slate-400 ">
                     I drew full inspiration from{" "}
                     <Link
                       className="hover:text-teal-300"
