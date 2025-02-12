@@ -76,24 +76,38 @@ const geistSans = Geist({
 
 function AuthenticatedLayout({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <main className="min-h-screen flex flex-col items-center">
-        <div className="flex-1 w-full flex flex-col gap-20 items-center">
-          <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
-            <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
-              <div className="flex gap-5 items-center font-semibold">
-                <Link href={"/"}>Next.js Supabase Starter</Link>
-                <div className="flex items-center gap-2">
-                  <UploadPortfolioButton />
-                </div>
-              </div>
-              <HeaderAuth />
+    <main className="relative">
+      <MouseSpotlight />
+      <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
+        <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
+          <div className="flex gap-5 items-center font-semibold">
+            <Link href={"/"}>Home</Link>
+            <div className="flex items-center gap-2">
+              <UploadPortfolioButton />
             </div>
-          </nav>
-          <div className="flex flex-col gap-20 max-w-5xl p-5">{children}</div>
+          </div>
+          <HeaderAuth />
         </div>
-      </main>
-    </>
+      </nav>
+      <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-16 lg:py-0">
+        <div className="group/spotlight relative">{children}</div>
+      </div>
+      <footer>
+        <div className="text-sm text-center w-1/2 mx-auto md:w-full py-4 text-slate-400 ">
+          I drew full inspiration from{" "}
+          <Link
+            className="hover:text-teal-300"
+            href="https://brittanychiang.com/"
+            target="_blank"
+            title="View Brittany Chiang's Portfolio"
+            aria-label="View Brittany Chiang's Portfolio"
+          >
+            Brittany Chiang
+          </Link>{" "}
+          for this portfolio design.
+        </div>
+      </footer>
+    </main>
   );
 }
 
@@ -115,29 +129,27 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {user ? (
             <AuthenticatedLayout>{children}</AuthenticatedLayout>
           ) : (
-            <>
-              <main className="relative">
-                <MouseSpotlight />
-                <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-16 lg:py-0">
-                  <div className="group/spotlight relative">{children}</div>
+            <main className="relative">
+              <MouseSpotlight />
+              <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-16 lg:py-0">
+                <div className="group/spotlight relative">{children}</div>
+              </div>
+              <footer>
+                <div className="text-sm text-center w-1/2 mx-auto md:w-full py-4 text-slate-400 ">
+                  I drew full inspiration from{" "}
+                  <Link
+                    className="hover:text-teal-300"
+                    href="https://brittanychiang.com/"
+                    target="_blank"
+                    title="View Brittany Chiang's Portfolio"
+                    aria-label="View Brittany Chiang's Portfolio"
+                  >
+                    Brittany Chiang
+                  </Link>{" "}
+                  for this portfolio design.
                 </div>
-                <footer>
-                  <div className="text-sm text-center w-1/2 mx-auto md:w-full py-4 text-slate-400 ">
-                    I drew full inspiration from{" "}
-                    <Link
-                      className="hover:text-teal-300"
-                      href="https://brittanychiang.com/"
-                      target="_blank"
-                      title="View Brittany Chiang's Portfolio"
-                      aria-label="View Brittany Chiang's Portfolio"
-                    >
-                      Brittany Chiang
-                    </Link>{" "}
-                    for this portfolio design.
-                  </div>
-                </footer>
-              </main>
-            </>
+              </footer>
+            </main>
           )}
         </ThemeProvider>
       </body>

@@ -21,12 +21,12 @@ export default async function Home() {
     data = portfolioData; // Fallback to JSON file if Redis fails
   }
 
+  // The content structure remains the same regardless of authentication status
   return (
-    <div className="group/spotlight relative">
+    <>
       <ScrollSpy />
       <div className="lg:flex lg:justify-between lg:gap-4">
         <Header personalInfo={data.personalInfo} navigation={data.navigation} />
-
         <div className="pt-24 lg:w-[52%] lg:py-24">
           <About data={data.sections.about} />
           <Experience data={data.sections.experience} />
@@ -34,6 +34,6 @@ export default async function Home() {
           <Projects data={data.sections.projects} />
         </div>
       </div>
-    </div>
+    </>
   );
 }
