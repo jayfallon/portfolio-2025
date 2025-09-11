@@ -116,7 +116,7 @@
         {
           "id": "harvard-digital-media-design",
           "degree": "Master of Liberal Arts (ALM) in Digital Media Design",
-          "institution": "Harvard Extension School",
+          "institution": "Harvard University",
           "institutionUrl": "https://www.extension.harvard.edu/",
           "startDate": "2017",
           "endDate": "2019",
@@ -156,6 +156,7 @@
           },
           "technologies": [
             "Next.js",
+            "PostgreSQL",
             "TypeScript",
             "Tailwind CSS",
             "Supabase",
@@ -182,7 +183,7 @@
             "src": "/solidworks-01.png",
             "alt": "SOLIDWORKS platform preview"
           },
-          "technologies": ["Angular.js", "JavaScript", "CSS", "Cassandra"]
+          "technologies": ["Angular.js", "JavaScript", "CSS"]
         },
         {
           "title": "Apps for Kids Platform",
@@ -192,7 +193,7 @@
             "src": "/afk-01.png",
             "alt": "Apps for Kids platform preview"
           },
-          "technologies": ["Angular.js", "JavaScript", "Node.js", "Express.js"]
+          "technologies": ["Angular.js", "JavaScript", "Node.js", "Express.js", "Cassandra"]
         }
       ]
     }

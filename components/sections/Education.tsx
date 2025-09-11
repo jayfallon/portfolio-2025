@@ -25,21 +25,21 @@ export default function Education({ data }: { data: EducationSection }) {
                 <div>
                   <a
                     className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
-                    href={item.url}
+                    href={item.institutionUrl}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={`${item.degree} from ${item.school}`}
+                    aria-label={`${item.degree} from ${item.institution}`}
                   >
                     <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
                     <span>
-                      {item.degree} · {item.school}
+                      {item.degree} · {item.institution}
                     </span>
                   </a>
                 </div>
               </h3>
               <p className="mt-2 text-sm leading-normal">{item.description}</p>
               <ul className="mt-2 flex flex-wrap" aria-label="Areas of study">
-                {item.areas.map((area, areaIndex) => (
+                {item.specializations.map((area, areaIndex) => (
                   <li key={areaIndex} className="mr-1.5 mt-2">
                     <div className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">
                       {area}

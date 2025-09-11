@@ -42,12 +42,17 @@ export interface EducationSection {
 }
 
 export interface EducationItem {
+  id: string;
   degree: string;
-  school: string;
-  url: string;
+  institution: string;
+  institutionUrl: string;
+  startDate: string;
+  endDate: string;
   dateRange: string;
   description: string;
-  areas: string[];
+  specializations: string[];
+  status: string;
+  highlights?: string[];
 }
 
 export interface ProjectsSection {
