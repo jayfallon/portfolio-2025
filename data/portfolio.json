@@ -49,7 +49,7 @@
       "content": [
         "As a seasoned full-stack developer specializing in the JavaScript ecosystem, I bring over a decade of experience architecting and implementing sophisticated web applications. My expertise spans the entire development lifecycle, from designing intuitive user interfaces to building robust backend systems that scale. Having worked with industry leaders like [Form Health](https://www.formhealth.com), [Dassault Systèmes](https://www.3ds.com), [Bose](https://www.bose.com), and [Cengage](https://www.cengagegroup.com), I've developed a deep understanding of enterprise-level software development and system architecture.",
 
-        "My unique background combines technical expertise with strong business acumen, backed by a [Bachelor's in Business Administration](https://www.harvard.edu/) with majors in International Business and Finance, complemented by a [Master's degree in Digital Design](https://www.harvard.edu/). This interdisciplinary foundation enables me to bridge the gap between technical requirements and business objectives, ensuring solutions that not only function flawlessly but also drive meaningful business outcomes.",
+        "My unique background combines technical expertise with strong business acumen, backed by a [Bachelor of Science in Business Administration](https://www.northeastern.edu/) with majors in International Business and Finance, complemented by a [Master of Liberal Arts in Digital Media Design](https://extension.harvard.edu/academics/programs/digital-media-design-graduate-program/) from Harvard Extension School. This interdisciplinary foundation enables me to bridge the gap between technical requirements and business objectives, ensuring solutions that not only function flawlessly but also drive meaningful business outcomes.",
 
         "Throughout my career, I've had the privilege of working on diverse projects ranging from global enterprise systems handling thousands of users to custom solutions for small businesses. This versatility has honed my ability to adapt development approaches based on project scope, team dynamics, and business requirements. I'm particularly passionate about creating scalable architectures, implementing clean code practices, and mentoring development teams.",
 
@@ -114,20 +114,32 @@
       "title": "Education",
       "items": [
         {
-          "degree": "Master's in Digital Design",
-          "school": "Harvard University",
-          "url": "https://www.extension.harvard.edu/",
+          "id": "harvard-digital-media-design",
+          "degree": "Master of Liberal Arts (ALM) in Digital Media Design",
+          "institution": "Harvard Extension School",
+          "institutionUrl": "https://www.extension.harvard.edu/",
+          "startDate": "2017",
+          "endDate": "2019",
           "dateRange": "2017 — 2019",
-          "description": "Completed Master's degree in Digital Design, focusing on user experience design, interaction design, and digital media. Developed comprehensive understanding of design principles, user research methodologies, and digital product development.",
-          "areas": ["UX Design", "Digital Media", "Interaction Design", "User Research"]
+          "description": "Completed Master of Liberal Arts degree in Digital Media Design through Harvard Extension School, focusing on user experience design, interaction design, and digital media production. Developed comprehensive understanding of design principles, user research methodologies, and digital product development.",
+          "specializations": ["UX Design", "Digital Media", "Interaction Design", "User Research"],
+          "status": "completed"
         },
         {
-          "degree": "B.S. in Business Administration",
-          "school": "Northeastern University",
-          "url": "https://www.northeastern.edu/",
+          "id": "northeastern-business",
+          "degree": "Bachelor of Science (B.S.) in Business Administration",
+          "institution": "Northeastern University",
+          "institutionUrl": "https://www.northeastern.edu/",
+          "startDate": "1993",
+          "endDate": "1998",
           "dateRange": "1993 — 1998",
-          "description": "Majored in International Business and Finance with a focus on global operations and marketing. Participated in Northeastern's renowned cooperative education program, completing assignments at Boston's Better Snacks, FMRC, and PictureTel, gaining hands-on experience in operations, marketing, technical documentation, and internationalization.",
-          "areas": ["International Business", "Finance", "Operations", "Marketing"]
+          "description": "Completed Bachelor of Science degree in Business Administration with majors in International Business and Finance, focusing on global operations and marketing. Participated in Northeastern's renowned cooperative education program, completing assignments at Boston's Better Snacks, FMRC, and PictureTel, gaining hands-on experience in operations, marketing, technical documentation, and internationalization.",
+          "specializations": ["International Business", "Finance", "Operations", "Marketing"],
+          "status": "completed",
+          "highlights": [
+            "Cooperative education program participation",
+            "Real-world experience at Boston's Better Snacks, FMRC, and PictureTel"
+          ]
         }
       ]
     },
@@ -180,7 +192,7 @@
             "src": "/afk-01.png",
             "alt": "Apps for Kids platform preview"
           },
-          "technologies": ["Next.js", "JavaScript", "Node.js", "Express.js"]
+          "technologies": ["Angular.js", "JavaScript", "Node.js", "Express.js"]
         }
       ]
     }
