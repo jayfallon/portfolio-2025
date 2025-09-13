@@ -2,9 +2,10 @@ import { notFound } from "next/navigation";
 import { getHomepageFromRedis } from "@/app/actions/get-homepage-from-redis";
 import portfolioData from "@/data/portfolio.json";
 import ProjectPage from "@/components/ProjectPage";
+import { ProjectItem } from "@/types/portfolio";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 function createSlug(title: string): string {
@@ -15,6 +16,7 @@ function createSlug(title: string): string {
 }
 
 export default async function Project({ params }: Props) {
+  const { slug } = await params;
   // Get data from Redis or fallback to JSON
   let data;
   try {
@@ -28,7 +30,7 @@ export default async function Project({ params }: Props) {
 
   // Find the project by slug
   const project = data.sections.projects.items.find(
-    (item) => createSlug(item.title) === params.slug
+    (item: ProjectItem) => createSlug(item.title) === slug
   );
 
   if (!project) {
@@ -50,7 +52,7 @@ export async function generateStaticParams() {
     data = portfolioData;
   }
 
-  return data.sections.projects.items.map((project) => ({
+  return data.sections.projects.items.map((project: ProjectItem) => ({
     slug: createSlug(project.title),
   }));
 }
