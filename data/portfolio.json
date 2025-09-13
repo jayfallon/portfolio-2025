@@ -1,7 +1,12 @@
 {
   "personalInfo": {
     "name": "Jay Fallon",
-    "titles": ["Full Stack Software Engineer", "User Experience Designer", "Product Strategist"],
+    "titles": [
+      "Full Stack Software Engineer",
+      "User Experience Designer",
+      "Product Strategist",
+      "Tool Builder"
+    ],
     "summary": "I design, build, and deliver scalable systems with engaging user experiences, crafting product strategies that drive growth.",
     "socialLinks": [
       {
@@ -146,6 +151,25 @@
     "projects": {
       "title": "Projects",
       "items": [
+        {
+          "title": "Connections Plus",
+          "url": "https://connections-plus.jayfallon.com",
+          "description": "A sophisticated daily word puzzle game that reimagines NYT Connections with innovative multi-level progression and strategic 'red herring' mechanics. Features AI-powered content generation and comprehensive admin tools.",
+          "image": {
+            "src": "/images/connections-plus-01.png",
+            "alt": "Connections Plus game interface preview"
+          },
+          "technologies": [
+            "Next.js 15",
+            "TypeScript",
+            "Redis",
+            "HeroUI",
+            "Tailwind CSS",
+            "Claude AI API",
+            "Framer Motion",
+            "Vercel"
+          ]
+        },
         {
           "title": "Takostan Global Music Resource",
           "url": "https://www.takostan.com",
