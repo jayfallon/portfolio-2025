@@ -23,7 +23,8 @@ interface Props {
 const getProjectContent = (projectTitle: string) => {
   if (projectTitle === "Connections Plus") {
     return {
-      overview: "Connections Plus is a sophisticated daily word puzzle game that reimagines NYT Connections with innovative multi-level progression and strategic 'red herring' mechanics. Built as a full-stack web application with comprehensive admin tools and player tracking.",
+      overview:
+        "Connections Plus is a sophisticated daily word puzzle game that reimagines NYT Connections with innovative multi-level progression and strategic 'red herring' mechanics. Built as a full-stack web application with comprehensive admin tools and player tracking.",
       keyFeatures: [
         "Multi-Level Progression System with accumulating complexity across 4 levels",
         "Strategic Red Herring mechanics that create sophisticated misdirection",
@@ -32,7 +33,7 @@ const getProjectContent = (projectTitle: string) => {
         "Daily Puzzle System with UTC midnight cutoffs",
         "Real-time Progress Saving to Redis for seamless experience",
         "Responsive Grid System handling 17-19 dynamic word layouts",
-        "Comprehensive Admin Panel with calendar scheduling"
+        "Comprehensive Admin Panel with calendar scheduling",
       ],
       technicalHighlights: [
         "Built with Next.js 15 and App Router for modern React development",
@@ -42,14 +43,28 @@ const getProjectContent = (projectTitle: string) => {
         "Framer Motion animations for smooth user interactions",
         "Mobile-responsive design optimized for all screen sizes",
         "Basic Authentication middleware for admin security",
-        "Date-based scheduling with calendar interface"
+        "Date-based scheduling with calendar interface",
       ],
       challenges: [
         "Dynamic Grid Layouts: Handling variable word counts (17-19 words) across different levels",
         "State Management: Complex multi-level game progression with red herring carry-over",
         "Anonymous Privacy: Providing personalization without collecting personal data",
-        "Date Handling: Proper UTC timezone management for global daily puzzles"
-      ]
+        "Date Handling: Proper UTC timezone management for global daily puzzles",
+      ],
+      gallery: [
+        {
+          src: "/images/connections-plus-02.png",
+          alt: "Connections Plus game interface showing multi-level progression",
+        },
+        {
+          src: "/images/connections-plus-03.png",
+          alt: "Connections Plus admin panel and calendar management system",
+        },
+        {
+          src: "/images/connections-plus-04.png",
+          alt: "Connections Plus admin panel and calendar management system",
+        },
+      ],
     };
   }
 
@@ -58,7 +73,8 @@ const getProjectContent = (projectTitle: string) => {
     overview: null,
     keyFeatures: [],
     technicalHighlights: [],
-    challenges: []
+    challenges: [],
+    gallery: [],
   };
 };
 
@@ -83,7 +99,11 @@ export default function ProjectPage({ project }: Props) {
           {/* Project image */}
           <div className="relative mb-8">
             <Image
-              src={project.image.src.startsWith('/images/') ? project.image.src : `${S3_PORTFOLIO_URL}${project.image.src}`}
+              src={
+                project.image.src.startsWith("/images/")
+                  ? project.image.src
+                  : `${S3_PORTFOLIO_URL}${project.image.src}`
+              }
               alt={project.image.alt}
               width={600}
               height={400}
@@ -193,6 +213,25 @@ export default function ProjectPage({ project }: Props) {
                     </li>
                   ))}
                 </ul>
+              </div>
+            )}
+
+            {content.gallery.length > 0 && (
+              <div>
+                <h2 className="mb-4 text-xl font-bold text-slate-200">Gallery</h2>
+                <div className="grid gap-4 md:grid-cols-2">
+                  {content.gallery.map((image, index) => (
+                    <div key={index} className="relative">
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        width={600}
+                        height={400}
+                        className="rounded-lg border-2 border-slate-200/10 transition-all hover:border-slate-200/30"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
 

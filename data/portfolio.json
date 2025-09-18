@@ -156,7 +156,7 @@
           "url": "https://connections-plus.jayfallon.com",
           "description": "A sophisticated daily word puzzle game that reimagines NYT Connections with innovative multi-level progression and strategic 'red herring' mechanics. Features AI-powered content generation and comprehensive admin tools.",
           "image": {
-            "src": "/images/connections-plus-01.png",
+            "src": "connections-plus/connections-plus-01.png",
             "alt": "Connections Plus game interface preview"
           },
           "technologies": [
@@ -175,7 +175,7 @@
           "url": "https://www.takostan.com",
           "description": "A comprehensive platform for artists, venues, and festivals to promote their events and engage with their audience. Features include real-time updates, interactive calendars, and social networking capabilities.",
           "image": {
-            "src": "/tkstn-01.png",
+            "src": "takostan/tkstn-01.png",
             "alt": "Takostan Global Music Resource preview"
           },
           "technologies": [
@@ -194,7 +194,7 @@
           "url": "https://www.formhealth.co",
           "description": "Led the redesign and development of Form Health's customer-facing website, implementing modern web development practices and optimized for performance. The project focused on improving user experience and conversion rates through responsive design and seamless content management integration.",
           "image": {
-            "src": "/fh-01.png",
+            "src": "form-health/fh-01.png",
             "alt": "Form Health website preview"
           },
           "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Prismic", "Storybook"]
@@ -204,7 +204,7 @@
           "url": "https://www.solidworks.com",
           "description": "Managed the development of cloud-based CAD applications within The 3DEXPERIENCE platform. Led initiatives to modernize the user interface and improve system performance, resulting in enhanced user experience and increased adoption rates.",
           "image": {
-            "src": "/solidworks-01.png",
+            "src": "solidworks/solidworks-01.png",
             "alt": "SOLIDWORKS platform preview"
           },
           "technologies": ["Angular.js", "JavaScript", "CSS"]
@@ -214,7 +214,7 @@
           "url": "https://www.3ds.com/products/apps-for-kids",
           "description": "Directed the development of an educational platform designed to introduce children to 3D design concepts. The project included creating intuitive interfaces for both students and teachers, implementing classroom management features, and ensuring a secure, child-friendly environment.",
           "image": {
-            "src": "/afk-01.png",
+            "src": "apps-for-kids/afk-01.png",
             "alt": "Apps for Kids platform preview"
           },
           "technologies": ["Angular.js", "JavaScript", "Node.js", "Express.js", "Cassandra"]
