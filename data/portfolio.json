@@ -154,9 +154,9 @@
         {
           "title": "Connections Plus",
           "url": "https://connections-plus.jayfallon.com",
-          "description": "A sophisticated daily word puzzle game that reimagines NYT Connections with innovative multi-level progression and strategic 'red herring' mechanics. Features AI-powered content generation and comprehensive admin tools.",
+          "description": "Connections Plus is a sophisticated daily word puzzle game that reimagines NYT Connections with an innovative multi-level  progression system. Players must identify groups of four related words across four increasingly challenging levels, but with a strategic twist: \"red herring\" words intentionally placed to create misdirection carry forward and accumulate across levels building layers of complexity as players progress from Easy through Medium and Hard to the Final level. Built with Next.js 15.5.3, React 19, and Redis Cloud, the full-stack application features a polished game interface with animations and visual feedback, comprehensive admin tools for puzzle creation with AI assistance, and a calendar-based content management system. The privacy-first design tracks anonymous player progress while enforcing daily play limits, creating an engaging puzzle experience that combines familiar mechanics with fresh strategic depth.",
           "image": {
-            "src": "connections-plus/connections-plus-01.png",
+            "src": "/connections/connections-homescreen.png",
             "alt": "Connections Plus game interface preview"
           },
           "technologies": [
@@ -171,30 +171,94 @@
           ]
         },
         {
-          "title": "Takostan Global Music Resource",
-          "url": "https://www.takostan.com",
-          "description": "A comprehensive platform for artists, venues, and festivals to promote their events and engage with their audience. Features include real-time updates, interactive calendars, and social networking capabilities.",
+          "title": "KnokrBoss",
+          "url": "https://festival-builder.vercel.app/",
+          "description": "KnokrBoss is the comprehensive backoffice platform powering Knokr, built from the ground up to manage the complex workflows of the live music industry. The platform enables festival organizers to coordinate multi-stage events, handle artist bookings, and manage venue relationships through intuitive administrative tools. Key features include lineup builders, demo submission systems, real-time messaging for artist negotiations, and organization-level analytics dashboards. By streamlining everything from booking requests to event scheduling, Festival Builder provides the operational backbone that allows Knokr to connect artists, venues, and music fans seamlessly.",
           "image": {
-            "src": "takostan/tkstn-01.png",
-            "alt": "Takostan Global Music Resource preview"
+            "src": "/knokr-boss/knokrboss-venues.png",
+            "alt": "KnokrBoss venues page preview"
           },
           "technologies": [
             "Next.js",
             "PostgreSQL",
+            "Redis",
             "TypeScript",
             "Tailwind CSS",
+            "HeroUI",
             "Supabase",
             "Redis",
-            "AWS",
-            "Anthropic"
+            "HTML2Canvas",
+            "Jest",
+            "Amplify",
+            "S3",
+            "CloudFront",
+            "Claude AI API",
+            "Tiptap",
+            "Zod",
+            "Puppeteer",
+            "Testing Libray",
+            "AWS Lambdas"
           ]
         },
         {
-          "title": "Form Health Website",
-          "url": "https://www.formhealth.co",
-          "description": "Led the redesign and development of Form Health's customer-facing website, implementing modern web development practices and optimized for performance. The project focused on improving user experience and conversion rates through responsive design and seamless content management integration.",
+          "title": "KnokrFetch",
+          "url": "#",
+          "description": "KnokrFetch is an AI-driven event validation system that powers the Knokr Platform by automatically discovering, validating, and consolidating artist tour data from fragmented sources across the web. The system employs machine learning to identify and learn event posting patterns across platforms like Bandsintown, Seated, Songkick, and custom websites, then validates and deduplicates this data to create authoritative artist and venue calendars. Processing 100+ artists weekly with 99.2% accuracy, KnokrFetch's intelligent algorithms adapt to different data formats and posting behaviors while its venue matching engine eliminates 95% of duplicate events and reduces booking conflicts by 85%. The platform features a real-time web interface for monitoring validation workflows, managing batch processing of up to 20 concurrent artists, and reviewing AI-flagged duplicates, ultimately transforming chaotic multi-source event data into clean, validated calendars that enable accurate engagement analytics for the Knokr Platform.",
           "image": {
-            "src": "form-health/fh-01.png",
+            "src": "/knokr-fetch/knokrfetch-01.png",
+            "alt": "KnokrFetch page preview"
+          },
+          "technologies": [
+            "Python",
+            "FastAPI",
+            "Selenium",
+            "BeautifulSoup",
+            "PostgreSQL",
+            "Supabase",
+            "WebSockets",
+            "asyncio",
+            "uvicorn",
+            "ChromeDriver",
+            "Pandas",
+            "scikit-learn",
+            "Jinja2",
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "Claude AI API"
+          ]
+        },
+        {
+          "title": "Knokr",
+          "url": "https://knokr-v2.vercel.app/",
+          "description": "Knokr is a social music discovery platform that serves as the public-facing frontend for connecting music fans with live events. Users can discover artists, venues, and festivals, then create derivative fan events based on existing shows to gather with friends and enjoy music together. The platform enables fans to build communities around shared musical interests and coordinate group attendance at concerts and festivals.",
+          "image": {
+            "src": "/knokr/knokr-artists.png",
+            "alt": "Knokr artists page preview"
+          },
+          "technologies": [
+            "Next.js",
+            "PostgreSQL",
+            "Redis",
+            "TypeScript",
+            "Tailwind CSS",
+            "HeroUI",
+            "Supabase",
+            "Redis",
+            "HTML2Canvas",
+            "Jest",
+            "Amplify",
+            "S3",
+            "CloudFront",
+            "Claude AI API"
+          ]
+        },
+        {
+          "title": "FormHealth Website",
+          "url": "https://www.formhealth.co",
+          "description": "Collaborated with FormHealth to develop their new design system and rebuild the front-end implementation within their existing Next.js, Prismic, and Storybook stack. Handled ongoing website maintenance typical of a small startup environment while working closely with the marketing team to support their growth initiatives and content needs.",
+          "image": {
+            "src": "/form-health/formhealth-homepage.png",
             "alt": "Form Health website preview"
           },
           "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Prismic", "Storybook"]
@@ -202,22 +266,30 @@
         {
           "title": "SOLIDWORKS Cloud Platform",
           "url": "https://www.solidworks.com",
-          "description": "Managed the development of cloud-based CAD applications within The 3DEXPERIENCE platform. Led initiatives to modernize the user interface and improve system performance, resulting in enhanced user experience and increased adoption rates.",
+          "description": "Collaborated closely with the platform services team to implement comprehensive design system technology and documentation systems across multiple SolidWorks products. Managed product feature requests, system maintenance, and cross-platform integration work spanning the entire SolidWorks ecosystem including Apps for Kids, xDesign, and 3DEXPERIENCE tools. Contributed to prototyping new product concepts while maintaining consistent user experience standards through shared component libraries and design tokens. Handled the critical but often invisible work of keeping multiple products aligned—from updating design system documentation to coordinating feature rollouts across different teams and ensuring seamless integration between desktop and cloud-based applications.",
           "image": {
-            "src": "solidworks/solidworks-01.png",
+            "src": "/solidworks/solidworks-homepage.png",
             "alt": "SOLIDWORKS platform preview"
           },
-          "technologies": ["Angular.js", "JavaScript", "CSS"]
+          "technologies": ["Angular.js", "JavaScript", "Node.js", "Express.js", "CSS"]
         },
         {
           "title": "Apps for Kids Platform",
           "url": "https://www.3ds.com/products/apps-for-kids",
-          "description": "Directed the development of an educational platform designed to introduce children to 3D design concepts. The project included creating intuitive interfaces for both students and teachers, implementing classroom management features, and ensuring a secure, child-friendly environment.",
+          "description": "Collaborated on rebuilding the front-end and back-office systems for SolidWorks' educational platform that introduces children ages 4-14 to 3D design and engineering concepts. Redesigned and implemented the user interface to balance child-friendly accessibility with educational depth, while developing comprehensive admin tools for educators to manage classrooms and track student progress. Built new content management features and newsletter tools, creating a seamless learning environment that serves students worldwide while maintaining COPPA compliance for child safety.",
           "image": {
-            "src": "apps-for-kids/afk-01.png",
+            "src": "/apps-for-kids/appsforkids-homepage.png",
             "alt": "Apps for Kids platform preview"
           },
-          "technologies": ["Angular.js", "JavaScript", "Node.js", "Express.js", "Cassandra"]
+          "technologies": [
+            "Angular.js",
+            "JavaScript",
+            "Node.js",
+            "Express.js",
+            "Docker",
+            "CSS",
+            "Cassandra"
+          ]
         }
       ]
     }
