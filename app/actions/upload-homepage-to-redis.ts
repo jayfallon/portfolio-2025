@@ -5,6 +5,11 @@ import { redisPool } from "@/lib/redisPool";
 import path from "path";
 
 export async function uploadHomepageToRedis() {
+  // Only allow uploads in development environment
+  if (process.env.NODE_ENV !== 'development') {
+    throw new Error("Portfolio uploads are only allowed in development environment");
+  }
+
   if (!redisPool) {
     throw new Error("Redis pool is not available on the client side");
   }

@@ -7,6 +7,11 @@ export default function UploadPortfolioButton() {
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
+  // Only show in development environment
+  if (process.env.NODE_ENV !== 'development') {
+    return null;
+  }
+
   const handleUpload = async () => {
     try {
       setIsLoading(true);
