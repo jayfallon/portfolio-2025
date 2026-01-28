@@ -52,13 +52,13 @@
     "about": {
       "title": "About",
       "content": [
-        "As a seasoned full-stack developer specializing in the JavaScript ecosystem, I bring over a decade of experience architecting and implementing sophisticated web applications. My expertise spans the entire development lifecycle, from designing intuitive user interfaces to building robust backend systems that scale. Having worked with industry leaders like [Form Health](https://www.formhealth.com), [Dassault Systèmes](https://www.3ds.com), [Bose](https://www.bose.com), and [Cengage](https://www.cengagegroup.com), I've developed a deep understanding of enterprise-level software development and system architecture.",
+        "As a seasoned full-stack architect specializing in domain-specific platform development, I design and implement complex, multi-tenant systems that solve real industry problems. My background combines enterprise experience ([Form Health](https://www.formhealth.com), [Dassault Systèmes](https://www.3ds.com), [Bose](https://www.bose.com), [Cengage](https://www.cengagegroup.com)) with interdisciplinary education—[BS in Business Administration](https://www.northeastern.edu/) (International Business, Finance) and [MLA in Digital Media Design](https://extension.harvard.edu/academics/programs/digital-media-design-graduate-program/) from Harvard Extension School.",
 
-        "My unique background combines technical expertise with strong business acumen, backed by a [Bachelor of Science in Business Administration](https://www.northeastern.edu/) with majors in International Business and Finance, complemented by a [Master of Liberal Arts in Digital Media Design](https://extension.harvard.edu/academics/programs/digital-media-design-graduate-program/) from Harvard Extension School. This interdisciplinary foundation enables me to bridge the gap between technical requirements and business objectives, ensuring solutions that not only function flawlessly but also drive meaningful business outcomes.",
+        "Currently, I'm architecting Knokr—a platform ecosystem addressing data fragmentation in the music industry. The system demonstrates sophisticated application architecture: a shared PostgreSQL infrastructure with pgvector extensions powering four interconnected applications (Base, Orchestra, Lineups, Nuncio). Each serves distinct purposes while feeding a unified data model, enabling rapid experimentation in isolated environments before integrating proven features into the core platform.",
 
-        "Throughout my career, I've had the privilege of working on diverse projects ranging from global enterprise systems handling thousands of users to custom solutions for small businesses. This versatility has honed my ability to adapt development approaches based on project scope, team dynamics, and business requirements. I'm particularly passionate about creating scalable architectures, implementing clean code practices, and mentoring development teams.",
+        "Key technical implementations include a Database-Driven Routing Engine where URLs are defined in the database rather than file paths, enabling non-technical users to create pages without deployments. AI Integration at Scale using Claude API for festival lineup extraction from posters, processing hundreds of artists per festival in near real-time. Vector Search and Graph Intelligence built with OpenAI embeddings, pgvector, Node2Vec algorithms, and Louvain scene detection. Performance Architecture achieving 90-95% latency reduction through Redis caching strategies, with comprehensive testing (2,300+ tests with Vitest, Playwright, Testcontainers).",
 
-        "My approach to development centers on building high-performance, scalable solutions with a strong emphasis on accessibility and SEO. I specialize in optimizing web vitals, implementing semantic HTML structures, and ensuring WCAG compliance across all projects. Whether I'm architecting microservices for scale, fine-tuning Core Web Vitals, or implementing advanced SEO strategies, I focus on creating inclusive digital experiences that perform exceptionally well for all users. I maintain a deep commitment to web standards and best practices, consistently delivering solutions that excel in both technical performance metrics and accessibility benchmarks."
+        "I excel at iterative architecture development—building experimental platforms that share infrastructure with production systems, validating features before integration. This methodology reduces risk while maintaining velocity. Whether architecting multi-tenant systems with strict data isolation, implementing AI-powered extraction pipelines, or designing graph-based discovery algorithms, I focus on platforms that scale technically while solving meaningful domain problems."
       ]
     },
     "experience": {
@@ -152,6 +152,94 @@
       "title": "Projects",
       "items": [
         {
+          "title": "Knokr",
+          "url": "/projects/knokr",
+          "description": "A multi-tenant content management system designed specifically for the music industry. Provides artists, venues, festivals, and sponsors with a free CMS and hosting platform featuring database-driven routing, vector search with OpenAI embeddings, graph-based music discovery, and a six-tier permission system. Serves as the administrative backbone for the Knokr ecosystem.",
+          "image": {
+            "src": "/knokr-base/knokr.webp",
+            "alt": "Knokr platform preview"
+          },
+          "technologies": [
+            "Next.js 16",
+            "React 19",
+            "TypeScript",
+            "PostgreSQL",
+            "pgvector",
+            "Prisma",
+            "Redis",
+            "BullMQ",
+            "OpenAI API",
+            "Clerk",
+            "AWS S3",
+            "Railway"
+          ]
+        },
+        {
+          "title": "Orchestra",
+          "url": "/projects/orchestra",
+          "description": "A community-driven platform for documenting band member relationships within the music industry. Enables music fans to search for artists and contribute band member information through a curated submission process, establishing primary, secondary, and tertiary artist relationship networks for music scene discovery and business intelligence.",
+          "image": {
+            "src": "/orchestra/orchestra.webp",
+            "alt": "Orchestra platform preview"
+          },
+          "technologies": [
+            "Next.js 16",
+            "React 19",
+            "TypeScript",
+            "PostgreSQL",
+            "Prisma",
+            "HeroUI",
+            "Tailwind CSS",
+            "Clerk",
+            "Cloudflare Turnstile",
+            "Railway"
+          ]
+        },
+        {
+          "title": "Knokr Lineups",
+          "url": "/projects/lineups",
+          "description": "A unified festival discovery and lineup management platform that consolidates festival information into a single searchable interface. Features AI-powered lineup extraction from festival posters, semantic search with vector embeddings, a dream lineup builder with drag-and-drop organization, and a Claude-powered decision engine for personalized festival recommendations.",
+          "image": {
+            "src": "/lineups/lineups.webp",
+            "alt": "Knokr Lineups platform preview"
+          },
+          "technologies": [
+            "Next.js 16",
+            "React 19",
+            "TypeScript",
+            "PostgreSQL",
+            "pgvector",
+            "Prisma",
+            "Redis",
+            "Claude AI API",
+            "@dnd-kit",
+            "html-to-image",
+            "Railway"
+          ]
+        },
+        {
+          "title": "Nuncio",
+          "url": "/projects/nuncio",
+          "description": "An open event curation platform that enables users to create and share unlimited lists of musical events without claiming artist, venue, or festival associations. Features AI-powered image extraction for tour dates, embeddable widgets, SEO-optimized public pages, and export formats including JSON-LD, iCal, and RSS feeds.",
+          "image": {
+            "src": "/nuncio/nuncio.webp",
+            "alt": "Nuncio platform preview"
+          },
+          "technologies": [
+            "Next.js 16",
+            "TypeScript",
+            "PostgreSQL",
+            "Prisma",
+            "Redis",
+            "BullMQ",
+            "HeroUI",
+            "Tailwind CSS",
+            "Claude AI API",
+            "Clerk",
+            "AWS S3"
+          ]
+        },
+        {
           "title": "Connections Plus",
           "url": "https://connections-plus.jayfallon.com",
           "description": "Connections Plus is a sophisticated daily word puzzle game that reimagines NYT Connections with an innovative multi-level  progression system. Players must identify groups of four related words across four increasingly challenging levels, but with a strategic twist: \"red herring\" words intentionally placed to create misdirection carry forward and accumulate across levels building layers of complexity as players progress from Easy through Medium and Hard to the Final level. Built with Next.js 15.5.3, React 19, and Redis Cloud, the full-stack application features a polished game interface with animations and visual feedback, comprehensive admin tools for puzzle creation with AI assistance, and a calendar-based content management system. The privacy-first design tracks anonymous player progress while enforcing daily play limits, creating an engaging puzzle experience that combines familiar mechanics with fresh strategic depth.",
@@ -229,7 +317,7 @@
           ]
         },
         {
-          "title": "Knokr",
+          "title": "Knokr v1",
           "url": "https://knokr-v2.vercel.app/",
           "description": "Knokr is a social music discovery platform that serves as the public-facing frontend for connecting music fans with live events. Users can discover artists, venues, and festivals, then create derivative fan events based on existing shows to gather with friends and enjoy music together. The platform enables fans to build communities around shared musical interests and coordinate group attendance at concerts and festivals.",
           "image": {
