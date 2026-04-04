@@ -12,15 +12,18 @@ export const metadata: Metadata = {
 const technicalSkills = [
   {
     category: "Architecture & Backend",
-    skills: "Multi-tenant systems, database-driven routing, PostgreSQL, Prisma ORM, Redis, pgvector, BullMQ, Node.js/Express, Python, FastAPI, GraphQL, REST APIs, microservices, WebSockets, Supabase",
+    skills:
+      "Multi-tenant systems, database-driven routing, PostgreSQL, Prisma ORM, Redis, pgvector, BullMQ, Node.js/Express, Python, FastAPI, GraphQL, REST APIs, microservices, WebSockets, Supabase, PayloadCMS",
   },
   {
     category: "Frontend & Frameworks",
-    skills: "Next.js, React 19, TypeScript, Tailwind CSS, HeroUI, Framer Motion, responsive design, semantic HTML, WCAG compliance",
+    skills:
+      "Next.js, React 19, TypeScript, Tailwind CSS, HeroUI, Framer Motion, responsive design, semantic HTML, WCAG compliance",
   },
   {
     category: "AI & Machine Learning",
-    skills: "Anthropic Claude API, vector search, graph algorithms (Node2Vec, Louvain), semantic search, scikit-learn, Pandas",
+    skills:
+      "Anthropic Claude API, OpenAI API, vector search, graph algorithms (Node2Vec, Louvain), semantic search, scikit-learn, Pandas",
   },
   {
     category: "Data & Automation",
@@ -28,20 +31,42 @@ const technicalSkills = [
   },
   {
     category: "Testing & Performance",
-    skills: "Vitest, Playwright, Testing Library, Testcontainers, Supertest, Memlab, Happy-DOM, Core Web Vitals",
+    skills:
+      "Vitest, Playwright, Testing Library, Testcontainers, Supertest, Memlab, Happy-DOM, Core Web Vitals",
   },
   {
     category: "DevOps & Infrastructure",
-    skills: "Railway, AWS (Amplify, S3, Lambda, CloudFront), Vercel, Docker Compose, CI/CD pipelines",
+    skills:
+      "Railway, AWS (S3, Lambda, CloudFront), Vercel, Docker Compose, CI/CD pipelines, Sentry, Winston",
   },
 ];
 
 const knokrComponents = [
-  { name: "Knokr Base", description: "Multi-tenant CMS with database-driven routing, vector search, graph-based discovery, and six-tier permissions" },
-  { name: "Orchestra", description: "Community platform for documenting band member relationships and music scene discovery" },
-  { name: "Knokr Lineups", description: "Festival discovery with AI-powered lineup extraction and Claude-powered recommendations" },
-  { name: "Nuncio", description: "Open event curation with embeddable widgets and export formats (JSON-LD, iCal, RSS)" },
-  { name: "KnokrFetch", description: "AI-driven event validation processing 100+ artists weekly with 99.2% accuracy" },
+  {
+    name: "Knokr",
+    description:
+      "Festival discovery and social platform across 1,400+ festivals and 50,000+ artists with AI-powered lineup extraction and recommendations",
+  },
+  {
+    name: "Knokr Base",
+    description:
+      "Multi-tenant back office with database-driven routing, graph-based discovery, vector search, and six-tier permissions",
+  },
+  {
+    name: "Mojo Boston",
+    description:
+      "White-label festival website on PayloadCMS with 24 custom blocks, live Knokr data integration, and custom S3 media system",
+  },
+  {
+    name: "Orchestra",
+    description:
+      "Standalone experiment for mapping artist relationships through community-driven data contribution",
+  },
+  {
+    name: "Nuncio",
+    description:
+      "Standalone experiment for AI-powered event curation with embeddable widgets and structured data exports",
+  },
 ];
 
 export default function ResumePage() {
@@ -66,9 +91,7 @@ export default function ResumePage() {
       </div>
 
       <header className="mb-12">
-        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
-          Jay Fallon
-        </h1>
+        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">Jay Fallon</h1>
         <p className="mt-4 text-lg text-slate-400">
           Full-Stack Software Engineer · UX Designer · Product Strategist
         </p>
@@ -78,12 +101,14 @@ export default function ResumePage() {
       <section className="mb-12">
         <h2 className="mb-4 text-xl font-semibold text-slate-200">Summary</h2>
         <p className="text-slate-400 leading-relaxed">
-          As a seasoned full-stack architect specializing in domain-specific platform development,
-          I design and implement complex, multi-tenant systems that solve real industry problems.
-          My background combines enterprise experience (Form Health, Dassault Systemes, Bose,
-          Cengage) with interdisciplinary education—B.S. in Business Administration (International
-          Business, Finance) from Northeastern University and ALM in Digital Media Design from
-          Harvard University.
+          Full-stack architect specializing in domain-specific platform development. I design and
+          implement complex, multi-tenant systems that solve real industry problems — from
+          database-driven routing engines and AI-powered data extraction pipelines to graph-based
+          discovery algorithms and background worker architectures. My background combines
+          enterprise experience (Form Health, Dassault Systèmes, Bose, Cengage) with
+          interdisciplinary education — B.S. in Business Administration (International Business,
+          Finance) from Northeastern University and ALM in Digital Media Design from Harvard
+          University.
         </p>
       </section>
 
@@ -110,8 +135,9 @@ export default function ResumePage() {
             <p className="text-slate-500 text-sm">2017 – 2019</p>
             <p className="text-sm text-slate-400 mt-1">
               Completed through Harvard Extension School, focusing on user experience design,
-              interaction design, and digital media production. Developed comprehensive understanding
-              of design principles, user research methodologies, and digital product development.
+              interaction design, and digital media production. Developed comprehensive
+              understanding of design principles, user research methodologies, and digital product
+              development.
             </p>
           </div>
           <div>
@@ -122,7 +148,8 @@ export default function ResumePage() {
             <p className="text-sm text-slate-400 mt-1">
               Majors in International Business and Finance. Participated in cooperative education
               program at Boston&apos;s Better Snacks, FMRC, and PictureTel, gaining hands-on
-              experience in operations, marketing, technical documentation, and internationalization.
+              experience in operations, marketing, technical documentation, and
+              internationalization.
             </p>
           </div>
         </div>
@@ -138,10 +165,13 @@ export default function ResumePage() {
           </div>
           <p className="text-teal-300 mb-3">Knokr Media</p>
           <p className="text-slate-400 mb-4 leading-relaxed">
-            Designed and developed a full-stack platform ecosystem for the music industry,
-            creating comprehensive promotion and social engagement tools for artists, venues,
-            and festivals. The system features a shared PostgreSQL infrastructure with pgvector
-            extensions powering interconnected applications.
+            Architecting a platform ecosystem addressing data fragmentation in the music industry.
+            The system manages 50,000+ artists and 1,400+ festivals through a shared PostgreSQL
+            infrastructure with pgvector extensions, powering multiple interconnected applications
+            from a single data model. Features include AI-powered lineup extraction from festival
+            posters, graph-based artist discovery using Node2Vec and Louvain scene detection,
+            semantic vector search, a background worker architecture (BullMQ) for heavy data
+            processing, and 614+ test files across Vitest, Playwright, and Testcontainers.
           </p>
           <h4 className="text-sm font-medium text-slate-300 mb-2">Platform Components</h4>
           <div className="grid gap-2 sm:grid-cols-2">
@@ -156,9 +186,9 @@ export default function ResumePage() {
             ))}
           </div>
           <p className="mt-4 text-xs text-slate-500">
-            <span className="text-slate-400">Tech Stack:</span> Next.js, React 19, TypeScript,
-            PostgreSQL/Prisma, pgvector, Redis, BullMQ, Python, FastAPI, Selenium, BeautifulSoup,
-            scikit-learn, Claude AI API, Clerk, AWS, Railway
+            <span className="text-slate-400">Tech Stack:</span> Next.js 16, React 19, TypeScript,
+            PostgreSQL/Prisma, pgvector, Redis, BullMQ, PayloadCMS, Python, FastAPI, Selenium,
+            BeautifulSoup, Claude AI API, OpenAI API, Clerk, AWS S3/CloudFront, Railway
           </p>
         </div>
 
@@ -170,9 +200,9 @@ export default function ResumePage() {
           <p className="text-teal-300 mb-3">Form Health</p>
           <p className="text-slate-400 mb-2 leading-relaxed">
             Collaborated with the marketing team on redesign and development of the customer-facing
-            website for this leading medical weight loss platform. Implemented modern web development
-            practices and a comprehensive design system to ensure consistency across the platform.
-            Improved user experience through responsive design and optimized performance.
+            website for this leading medical weight loss platform. Implemented modern web
+            development practices and a comprehensive design system to ensure consistency across the
+            platform. Improved user experience through responsive design and optimized performance.
           </p>
           <p className="text-xs text-slate-500">
             <span className="text-slate-400">Tech Stack:</span> Next.js, TypeScript, Tailwind CSS,
@@ -185,7 +215,7 @@ export default function ResumePage() {
             <h3 className="font-medium text-slate-300">Senior Software Engineering Manager</h3>
             <span className="text-sm text-slate-500">2019 – 2023</span>
           </div>
-          <p className="text-teal-300 mb-3">Dassault Systemes SE · Waltham, MA</p>
+          <p className="text-teal-300 mb-3">Dassault Systèmes SE · Waltham, MA</p>
           <p className="text-slate-400 mb-3 leading-relaxed">
             Led development teams across multiple products within The 3DEXPERIENCE platform,
             including SOLIDWORKS and educational products Apps for Kids and Apps for Kids Classroom.
@@ -219,10 +249,10 @@ export default function ResumePage() {
         <div>
           <h3 className="font-medium text-slate-300 mb-2">Additional Experience (2000–2019)</h3>
           <p className="text-slate-400 leading-relaxed text-sm">
-            Worked as a UX engineer with the following companies as either an employee or consultant:
-            Syrinx Consulting/Bose Corporation, State Street Global Advisors, Cengage Learning,
-            Boston Technologies, netNumina Solutions (Fidelity, State Street, Johnson & Johnson,
-            Pfizer, ADQSR), and Style Me Pretty.
+            Worked as a UX engineer with the following companies as either an employee or
+            consultant: Syrinx Consulting/Bose Corporation, State Street Global Advisors, Cengage
+            Learning, Boston Technologies, netNumina Solutions (Fidelity, State Street, Johnson &
+            Johnson, Pfizer, ADQSR), and Style Me Pretty.
           </p>
         </div>
       </section>
