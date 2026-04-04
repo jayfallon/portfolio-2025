@@ -36,7 +36,35 @@ const technologies = [
 
 const images: CarouselImage[] = [
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr-base/knokr-lg.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-01.webp",
+    alt: "Knokr Base platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-02.webp",
+    alt: "Knokr Base platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-03.webp",
+    alt: "Knokr Base platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-04.webp",
+    alt: "Knokr Base platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-05.webp",
+    alt: "Knokr Base platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-06.webp",
+    alt: "Knokr Base platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-07.webp",
+    alt: "Knokr Base platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-08.webp",
     alt: "Knokr Base platform screenshot",
   },
 ];
@@ -53,12 +81,8 @@ export default function KnokrBasePage() {
       </Link>
 
       <header className="mb-12">
-        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
-          Knokr Base
-        </h1>
-        <p className="mt-4 text-lg text-slate-400">
-          Music Industry Data Platform and Back Office
-        </p>
+        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">Knokr Base</h1>
+        <p className="mt-4 text-lg text-slate-400">Music Industry Data Platform and Back Office</p>
         <Link
           href="https://base.knokr.com/"
           target="_blank"
@@ -88,9 +112,9 @@ export default function KnokrBasePage() {
       <section className="mb-12">
         <h2 className="mb-4 text-xl font-semibold text-slate-200">The Problem</h2>
         <p className="text-slate-400 leading-relaxed">
-          Managing 50,000+ artists and 1,400+ festivals requires more than a spreadsheet. The
-          data relationships are complex — artists play at multiple festivals, festivals share
-          artists across years, genres overlap and evolve, and venues host events across different
+          Managing 50,000+ artists and 1,400+ festivals requires more than a spreadsheet. The data
+          relationships are complex — artists play at multiple festivals, festivals share artists
+          across years, genres overlap and evolve, and venues host events across different
           promoters. The music industry needed a purpose-built back office that could handle entity
           management, content publishing, team collaboration, and data enrichment at scale — while
           feeding multiple consumer-facing applications from a single source of truth.
@@ -106,11 +130,12 @@ export default function KnokrBasePage() {
       <section className="mb-12">
         <h2 className="mb-4 text-xl font-semibold text-slate-200">What I Built</h2>
         <p className="text-slate-400 leading-relaxed">
-          Knokr Base is a multi-tenant CMS and administrative platform designed specifically for
-          the music industry. It manages the full lifecycle of festival, artist, venue, and sponsor
-          data — from image uploading and lineup management to graph-based discovery and AI-powered
-          data enrichment. Every entity gets its own managed presence with a branded site at
-          /f/[username], and the platform serves as the data backbone for the entire Knokr ecosystem.
+          Knokr Base is a multi-tenant CMS and administrative platform designed specifically for the
+          music industry. It manages the full lifecycle of festival, artist, venue, and sponsor data
+          — from image uploading and lineup management to graph-based discovery and AI-powered data
+          enrichment. Every entity gets its own managed presence with a branded site at
+          /f/[username], and the platform serves as the data backbone for the entire Knokr
+          ecosystem.
         </p>
         <p className="mt-4 text-slate-400 leading-relaxed">
           The system also operates as an integration platform — Orchestra, Knokr, and Nuncio share
@@ -144,7 +169,8 @@ export default function KnokrBasePage() {
               gets their own namespace at /f/[username], with strict data isolation enforced at the
               query level. This lets the same infrastructure serve individual artists, festival
               organizers, venue managers, and sponsors without cross-contamination, while enabling
-              cross-entity features like networked digital press kits and multi-entity event linking.
+              cross-entity features like networked digital press kits and multi-entity event
+              linking.
             </p>
           </div>
           <div>
@@ -160,11 +186,11 @@ export default function KnokrBasePage() {
           <div>
             <h3 className="mb-3 font-medium text-slate-300">Music Discovery Graph</h3>
             <p className="text-slate-400 leading-relaxed">
-              This is where the data science gets interesting. I built a graph-based artist discovery
-              system using festival co-occurrence data — if two artists frequently appear at the same
-              festivals, they&apos;re likely related musically. The system uses Node2Vec embeddings
-              to learn artist representations from the co-occurrence graph, then applies Louvain
-              community detection to identify music &ldquo;scenes&rdquo; automatically. An
+              This is where the data science gets interesting. I built a graph-based artist
+              discovery system using festival co-occurrence data — if two artists frequently appear
+              at the same festivals, they&apos;re likely related musically. The system uses Node2Vec
+              embeddings to learn artist representations from the co-occurrence graph, then applies
+              Louvain community detection to identify music &ldquo;scenes&rdquo; automatically. An
               anti-popularity scoring mechanism ensures recommendations surface emerging artists
               rather than defaulting to headliners. A separate Python service handles scene
               detection and graph analysis.
@@ -175,21 +201,24 @@ export default function KnokrBasePage() {
             <p className="text-slate-400 leading-relaxed">
               Four BullMQ workers handle computationally intensive tasks without blocking the main
               application: a graph-worker for relationship computation, an embedding-worker for
-              vector generation, an insights-worker for analytics processing, and a social-card-worker
-              for automated social media image generation. This separation keeps the user-facing
-              application responsive while enabling heavy data processing — critical when regenerating
-              embeddings or recomputing graph relationships across 50,000+ artists.
+              vector generation, an insights-worker for analytics processing, and a
+              social-card-worker for automated social media image generation. This separation keeps
+              the user-facing application responsive while enabling heavy data processing — critical
+              when regenerating embeddings or recomputing graph relationships across 50,000+
+              artists.
             </p>
           </div>
           <div>
-            <h3 className="mb-3 font-medium text-slate-300">Vector Search with Enhanced Embeddings</h3>
+            <h3 className="mb-3 font-medium text-slate-300">
+              Vector Search with Enhanced Embeddings
+            </h3>
             <p className="text-slate-400 leading-relaxed">
               OpenAI text-embedding-3-small generates embeddings enriched with artist metadata —
               country, region, genres, gender — enabling semantic search that understands queries
               like &ldquo;female electronic artists from Berlin&rdquo; without exact keyword
               matching. The same embedding infrastructure powers festival lineup matching, similar
-              artist surfacing, and the home page discovery feed with both personalized and
-              trending modes.
+              artist surfacing, and the home page discovery feed with both personalized and trending
+              modes.
             </p>
           </div>
         </div>
@@ -199,11 +228,11 @@ export default function KnokrBasePage() {
         <h2 className="mb-4 text-xl font-semibold text-slate-200">Festival Operations</h2>
         <p className="text-slate-400 leading-relaxed">
           The platform includes a complete festival builder supporting everything from single-day
-          showcases to multi-day, multi-city, multi-stage events with 100+ artists. Features
-          include stage and schedule management, CSV bulk lineup upload, poster extraction
-          integration for automated artist name extraction, cruise festival support for ship-based
-          events, and a pending entity workflow for bulk selection, promotion, and linking of
-          unverified artists and venues.
+          showcases to multi-day, multi-city, multi-stage events with 100+ artists. Features include
+          stage and schedule management, CSV bulk lineup upload, poster extraction integration for
+          automated artist name extraction, cruise festival support for ship-based events, and a
+          pending entity workflow for bulk selection, promotion, and linking of unverified artists
+          and venues.
         </p>
       </section>
 
@@ -224,9 +253,9 @@ export default function KnokrBasePage() {
           614 test files across Vitest, Playwright, and Testcontainers. Tests cover API endpoints
           with real PostgreSQL instances via Testcontainers, permission and RBAC validation, data
           isolation between tenants, organization workflows, and multi-tenant boundary enforcement.
-          Memlab handles memory leak detection. ESLint 9 with flat config and TypeScript strict
-          mode enforce code quality. The project maintains 106+ detailed implementation guides
-          in documentation.
+          Memlab handles memory leak detection. ESLint 9 with flat config and TypeScript strict mode
+          enforce code quality. The project maintains 106+ detailed implementation guides in
+          documentation.
         </p>
       </section>
 
