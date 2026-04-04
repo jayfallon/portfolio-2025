@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Knokr | Jay Fallon",
   description:
-    "Knokr is a multi-tenant content management system designed specifically for the music industry, providing artists, venues, festivals, and sponsors with a free CMS and hosting platform.",
+    "Knokr is a unified festival discovery and lineup management platform that consolidates festival information into a single searchable interface with AI-powered extraction.",
 };
 
 const technologies = [
@@ -17,142 +17,115 @@ const technologies = [
   "pgvector",
   "Prisma",
   "Redis",
-  "BullMQ",
   "HeroUI",
   "Tailwind CSS",
+  "Framer Motion",
+  "@dnd-kit",
+  "html-to-image",
   "Clerk",
   "AWS S3",
   "CloudFront",
-  "OpenAI API",
-  "Node2Vec",
-  "Vitest",
-  "Playwright",
-  "Testcontainers",
-  "Sentry",
+  "Claude AI API",
+  "Xenova Transformers",
+  "React Hook Form",
+  "Zod",
   "Railway",
 ];
 
-const coreFeatures = [
+const features = [
   {
-    title: "Multi-Tenant CMS Architecture",
+    title: "Festival Discovery",
     items: [
-      "User Namespacing: Each user receives a site at /f/[username] with complete data isolation",
-      "Database-Driven Routing: URLs stored in database records, enabling dynamic page creation without code deployments",
-      "Page Builder: Component-based content creation with templates and draft/publish workflow",
-      "Entity-Specific Sites: Dedicated branded presence for verified artists, venues, festivals, and sponsors",
-      "Premium Subdomains: Custom domains for verified entities",
+      "Browse and Search: Filter festivals by location, genre, artist, and dates",
+      "Semantic Search: Vector embedding-based search for natural language queries",
+      "Full-Text Search: PostgreSQL tsvector indexing for precise text matching",
+      "Festival Detail Pages: Comprehensive lineup information with artist profiles",
+      "Artist Navigation: A-Z alphabetical browsing with pagination",
     ],
   },
   {
-    title: "Music Industry Entity Management",
+    title: "AI-Powered Lineup Extraction",
     items: [
-      "Four Entity Types: Artists, Venues, Festivals, Sponsors with type-specific workflows",
-      "Entity Request System: Fan-initiated verification requests reviewed by admins",
-      "Official vs Fan Content: Distinction between verified entity content and community contributions",
-      "Ownership Transfer: Transfer venue/artist/festival ownership between users",
-      "Pending Entity Workflow: Bulk selection, promotion, and linking for unverified entities",
+      "Poster Upload: Extract artist names from festival poster images using Claude Vision API",
+      "Artist Matching: Automatically match extracted names to existing database records",
+      "Genre Discovery: Derive genre information from artist self-reporting",
+      "Lineup Assembly: Build complete festival lineups from extracted data",
+      "Database Enrichment: Add new artists and festival data in near real-time",
     ],
   },
   {
-    title: "Event Management",
+    title: "Dream Lineup Builder",
     items: [
-      "Three Event Types: Official events, fan standalone events, and satellite events",
-      "Multi-Entity Events: Link multiple artists, venues, and festivals to single events",
-      "Geographic Discovery: City-based event search with radius filtering",
-      "Real-Time RSVP: Attendance tracking with commemorative digital ticket generation",
-      "Event Filters: Genre, price, accessibility, date range, and custom criteria",
+      "Custom Festival Creation: Build hypothetical festivals with names, descriptions, genres, and locations",
+      "Artist Search and Selection: Add artists from the Knokr database to custom lineups",
+      "Lineup Organization: Drag-and-drop reordering with billing assignments",
+      "Stage and Schedule Management: Assign artists to performance days and stages",
+      "Poster Export: Generate PNG exports of custom lineup posters",
+      "Public Sharing: Publish dream lineups via unique URLs",
     ],
   },
   {
-    title: "Festival Operations",
+    title: "AI Decision Engine",
     items: [
-      "Festival Builder: Complete stage, event, and lineup management",
-      "CSV Bulk Upload: Import lineups at scale",
-      "Cruise Festivals: Support for ship-based and floating events",
-      "Poster Extraction Integration: Automated artist name extraction from festival posters",
-    ],
-  },
-  {
-    title: "Community and Networking",
-    items: [
-      "Fan Clubs: Automatic clubs for each entity (artist clubs, venue clubs, festival clubs)",
-      "Following System: Unified UI for following users, artists, venues, festivals, and sponsors",
-      "Road Trips: Multi-city concert tour planning with stop sequencing",
-      "Organizations: Team collaboration with role-based permissions and project management",
-    ],
-  },
-  {
-    title: "Discovery and Intelligence",
-    items: [
-      "Vector Search: Semantic search using pgvector with OpenAI embeddings",
-      "Full-Text Search: PostgreSQL tsvector indexing across all content",
-      "Music Discovery Graph: Graph-based artist discovery using Node2Vec and Louvain scene detection",
-      "Home Page Discovery: Personalized and trending recommendations",
-      "Enhanced Embeddings: Artist embeddings include country, region, genres, gender for improved matching",
+      "Conversational Interface: Claude-powered chat for festival recommendations",
+      "Preference Analysis: Budget, location, genre, and artist preference consideration",
+      "Festival Comparison: Multi-festival trade-off analysis and ranking",
+      "Personalized Recommendations: Intelligent matching based on user constraints",
     ],
   },
 ];
 
-const problemsSolved = [
+const audienceValue = [
   {
-    title: "Data Fragmentation and Inaccuracy",
-    description:
-      "The music industry operates through multiple closed systems producing inconsistent, inaccurate data. Knokr provides a centralized, networked platform where artists, venues, and festivals host authoritative information.",
+    title: "For Festival Attendees",
+    items: [
+      "Unified Discovery: Single platform replacing dozens of individual festival websites",
+      "Informed Decisions: Comprehensive lineup data, artist relationships, and genre analysis",
+      "Comparison Tools: Dream lineup builder and AI decision engine for evaluating options",
+      "Real-Time Updates: Near real-time lineup changes through automated extraction",
+    ],
   },
   {
-    title: "Technical Barriers to Online Presence",
-    description:
-      "Artists and small venues lack access to affordable, music-specific web infrastructure. Knokr provides a free CMS with hosting, removing technical barriers while offering music industry-specific features.",
+    title: "For Festival Organizers",
+    items: [
+      "Data Management: Centralized platform for lineup information with extraction capabilities",
+      "Audience Reach: Public-facing pages providing festival visibility",
+      "Analytics Foundation: Usage data and search patterns informing promotional strategies",
+    ],
   },
   {
-    title: "Digital Press Kit Distribution",
-    description:
-      "Organizations require artist information but traditionally rely on manual collection. Knokr generates networked digital press kits that organizations can programmatically access.",
-  },
-  {
-    title: "Content Management Without Technical Expertise",
-    description:
-      "Traditional CMS platforms require web administrators. Knokr's database-driven routing engine enables users to create pages without technical knowledge.",
+    title: "For Knokr Ecosystem",
+    items: [
+      "Mobile App Foundation: Festival data layer for the mobile application in development",
+      "Data Acquisition: Automated extraction maintaining database freshness at scale",
+      "User Engagement: Public discovery features building awareness and adoption",
+      "Intelligence Layer: Genre insights and artist relationships from self-reported data",
+    ],
   },
 ];
 
 const targetUsers = [
   {
-    title: "Artists",
-    description: "Musicians and bands seeking free online presence with music-specific features",
+    title: "Festival Attendees",
+    description:
+      "Music fans seeking comprehensive festival information to make informed purchasing decisions",
   },
   {
-    title: "Venues",
-    description: "Music venues managing events and building fan communities",
+    title: "Festival Organizers",
+    description:
+      "Event managers requiring up-to-date lineup data management and public visibility",
   },
   {
-    title: "Festivals",
-    description: "Festival organizers coordinating multi-day lineups and ticket distribution",
+    title: "Mobile App Users",
+    description: "Future users of the Knokr mobile festival application",
   },
   {
-    title: "Sponsors",
-    description: "Music industry sponsors establishing brand presence",
-  },
-  {
-    title: "Fans",
-    description: "Music enthusiasts discovering events and planning concert tours",
-  },
-  {
-    title: "Organizations",
-    description: "Music industry teams collaborating on projects with role-based access",
+    title: "Music Community",
+    description: "Contributors improving artist data through the contribution system",
   },
 ];
 
-const permissionTiers = [
-  { role: "SUPER_ADMIN", description: "Full system access, user management, entity verification" },
-  { role: "ADMIN", description: "CMS operations, limited user management" },
-  { role: "EDITOR", description: "Create and edit content, publish drafts" },
-  { role: "CONTRIBUTOR", description: "Create drafts only, no publishing" },
-  { role: "MEMBER", description: "Basic access, no administrative privileges" },
-  { role: "VIEWER", description: "Read-only access (organizations)" },
-];
-
-export default function KnokrPage() {
+export default function LineupsPage() {
   return (
     <div className="max-w-3xl lg:py-24">
       <Link
@@ -168,7 +141,7 @@ export default function KnokrPage() {
           Knokr
         </h1>
         <p className="mt-4 text-lg text-slate-400">
-          Multi-Tenant CMS for the Music Industry
+          Festival Discovery and Lineup Management Platform
         </p>
         <Link
           href="https://knokr.com/"
@@ -194,8 +167,8 @@ export default function KnokrPage() {
 
       <div className="mb-12">
         <Image
-          src="https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr-base/knokr-lg.webp"
-          alt="Knokr platform screenshot"
+          src="https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/lineups/lineups-lg.webp"
+          alt="Knokr Lineups platform screenshot"
           width={1200}
           height={675}
           className="rounded-lg border border-slate-700/50"
@@ -206,39 +179,76 @@ export default function KnokrPage() {
       <section className="mb-12">
         <h2 className="mb-4 text-xl font-semibold text-slate-200">Overview</h2>
         <p className="text-slate-400 leading-relaxed">
-          Knokr is a multi-tenant content management system designed specifically for the
-          music industry. It provides artists, venues, festivals, and sponsors with a free
-          CMS and hosting platform where they can manage their data, deploy to websites,
-          and network their content across the ecosystem. Built with database-driven routing,
-          the platform enables users to create pages without web administration expertise.
+          Knokr Lineups is a unified festival discovery and lineup management platform that
+          consolidates festival information into a single searchable interface. Built as an
+          evolution from a Python-based poster extraction tool, the platform enables users
+          to browse festivals by location, genre, and artist—eliminating the need to visit
+          dozens of individual festival websites to make informed purchasing decisions.
         </p>
         <p className="mt-4 text-slate-400 leading-relaxed">
-          The system operates as the administrative backbone for the Knokr ecosystem,
-          providing CRUD operations for all entities while sharing its PostgreSQL database
-          with experimental products (Orchestra, Lineups, Nuncio). As features prove
-          valuable in isolated applications, they are merged into the base platform.
+          The platform serves dual audiences: festival attendees seeking comprehensive
+          lineup information and festival organizers requiring up-to-date data management.
+          Knokr Lineups operates as the data acquisition and public-facing layer for the
+          broader Knokr festival ecosystem, feeding the mobile festival application
+          currently in development.
         </p>
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-6 text-xl font-semibold text-slate-200">Problems Solved</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {problemsSolved.map((problem) => (
-            <div
-              key={problem.title}
-              className="rounded-lg border border-slate-700/50 bg-slate-800/30 p-4"
-            >
-              <h3 className="font-medium text-slate-300">{problem.title}</h3>
-              <p className="mt-2 text-sm text-slate-400">{problem.description}</p>
-            </div>
-          ))}
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">Purpose</h2>
+        <div className="space-y-4 text-slate-400 leading-relaxed">
+          <div>
+            <h3 className="font-medium text-slate-300">Centralized Festival Information</h3>
+            <p>
+              Replace the fragmented experience of visiting individual festival websites
+              with a unified platform providing real-time lineup data, artist relationships,
+              and festival comparisons. Users access comprehensive festival information—lineups,
+              dates, locations, genres—through a single interface with advanced search and
+              filtering.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-medium text-slate-300">Rapid Data Acquisition</h3>
+            <p>
+              Leverage AI-powered lineup extraction from festival posters to populate the
+              database at scale. The extraction tool identifies artists, builds festival
+              lineups, and derives genre information from artist self-reporting—enabling
+              near real-time data updates that would be infeasible to maintain manually
+              across hundreds of festivals with 100+ artists each.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-medium text-slate-300">Decision Support</h3>
+            <p>
+              Provide festival comparison and recommendation tools to help users navigate
+              purchasing decisions constrained by budget, time, and artist availability.
+              The AI decision engine cuts through marketing hype to deliver personalized
+              recommendations based on user preferences, festival characteristics, and
+              lineup composition.
+            </p>
+          </div>
         </div>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">
+          Competitive Differentiation
+        </h2>
+        <p className="text-slate-400 leading-relaxed">
+          Unlike listing services such as Music Festival Wizard, Knokr Lineups provides
+          deeper data relationships—artist connections, festival similarities, genre
+          analysis, and recommendation intelligence. The platform&apos;s extraction capabilities
+          and unified data model enable rapid updates across the entire festival database,
+          maintaining accuracy without manual intervention. Once the mobile application
+          launches, users will access all festival information through a single ecosystem
+          rather than maintaining bookmarks across dozens of festival websites.
+        </p>
       </section>
 
       <section className="mb-12">
         <h2 className="mb-6 text-xl font-semibold text-slate-200">Core Features</h2>
         <div className="grid gap-8 md:grid-cols-2">
-          {coreFeatures.map((feature) => (
+          {features.map((feature) => (
             <div key={feature.title}>
               <h3 className="mb-3 font-medium text-slate-300">{feature.title}</h3>
               <ul className="space-y-2">
@@ -255,106 +265,27 @@ export default function KnokrPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">Permission System</h2>
-        <p className="mb-4 text-slate-400 leading-relaxed">
-          Six-tier role-based access control with Redis caching, achieving 90-95% latency
-          reduction through three-layer route protection: middleware, layout, and component.
-        </p>
-        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-          {permissionTiers.map((tier) => (
-            <div
-              key={tier.role}
-              className="rounded-lg border border-slate-700/50 bg-slate-800/30 p-3"
-            >
-              <h3 className="font-medium text-teal-300">{tier.role}</h3>
-              <p className="mt-1 text-xs text-slate-400">{tier.description}</p>
+        <h2 className="mb-6 text-xl font-semibold text-slate-200">Strategic Value</h2>
+        <div className="space-y-6">
+          {audienceValue.map((audience) => (
+            <div key={audience.title}>
+              <h3 className="mb-3 font-medium text-slate-300">{audience.title}</h3>
+              <ul className="space-y-2">
+                {audience.items.map((item, index) => (
+                  <li key={index} className="text-sm text-slate-400 leading-relaxed">
+                    <span className="text-teal-300">•</span>{" "}
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">
-          Ecosystem Integration
-        </h2>
-        <p className="mb-4 text-slate-400 leading-relaxed">
-          Knokr serves as the integration platform for the broader ecosystem. External
-          tools share the database but operate independently, enabling rapid feature
-          iteration:
-        </p>
-        <ul className="space-y-2 text-slate-400">
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Orchestra:</strong> Crowdsourced band member
-            data with admin moderation UI
-          </li>
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Lineups:</strong> Festival lineup extraction
-            and AI recommendation engines
-          </li>
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Nuncio:</strong> Event list curation and
-            distribution with embeddable widgets
-          </li>
-        </ul>
-        <p className="mt-4 text-slate-400 leading-relaxed">
-          Proven features from isolated applications merge into the base platform, which
-          will ultimately serve as the unified user-facing platform.
-        </p>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">
-          Competitive Differentiation
-        </h2>
-        <p className="mb-4 text-slate-400 leading-relaxed">
-          Knokr competes with generic website builders (Squarespace, Wix, WordPress) by
-          providing:
-        </p>
-        <ul className="space-y-2 text-slate-400">
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Music Industry Specialization:</strong>{" "}
-            Artist discographies, venue capacity management, festival lineup builders
-          </li>
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Networked Data Model:</strong> Cross-entity
-            relationships and discovery features
-          </li>
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Database-Driven Routing:</strong> Dynamic
-            page creation without code deployments
-          </li>
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Free Hosting:</strong> No cost barrier for
-            emerging artists and small venues
-          </li>
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Vector Search:</strong> Semantic discovery
-            unavailable in traditional CMSs
-          </li>
-        </ul>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">Testing and Quality</h2>
-        <p className="text-slate-400 leading-relaxed">
-          Comprehensive testing strategy with 2,300+ tests including Vitest for unit and
-          integration testing, Playwright for end-to-end testing, Testcontainers for
-          database integration tests, and Memlab for memory leak detection. ESLint 9
-          with flat config ensures code quality.
-        </p>
-      </section>
-
-      <section className="mb-12">
         <h2 className="mb-6 text-xl font-semibold text-slate-200">Target Users</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2">
           {targetUsers.map((user) => (
             <div
               key={user.title}
@@ -365,6 +296,22 @@ export default function KnokrPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">Development Evolution</h2>
+        <p className="text-slate-400 leading-relaxed">
+          Knokr Lineups originated as a Python-based application focused on extracting
+          festival lineups from posters into CSV and JSON formats. Migration to Next.js
+          and React enabled rich interactions like drag-and-drop lineup management, poster
+          generation, Claude-powered extraction and decision engine, scalable architecture
+          with shared database and Redis caching, and a modern component-based design
+          system with HeroUI.
+        </p>
+        <p className="mt-4 text-slate-400 leading-relaxed">
+          The platform now serves as both production data acquisition tool and public-facing
+          festival discovery interface.
+        </p>
       </section>
 
       <section className="mb-12">

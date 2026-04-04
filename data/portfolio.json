@@ -154,6 +154,28 @@
         {
           "title": "Knokr",
           "url": "/projects/knokr",
+          "description": "A unified festival discovery and lineup management platform that consolidates festival information into a single searchable interface. Features AI-powered lineup extraction from festival posters, semantic search with vector embeddings, a dream lineup builder with drag-and-drop organization, and a Claude-powered decision engine for personalized festival recommendations.",
+          "image": {
+            "src": "/lineups/lineups.webp",
+            "alt": "Knokr Lineups platform preview"
+          },
+          "technologies": [
+            "Next.js 16",
+            "React 19",
+            "TypeScript",
+            "PostgreSQL",
+            "pgvector",
+            "Prisma",
+            "Redis",
+            "Claude AI API",
+            "@dnd-kit",
+            "html-to-image",
+            "Railway"
+          ]
+        },
+        {
+          "title": "Knokr Base",
+          "url": "/projects/knokr-base",
           "description": "A multi-tenant content management system designed specifically for the music industry. Provides artists, venues, festivals, and sponsors with a free CMS and hosting platform featuring database-driven routing, vector search with OpenAI embeddings, graph-based music discovery, and a six-tier permission system. Serves as the administrative backbone for the Knokr ecosystem.",
           "image": {
             "src": "/knokr-base/knokr.webp",
@@ -177,6 +199,7 @@
         {
           "title": "Orchestra",
           "url": "/projects/orchestra",
+          "status": "Live — no longer under active development",
           "description": "A community-driven platform for documenting band member relationships within the music industry. Enables music fans to search for artists and contribute band member information through a curated submission process, establishing primary, secondary, and tertiary artist relationship networks for music scene discovery and business intelligence.",
           "image": {
             "src": "/orchestra/orchestra.webp",
@@ -196,30 +219,9 @@
           ]
         },
         {
-          "title": "Knokr Lineups",
-          "url": "/projects/lineups",
-          "description": "A unified festival discovery and lineup management platform that consolidates festival information into a single searchable interface. Features AI-powered lineup extraction from festival posters, semantic search with vector embeddings, a dream lineup builder with drag-and-drop organization, and a Claude-powered decision engine for personalized festival recommendations.",
-          "image": {
-            "src": "/lineups/lineups.webp",
-            "alt": "Knokr Lineups platform preview"
-          },
-          "technologies": [
-            "Next.js 16",
-            "React 19",
-            "TypeScript",
-            "PostgreSQL",
-            "pgvector",
-            "Prisma",
-            "Redis",
-            "Claude AI API",
-            "@dnd-kit",
-            "html-to-image",
-            "Railway"
-          ]
-        },
-        {
           "title": "Nuncio",
           "url": "/projects/nuncio",
+          "status": "Live — no longer under active development",
           "description": "An open event curation platform that enables users to create and share unlimited lists of musical events without claiming artist, venue, or festival associations. Features AI-powered image extraction for tour dates, embeddable widgets, SEO-optimized public pages, and export formats including JSON-LD, iCal, and RSS feeds.",
           "image": {
             "src": "/nuncio/nuncio.webp",
@@ -242,6 +244,7 @@
         {
           "title": "Connections Plus",
           "url": "https://connections-plus.jayfallon.com",
+          "status": "No longer under active development",
           "description": "Connections Plus is a sophisticated daily word puzzle game that reimagines NYT Connections with an innovative multi-level  progression system. Players must identify groups of four related words across four increasingly challenging levels, but with a strategic twist: \"red herring\" words intentionally placed to create misdirection carry forward and accumulate across levels building layers of complexity as players progress from Easy through Medium and Hard to the Final level. Built with Next.js 15.5.3, React 19, and Redis Cloud, the full-stack application features a polished game interface with animations and visual feedback, comprehensive admin tools for puzzle creation with AI assistance, and a calendar-based content management system. The privacy-first design tracks anonymous player progress while enforcing daily play limits, creating an engaging puzzle experience that combines familiar mechanics with fresh strategic depth.",
           "image": {
             "src": "/connections/connections-homescreen.png",
@@ -261,6 +264,7 @@
         {
           "title": "KnokrBoss",
           "url": "https://festival-builder.vercel.app/",
+          "status": "No longer under active development",
           "description": "KnokrBoss is the comprehensive backoffice platform powering Knokr, built from the ground up to manage the complex workflows of the live music industry. The platform enables festival organizers to coordinate multi-stage events, handle artist bookings, and manage venue relationships through intuitive administrative tools. Key features include lineup builders, demo submission systems, real-time messaging for artist negotiations, and organization-level analytics dashboards. By streamlining everything from booking requests to event scheduling, Festival Builder provides the operational backbone that allows Knokr to connect artists, venues, and music fans seamlessly.",
           "image": {
             "src": "/knokr-boss/knokrboss-venues.png",
@@ -291,6 +295,7 @@
         {
           "title": "KnokrFetch",
           "url": "#",
+          "status": "Offline — no longer under active development",
           "description": "KnokrFetch is an AI-driven event validation system that powers the Knokr Platform by automatically discovering, validating, and consolidating artist tour data from fragmented sources across the web. The system employs machine learning to identify and learn event posting patterns across platforms like Bandsintown, Seated, Songkick, and custom websites, then validates and deduplicates this data to create authoritative artist and venue calendars. Processing 100+ artists weekly with 99.2% accuracy, KnokrFetch's intelligent algorithms adapt to different data formats and posting behaviors while its venue matching engine eliminates 95% of duplicate events and reduces booking conflicts by 85%. The platform features a real-time web interface for monitoring validation workflows, managing batch processing of up to 20 concurrent artists, and reviewing AI-flagged duplicates, ultimately transforming chaotic multi-source event data into clean, validated calendars that enable accurate engagement analytics for the Knokr Platform.",
           "image": {
             "src": "/knokr-fetch/knokrfetch-01.png",
@@ -319,6 +324,7 @@
         {
           "title": "Knokr v1",
           "url": "https://knokr-v2.vercel.app/",
+          "status": "No longer under active development",
           "description": "Knokr is a social music discovery platform that serves as the public-facing frontend for connecting music fans with live events. Users can discover artists, venues, and festivals, then create derivative fan events based on existing shows to gather with friends and enjoy music together. The platform enables fans to build communities around shared musical interests and coordinate group attendance at concerts and festivals.",
           "image": {
             "src": "/knokr/knokr-artists.png",

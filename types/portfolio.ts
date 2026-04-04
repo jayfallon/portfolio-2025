@@ -63,6 +63,7 @@ export interface ProjectsSection {
 export interface ProjectItem {
   title: string;
   url: string;
+  status?: string;
   description: string;
   image: {
     src: string;

@@ -81,6 +81,9 @@ export default function Projects({ data }: { data: ProjectsSection }) {
                   </span>
                 )}
               </h3>
+              {project.status && (
+                <p className="mt-1 text-xs font-medium text-slate-400">{project.status}</p>
+              )}
               <p className="mt-2 text-sm leading-normal">{project.description}</p>
               <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
                 {project.technologies.map((tech, techIndex) => (
