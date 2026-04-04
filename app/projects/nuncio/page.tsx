@@ -86,7 +86,15 @@ const targetUsers = [
 
 const images: CarouselImage[] = [
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/nuncio/nuncio-lg.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/nuncio/carousel/nuncio-01.webp",
+    alt: "Nuncio platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/nuncio/carousel/nuncio-02.webp",
+    alt: "Nuncio platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/nuncio/carousel/nuncio-03.webp",
     alt: "Nuncio platform screenshot",
   },
 ];
@@ -94,6 +102,17 @@ const images: CarouselImage[] = [
 export default function NuncioPage() {
   return (
     <div className="max-w-3xl lg:py-24">
+      <div className="mb-8">
+        <Link
+          href="/"
+          className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl hover:text-teal-300"
+        >
+          Jay Fallon
+        </Link>
+        <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+          Full Stack Software Engineer
+        </h2>
+      </div>
       <Link
         href="/#projects"
         className="group mb-8 inline-flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-teal-300"
@@ -103,12 +122,8 @@ export default function NuncioPage() {
       </Link>
 
       <header className="mb-12">
-        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
-          Nuncio
-        </h1>
-        <p className="mt-4 text-lg text-slate-400">
-          Open Event Curation Platform
-        </p>
+        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">Nuncio</h1>
+        <p className="mt-4 text-lg text-slate-400">Open Event Curation Platform</p>
         <Link
           href="https://nuncio.knokr.com/"
           target="_blank"
@@ -138,17 +153,16 @@ export default function NuncioPage() {
       <section className="mb-12">
         <h2 className="mb-4 text-xl font-semibold text-slate-200">Overview</h2>
         <p className="text-slate-400 leading-relaxed">
-          Nuncio is an open event curation platform that enables users to create and share
-          unlimited lists of musical events without claiming artist, venue, or festival
-          associations. Users can source events from the Knokr database, create their own
-          events, or combine both—organizing concerts, festivals, and shows into custom
-          lists by artist, location, or genre. Lists are shared via public URLs or embedded
-          directly on websites.
+          Nuncio is an open event curation platform that enables users to create and share unlimited
+          lists of musical events without claiming artist, venue, or festival associations. Users
+          can source events from the Knokr database, create their own events, or combine
+          both—organizing concerts, festivals, and shows into custom lists by artist, location, or
+          genre. Lists are shared via public URLs or embedded directly on websites.
         </p>
         <p className="mt-4 text-slate-400 leading-relaxed">
           Built as the aggregation layer for Knokr, Nuncio competes directly with established
-          platforms like Bandsintown, Songkick, and Seated by removing restrictions on list
-          creation and ownership verification.
+          platforms like Bandsintown, Songkick, and Seated by removing restrictions on list creation
+          and ownership verification.
         </p>
       </section>
 
@@ -158,34 +172,31 @@ export default function NuncioPage() {
           <div>
             <h3 className="font-medium text-slate-300">Data Aggregation for Knokr</h3>
             <p>
-              Collect artist event data through user contributions, expanding the Knokr
-              database with events that would otherwise remain undiscovered. User-created
-              events immediately appear in Knokr search results, creating exposure for
-              emerging and independent artists.
+              Collect artist event data through user contributions, expanding the Knokr database
+              with events that would otherwise remain undiscovered. User-created events immediately
+              appear in Knokr search results, creating exposure for emerging and independent
+              artists.
             </p>
           </div>
           <div>
             <h3 className="font-medium text-slate-300">Open Curation System</h3>
             <p>
-              Provide unrestricted list creation without artist verification, venue partnerships,
-              or organizational claims. Users create unlimited event lists targeting any
-              combination of artists, locations, or genres, then distribute through public
-              pages or website embeds.
+              Provide unrestricted list creation without artist verification, venue partnerships, or
+              organizational claims. Users create unlimited event lists targeting any combination of
+              artists, locations, or genres, then distribute through public pages or website embeds.
             </p>
           </div>
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">
-          Competitive Differentiation
-        </h2>
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">Competitive Differentiation</h2>
         <p className="text-slate-400 leading-relaxed">
-          Unlike platforms requiring artist claims or venue partnerships (Bandsintown,
-          Songkick, Seated), Nuncio operates as an open system. Users curate and remix
-          events from any source—Knokr database, bulk imports, or manual creation—without
-          ownership verification or approval workflows. This removes barriers to list
-          creation while simultaneously feeding event data back into the Knokr platform.
+          Unlike platforms requiring artist claims or venue partnerships (Bandsintown, Songkick,
+          Seated), Nuncio operates as an open system. Users curate and remix events from any
+          source—Knokr database, bulk imports, or manual creation—without ownership verification or
+          approval workflows. This removes barriers to list creation while simultaneously feeding
+          event data back into the Knokr platform.
         </p>
       </section>
 
@@ -198,8 +209,7 @@ export default function NuncioPage() {
               <ul className="space-y-2">
                 {feature.items.map((item, index) => (
                   <li key={index} className="text-sm text-slate-400 leading-relaxed">
-                    <span className="text-teal-300">•</span>{" "}
-                    {item}
+                    <span className="text-teal-300">•</span> {item}
                   </li>
                 ))}
               </ul>
@@ -209,13 +219,10 @@ export default function NuncioPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">
-          Website Embedding
-        </h2>
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">Website Embedding</h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
-          Lists can be embedded using a single script tag. Multiple lists are supported
-          on a single page. The widget renders semantic HTML with namespace-prefixed
-          classes for custom styling.
+          Lists can be embedded using a single script tag. Multiple lists are supported on a single
+          page. The widget renders semantic HTML with namespace-prefixed classes for custom styling.
         </p>
         <pre className="overflow-x-auto rounded-lg bg-slate-800/50 p-4 text-sm text-slate-300">
           <code>{`<div data-nuncio-list="list-slug"></div>

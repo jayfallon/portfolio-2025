@@ -65,7 +65,8 @@ const features = [
 const targetUsers = [
   {
     title: "Music Fans",
-    description: "Community members interested in documenting band lineups and artist relationships",
+    description:
+      "Community members interested in documenting band lineups and artist relationships",
   },
   {
     title: "Music Researchers",
@@ -77,7 +78,8 @@ const targetUsers = [
   },
   {
     title: "Industry Professionals",
-    description: "Secondary audience benefiting from relationship intelligence and discovery features",
+    description:
+      "Secondary audience benefiting from relationship intelligence and discovery features",
   },
 ];
 
@@ -98,7 +100,15 @@ const relationshipTiers = [
 
 const images: CarouselImage[] = [
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/orchestra/orchestra-lg.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/orchestra/carousel/orchestra-01.webp",
+    alt: "Orchestra platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/orchestra/carousel/orchestra-02.webp",
+    alt: "Orchestra platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/orchestra/carousel/orchestra-03.webp",
     alt: "Orchestra platform screenshot",
   },
 ];
@@ -106,6 +116,17 @@ const images: CarouselImage[] = [
 export default function OrchestraPage() {
   return (
     <div className="max-w-3xl lg:py-24">
+      <div className="mb-8">
+        <Link
+          href="/"
+          className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl hover:text-teal-300"
+        >
+          Jay Fallon
+        </Link>
+        <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+          Full Stack Software Engineer
+        </h2>
+      </div>
       <Link
         href="/#projects"
         className="group mb-8 inline-flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-teal-300"
@@ -115,12 +136,8 @@ export default function OrchestraPage() {
       </Link>
 
       <header className="mb-12">
-        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
-          Orchestra
-        </h1>
-        <p className="mt-4 text-lg text-slate-400">
-          Community-Driven Artist Relationship Platform
-        </p>
+        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">Orchestra</h1>
+        <p className="mt-4 text-lg text-slate-400">Community-Driven Artist Relationship Platform</p>
         <Link
           href="https://orchestra.knokr.com/"
           target="_blank"
@@ -150,18 +167,18 @@ export default function OrchestraPage() {
       <section className="mb-12">
         <h2 className="mb-4 text-xl font-semibold text-slate-200">Overview</h2>
         <p className="text-slate-400 leading-relaxed">
-          Orchestra is a community-driven platform for documenting band member relationships
-          within the music industry. Built as an experimental standalone application, it
-          enables music fans to search for artists and contribute band member information
-          through a curated submission process. Orchestra operates on the Knokr database,
-          extending primary artist data into secondary and tertiary relationship networks
-          that inform music scene discovery and industry business intelligence.
+          Orchestra is a community-driven platform for documenting band member relationships within
+          the music industry. Built as an experimental standalone application, it enables music fans
+          to search for artists and contribute band member information through a curated submission
+          process. Orchestra operates on the Knokr database, extending primary artist data into
+          secondary and tertiary relationship networks that inform music scene discovery and
+          industry business intelligence.
         </p>
         <p className="mt-4 text-slate-400 leading-relaxed">
-          The platform serves dual purposes: as a functional community tool for completing
-          artist data and as an isolated testing environment for artist relationship building,
-          search functionality, and feature experimentation before integration into the
-          broader Knokr ecosystem.
+          The platform serves dual purposes: as a functional community tool for completing artist
+          data and as an isolated testing environment for artist relationship building, search
+          functionality, and feature experimentation before integration into the broader Knokr
+          ecosystem.
         </p>
       </section>
 
@@ -171,10 +188,10 @@ export default function OrchestraPage() {
           <div>
             <h3 className="font-medium text-slate-300">Artist Relationship Mapping</h3>
             <p>
-              Collect band member data to establish secondary and tertiary artist connections
-              that would otherwise remain undocumented. These relationships form the foundation
-              for music scene discovery systems and recommendation engines based on shared
-              members, festivals, genres, and geographic proximity.
+              Collect band member data to establish secondary and tertiary artist connections that
+              would otherwise remain undocumented. These relationships form the foundation for music
+              scene discovery systems and recommendation engines based on shared members, festivals,
+              genres, and geographic proximity.
             </p>
           </div>
           <div>
@@ -182,8 +199,8 @@ export default function OrchestraPage() {
             <p>
               Engage like-minded music fans in collaborative data curation, building familiarity
               with the Knokr platform while accumulating the relationship data necessary for
-              advanced discovery features. User contributions undergo multi-layered admin
-              review before database integration.
+              advanced discovery features. User contributions undergo multi-layered admin review
+              before database integration.
             </p>
           </div>
           <div>
@@ -191,23 +208,21 @@ export default function OrchestraPage() {
             <p>
               Provide an isolated environment for testing artist search algorithms, relationship
               building services, and feature development without impacting the main Knokr
-              application. Orchestra functions as both working application and technology
-              evaluation framework.
+              application. Orchestra functions as both working application and technology evaluation
+              framework.
             </p>
           </div>
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">
-          Business Intelligence Value
-        </h2>
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">Business Intelligence Value</h2>
         <p className="text-slate-400 leading-relaxed">
-          Band member relationship data enables Knokr to surface patterns and predict
-          improvements across the live music industry logistics chain. By understanding
-          who plays with whom, when, where, and how frequently, the platform delivers
-          actionable business intelligence to industry decision makers—venue operators,
-          promoters, booking agents, and artist management.
+          Band member relationship data enables Knokr to surface patterns and predict improvements
+          across the live music industry logistics chain. By understanding who plays with whom,
+          when, where, and how frequently, the platform delivers actionable business intelligence to
+          industry decision makers—venue operators, promoters, booking agents, and artist
+          management.
         </p>
       </section>
 
@@ -220,8 +235,7 @@ export default function OrchestraPage() {
               <ul className="space-y-2">
                 {feature.items.map((item, index) => (
                   <li key={index} className="text-sm text-slate-400 leading-relaxed">
-                    <span className="text-teal-300">•</span>{" "}
-                    {item}
+                    <span className="text-teal-300">•</span> {item}
                   </li>
                 ))}
               </ul>
@@ -231,9 +245,7 @@ export default function OrchestraPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">
-          Relationship Tiers
-        </h2>
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">Relationship Tiers</h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
           Orchestra establishes three relationship tiers that enable sophisticated discovery
           algorithms and provide the data foundation for industry logistics prediction:
@@ -269,29 +281,29 @@ export default function OrchestraPage() {
       <section className="mb-12">
         <h2 className="mb-4 text-xl font-semibold text-slate-200">Strategic Role</h2>
         <p className="mb-4 text-slate-400 leading-relaxed">
-          Orchestra serves as both community tool and research platform within the Knokr
-          ecosystem, enabling:
+          Orchestra serves as both community tool and research platform within the Knokr ecosystem,
+          enabling:
         </p>
         <ul className="space-y-2 text-slate-400">
           <li>
             <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Data Network Growth:</strong> Accumulation
-            of relationship data for music scene discovery systems
+            <strong className="text-slate-300">Data Network Growth:</strong> Accumulation of
+            relationship data for music scene discovery systems
           </li>
           <li>
             <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Community Building:</strong> Engagement
-            with users invested in music data curation
+            <strong className="text-slate-300">Community Building:</strong> Engagement with users
+            invested in music data curation
           </li>
           <li>
             <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Feature Incubation:</strong> Safe environment
-            for testing concepts before main platform integration
+            <strong className="text-slate-300">Feature Incubation:</strong> Safe environment for
+            testing concepts before main platform integration
           </li>
           <li>
             <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Business Intelligence Foundation:</strong>{" "}
-            Collection of relationship data supporting industry logistics prediction
+            <strong className="text-slate-300">Business Intelligence Foundation:</strong> Collection
+            of relationship data supporting industry logistics prediction
           </li>
         </ul>
       </section>
