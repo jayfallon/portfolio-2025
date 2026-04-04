@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
+import { ImageCarousel, type CarouselImage } from "@/components/ui/image-carousel";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -32,6 +32,13 @@ const technologies = [
   "Sentry",
   "Winston",
   "Railway",
+];
+
+const images: CarouselImage[] = [
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr-base/knokr-lg.webp",
+    alt: "Knokr Base platform screenshot",
+  },
 ];
 
 export default function KnokrBasePage() {
@@ -75,14 +82,7 @@ export default function KnokrBasePage() {
       </header>
 
       <div className="mb-12">
-        <Image
-          src="https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr-base/knokr-lg.webp"
-          alt="Knokr Base platform screenshot"
-          width={1200}
-          height={675}
-          className="rounded-lg border border-slate-700/50"
-          priority
-        />
+        <ImageCarousel images={images} priority />
       </div>
 
       <section className="mb-12">

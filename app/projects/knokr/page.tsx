@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
+import { ImageCarousel, type CarouselImage } from "@/components/ui/image-carousel";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -32,6 +32,33 @@ const technologies = [
   "Railway",
 ];
 
+const images: CarouselImage[] = [
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr/carousel/knokr-01.webp",
+    alt: "Knokr platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr/carousel/knokr-02.webp",
+    alt: "Knokr platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr/carousel/knokr-03.webp",
+    alt: "Knokr platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr/carousel/knokr-04.webp",
+    alt: "Knokr platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr/carousel/knokr-05.webp",
+    alt: "Knokr platform screenshot",
+  },
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr/carousel/knokr-06.webp",
+    alt: "Knokr platform screenshot",
+  },
+];
+
 export default function KnokrPage() {
   return (
     <div className="max-w-3xl lg:py-24">
@@ -44,12 +71,8 @@ export default function KnokrPage() {
       </Link>
 
       <header className="mb-12">
-        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">
-          Knokr
-        </h1>
-        <p className="mt-4 text-lg text-slate-400">
-          Festival Discovery and Social Platform
-        </p>
+        <h1 className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl">Knokr</h1>
+        <p className="mt-4 text-lg text-slate-400">Festival Discovery and Social Platform</p>
         <Link
           href="https://knokr.com/"
           target="_blank"
@@ -73,14 +96,7 @@ export default function KnokrPage() {
       </header>
 
       <div className="mb-12">
-        <Image
-          src="https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/lineups/lineups-lg.webp"
-          alt="Knokr platform screenshot"
-          width={1200}
-          height={675}
-          className="rounded-lg border border-slate-700/50"
-          priority
-        />
+        <ImageCarousel images={images} priority />
       </div>
 
       <section className="mb-12">
@@ -99,17 +115,16 @@ export default function KnokrPage() {
         <h2 className="mb-4 text-xl font-semibold text-slate-200">What I Built</h2>
         <p className="text-slate-400 leading-relaxed">
           Knokr is a festival discovery and social platform that consolidates lineup data,
-          schedules, and artist information across 1,400+ festivals and 50,000+ artists into
-          a single searchable interface. Beyond discovery, it connects festival attendees with
-          each other for social coordination around shared events.
+          schedules, and artist information across 1,400+ festivals and 50,000+ artists into a
+          single searchable interface. Beyond discovery, it connects festival attendees with each
+          other for social coordination around shared events.
         </p>
         <p className="mt-4 text-slate-400 leading-relaxed">
           The platform evolved through multiple iterations — starting as a Python-based poster
           extraction tool that output CSV and JSON, progressing through standalone experiments
-          (Orchestra for artist relationships, Nuncio for event data distribution), and arriving
-          at the current Next.js architecture with a shared PostgreSQL infrastructure. Each
-          iteration validated specific capabilities before they were integrated into the
-          production platform.
+          (Orchestra for artist relationships, Nuncio for event data distribution), and arriving at
+          the current Next.js architecture with a shared PostgreSQL infrastructure. Each iteration
+          validated specific capabilities before they were integrated into the production platform.
         </p>
       </section>
 
@@ -144,14 +159,16 @@ export default function KnokrPage() {
             <p className="text-slate-400 leading-relaxed">
               Users can construct hypothetical festivals with drag-and-drop artist ordering, stage
               assignments, and schedule management using @dnd-kit — then export lineup posters as
-              PNGs via html-to-image or share via public URLs. This required solving state management
-              for complex nested drag operations across days, stages, and billing tiers, where a
-              single festival can span multiple days with multiple stages and dozens of artists
-              per stage.
+              PNGs via html-to-image or share via public URLs. This required solving state
+              management for complex nested drag operations across days, stages, and billing tiers,
+              where a single festival can span multiple days with multiple stages and dozens of
+              artists per stage.
             </p>
           </div>
           <div>
-            <h3 className="mb-3 font-medium text-slate-300">Conversational Recommendation Engine</h3>
+            <h3 className="mb-3 font-medium text-slate-300">
+              Conversational Recommendation Engine
+            </h3>
             <p className="text-slate-400 leading-relaxed">
               A Claude-powered decision engine that takes user constraints (budget, location, genre
               preferences, must-see artists) and provides personalized festival comparisons with
@@ -166,25 +183,24 @@ export default function KnokrPage() {
       <section className="mb-12">
         <h2 className="mb-4 text-xl font-semibold text-slate-200">Architecture</h2>
         <p className="text-slate-400 leading-relaxed">
-          Built on Next.js 16 with React 19, TypeScript, PostgreSQL with pgvector extensions,
-          Prisma ORM, and Redis caching. The application shares its database infrastructure with
-          Knokr Base, enabling both applications to operate against a unified data model — lineup
-          updates in Base appear on Knokr without manual sync. Media storage uses AWS S3 with
-          CloudFront CDN. Authentication via Clerk. UI built with HeroUI, Tailwind CSS, and
-          Framer Motion. Deployed to Railway.
+          Built on Next.js 16 with React 19, TypeScript, PostgreSQL with pgvector extensions, Prisma
+          ORM, and Redis caching. The application shares its database infrastructure with Knokr
+          Base, enabling both applications to operate against a unified data model — lineup updates
+          in Base appear on Knokr without manual sync. Media storage uses AWS S3 with CloudFront
+          CDN. Authentication via Clerk. UI built with HeroUI, Tailwind CSS, and Framer Motion.
+          Deployed to Railway.
         </p>
       </section>
 
       <section className="mb-12">
         <h2 className="mb-4 text-xl font-semibold text-slate-200">What This Enables</h2>
         <p className="text-slate-400 leading-relaxed">
-          The shared data layer has proven extensible beyond the core platform. It now powers
-          Mojo Boston — a white-label festival website built on PayloadCMS that pulls lineup,
-          schedule, and venue data directly from the Knokr database, demonstrating a turnkey
-          B2B product for festival organizers. The same infrastructure also feeds Orchestra
-          (artist relationship mapping) and Nuncio (event curation and distribution), validating
-          that the data model supports multiple distinct consumption patterns from a single
-          source of truth.
+          The shared data layer has proven extensible beyond the core platform. It now powers Mojo
+          Boston — a white-label festival website built on PayloadCMS that pulls lineup, schedule,
+          and venue data directly from the Knokr database, demonstrating a turnkey B2B product for
+          festival organizers. The same infrastructure also feeds Orchestra (artist relationship
+          mapping) and Nuncio (event curation and distribution), validating that the data model
+          supports multiple distinct consumption patterns from a single source of truth.
         </p>
       </section>
 
