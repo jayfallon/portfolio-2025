@@ -154,7 +154,7 @@
         {
           "title": "Knokr",
           "url": "/projects/knokr",
-          "description": "A unified festival discovery and lineup management platform that consolidates festival information into a single searchable interface. Features AI-powered lineup extraction from festival posters, semantic search with vector embeddings, a dream lineup builder with drag-and-drop organization, and a Claude-powered decision engine for personalized festival recommendations.",
+          "description": "A festival discovery and social platform that consolidates lineup data, schedules, and artist information across 1,400+ festivals and 50,000+ artists into a single searchable interface — replacing the fragmented experience of browsing dozens of individual festival websites. Features AI-powered lineup extraction from festival posters using Claude Vision API, semantic search with pgvector embeddings, a dream lineup builder with drag-and-drop organization, and a conversational recommendation engine for personalized festival comparisons. Beyond discovery, the platform connects festival attendees with each other, enabling social coordination around shared lineups and events. Evolved from an earlier Python-based extraction tool through multiple architectural iterations, with features validated through standalone experimental platforms before integration.",
           "image": {
             "src": "/lineups/lineups.webp",
             "alt": "Knokr Lineups platform preview"
@@ -171,12 +171,36 @@
             "@dnd-kit",
             "html-to-image",
             "Railway"
-          ]
+          ],
+          "projectPage": {
+            "problem": "Festival information is scattered across hundreds of individual websites, each with different formats, incomplete lineups, and no way to compare options. A fan trying to decide between festivals has to manually check dozens of sites, cross-reference artists, and guess at genre overlap. There's no unified layer connecting festivals, artists, and attendees.",
+            "whatIBuilt": "Knokr is a festival discovery and social platform that consolidates lineup data, schedules, and artist information across 1,400+ festivals and 50,000+ artists into a single searchable interface. Beyond discovery, it connects festival attendees with each other for social coordination around shared events. The platform evolved through multiple iterations — starting as a Python-based poster extraction tool, progressing through standalone experiments (Orchestra for artist relationships, Nuncio for event data), and arriving at the current Next.js architecture with a shared PostgreSQL infrastructure.",
+            "keyDecisions": [
+              {
+                "title": "AI-powered lineup extraction",
+                "detail": "Festival posters are the primary way lineups are announced, but extracting structured data from them is messy — inconsistent typography, creative layouts, and hundreds of artist names per image. I built an extraction pipeline using Claude Vision API that identifies artists from poster images, matches them against the existing database, derives genre information from artist self-reporting, and assembles complete lineups. This is what makes it possible to maintain 1,400+ festivals without manual data entry."
+              },
+              {
+                "title": "Dual search architecture",
+                "detail": "The platform implements both semantic search using pgvector embeddings (for natural language queries like \"chill electronic festivals near the coast\") and full-text search using PostgreSQL tsvector indexing (for precise artist and festival name matching). Each serves a different user intent."
+              },
+              {
+                "title": "Dream lineup builder",
+                "detail": "Users can construct hypothetical festivals with drag-and-drop artist ordering, stage assignments, and schedule management using @dnd-kit — then export lineup posters as PNGs or share via public URLs. This required solving state management for complex nested drag operations across days, stages, and billing tiers."
+              },
+              {
+                "title": "Conversational recommendation engine",
+                "detail": "A Claude-powered decision engine that takes user constraints (budget, location, genre preferences, must-see artists) and provides personalized festival comparisons with trade-off analysis — cutting through marketing to surface what actually matters for purchasing decisions."
+              }
+            ],
+            "architecture": "Built on Next.js 16 with React 19, TypeScript, PostgreSQL with pgvector extensions, Prisma ORM, and Redis caching. The application shares its database infrastructure with Knokr Base, enabling both applications to operate against a unified data model. Media storage uses AWS S3 with CloudFront CDN. Authentication via Clerk. Deployed to Railway.",
+            "whatItEnables": "The shared data layer has proven extensible beyond the core platform — it now powers Mojo Boston, a white-label festival website built on PayloadCMS that pulls lineup, schedule, and venue data directly from the Knokr database, demonstrating a turnkey B2B product for festival organizers."
+          }
         },
         {
           "title": "Knokr Base",
           "url": "/projects/knokr-base",
-          "description": "A multi-tenant content management system designed specifically for the music industry. Provides artists, venues, festivals, and sponsors with a free CMS and hosting platform featuring database-driven routing, vector search with OpenAI embeddings, graph-based music discovery, and a six-tier permission system. Serves as the administrative backbone for the Knokr ecosystem.",
+          "description": "The administrative backbone of the Knokr ecosystem — a multi-tenant back office managing the full lifecycle of data across 50,000+ artists and 1,400+ festivals. Handles image uploading and processing, festival metadata, lineup and schedule management, and artist profiles including show and festival histories. Implements comparison models for surfacing similar artists and festivals using graph-based relationships and vector similarity. Features database-driven routing that lets pages be created from the database rather than the filesystem, a five-tier permission system for multi-tenant access control, and vector search powered by OpenAI embeddings. Shares a PostgreSQL infrastructure with Knokr, enabling both applications to operate against a unified data model while serving distinct audiences — public discovery and internal data management.",
           "image": {
             "src": "/knokr-base/knokr.webp",
             "alt": "Knokr platform preview"
@@ -194,13 +218,96 @@
             "Clerk",
             "AWS S3",
             "Railway"
-          ]
+          ],
+          "projectPage": {
+            "problem": "Managing 50,000+ artists and 1,400+ festivals requires more than a spreadsheet. The data relationships are complex — artists play at multiple festivals, festivals share artists across years, genres overlap and evolve, and venues host events across different promoters. The music industry needed a purpose-built back office that could handle entity management, content publishing, team collaboration, and data enrichment at scale — while feeding multiple consumer-facing applications from a single source of truth.",
+            "whatIBuilt": "Knokr Base is a multi-tenant CMS and administrative platform designed specifically for the music industry. It manages the full lifecycle of festival, artist, venue, and sponsor data — from image uploading and lineup management to graph-based discovery and AI-powered data enrichment. Every entity in the system gets its own managed presence, and the platform serves as the data backbone for the entire Knokr ecosystem.",
+            "keyDecisions": [
+              {
+                "title": "Database-driven routing",
+                "detail": "URLs are defined in the database via NavigationItem records rather than filesystem paths. This means content changes don't require code deployments — users can create pages, restructure navigation, and publish content entirely through the CMS. It required building a routing engine that resolves database records at request time while maintaining performance through Redis caching."
+              },
+              {
+                "title": "Multi-tenant entity architecture",
+                "detail": "I designed a two-layer system separating entity types (Artist, Venue, Festival, Sponsor tables with type-specific fields) from a unified Project container that provides common functionality. Each user gets their own namespace at /f/[username], with strict data isolation enforced at the query level. This lets the same infrastructure serve individual artists, festival organizers, and venue managers without cross-contamination."
+              },
+              {
+                "title": "Five-tier permission system",
+                "detail": "SUPER_ADMIN, ADMIN, EDITOR, CONTRIBUTOR, and MEMBER roles with three-layer route protection (middleware → layout → component). Permission checks are Redis-cached with 1-hour TTL, achieving 90-95% latency reduction on authorization. The system includes audit logging for sensitive actions and ownership transfer workflows."
+              },
+              {
+                "title": "Music discovery graph",
+                "detail": "A graph-based artist discovery system using festival co-occurrence data — if two artists frequently appear at the same festivals, they're likely related. The system uses Node2Vec embeddings to learn artist representations from the co-occurrence graph, then applies Louvain community detection to identify music scenes automatically. An anti-popularity scoring mechanism ensures recommendations surface emerging artists rather than defaulting to headliners."
+              },
+              {
+                "title": "Background worker architecture",
+                "detail": "Four BullMQ workers handle computationally intensive tasks without blocking the main application: a graph-worker for relationship computation, an embedding-worker for vector generation, an insights-worker for analytics processing, and a social-card-worker for automated social media image generation. A separate Python service handles scene detection and graph analysis."
+              },
+              {
+                "title": "Vector search with enhanced embeddings",
+                "detail": "OpenAI text-embedding-3-small generates embeddings enriched with artist metadata — country, region, genres, gender — enabling semantic search that understands queries like \"female electronic artists from Berlin\" without exact keyword matching."
+              }
+            ],
+            "testing": "614 test files across Vitest, Playwright, and Testcontainers. Tests cover API endpoints with real PostgreSQL instances via Testcontainers, permission and RBAC validation, data isolation between tenants, organization workflows, and multi-tenant boundary enforcement. Memlab handles memory leak detection. The project maintains 106+ detailed implementation guides in documentation.",
+            "architecture": "Next.js 16 with React 19, TypeScript, PostgreSQL with pgvector, Prisma ORM, Redis, BullMQ, OpenAI API, Clerk authentication, AWS S3 with CloudFront, HeroUI with Tailwind CSS 4, Sentry for monitoring with Winston structured logging. Deployed to Railway.",
+            "whatItEnables": "Knokr Base's shared PostgreSQL infrastructure feeds every application in the ecosystem — Knokr (public discovery), Mojo Boston (white-label festival sites), Orchestra (artist relationships), and Nuncio (event curation). The data model has proven robust enough to support four distinct consumption patterns from a single source of truth."
+          }
+        },
+        {
+          "title": "Mojo Boston",
+          "url": "/projects/mojo-boston",
+          "status": "Demo — awaiting final content and visual design",
+          "description": "A turnkey festival website exploring PayloadCMS as a white-label foundation for festival organizers. Built for a client's one-day festival, the project started from Payload's stock website template (blog + 4 basic blocks) and required substantial rework — 24 custom block components, a complete S3 media system replacing Payload's broken upload pipeline, live database integration pulling lineup, schedule, and venue data from Knokr's shared PostgreSQL infrastructure, interactive Leaflet venue maps, and a brand-specific design system. The experiment validated both the value of the Knokr data layer for powering external sites and the limitations of adapting a generic CMS for domain-specific use cases — informing the architecture for purpose-built festival site tooling. 232 TypeScript files, multi-database architecture, deployed to Railway.",
+          "image": {
+            "src": "/mojo-boston/mojo-boston.webp",
+            "alt": "Mojo Boston festival website preview"
+          },
+          "technologies": [
+            "Next.js 16",
+            "PayloadCMS 3.80",
+            "TypeScript",
+            "PostgreSQL",
+            "AWS S3",
+            "Leaflet",
+            "Tailwind CSS 4",
+            "Lexical",
+            "Sharp",
+            "Railway"
+          ],
+          "projectPage": {
+            "problem": "Festival organizers need websites, but they don't need another CMS to learn. They need a site that's pre-populated with their lineup, schedule, and venue data — the same data already living in Knokr Base. The question was whether an off-the-shelf CMS like PayloadCMS could serve as the foundation for a white-label festival site product, or whether the domain-specific requirements would outgrow it.",
+            "whatIBuilt": "A fully custom festival website for a one-day Boston music festival, built on PayloadCMS 3.80 and Next.js 16. The stock Payload website template ships with a blog and four basic blocks. I kept the foundation — auth, admin panel, page builder, rich text editor — and rebuilt everything else into a festival-specific platform.",
+            "keyDecisions": [
+              {
+                "title": "24 custom block components",
+                "detail": "The stock template's generic content blocks couldn't handle festival-specific layouts. I built 24 purpose-built blocks — a lineup word cloud with artist names sized by billing tier, a day-tabbed schedule with stage grouping and 12h/24h time toggle, flip-card ticket tiers, interactive Leaflet venue maps with Stadia dark tiles, sponsor grids, FAQ accordions, and more. Every block exposes full admin-configurable styling: colors, 4-way padding, max width, background images, rounded corners, shadows, font sizes and weights. This gives organizers real design control without touching code."
+              },
+              {
+                "title": "Live Knokr database integration",
+                "detail": "Rather than duplicating data, the site reads directly from Knokr's shared PostgreSQL database — artist names, images, genres, billing tiers, social links, schedule events grouped by day and stage, venue coordinates, and festival metadata. All read-only. Data is managed in Knokr Base and displayed here, which means lineup updates in Base appear on the festival site without any manual sync."
+              },
+              {
+                "title": "Custom S3 media system",
+                "detail": "Payload's built-in media handling broke on Railway — files were wiped on every deploy, and the S3 plugin was unreliable. I replaced it entirely with a custom upload collection using beforeChange hooks for S3 uploads, afterDelete hooks for cleanup, a custom admin media library view with grid/list display, bulk upload, bulk delete, pagination, and a sync endpoint to reconcile existing S3 bucket files with database records. Local storage is fully disabled — everything goes directly to S3."
+              },
+              {
+                "title": "Multi-database architecture",
+                "detail": "The site runs against two PostgreSQL databases simultaneously — one for Payload's own content (pages, posts, admin users, CMS configuration) and one for the Knokr festival data (read-only connection). This required managing separate connection pools and handling Railway's constraint that internal PostgreSQL hostnames don't resolve during build, meaning schema has to be pushed via external URL before deployment."
+              },
+              {
+                "title": "Brand design system",
+                "detail": "Custom CSS variables and Tailwind theme with the client's palette, Moret serif font via Typekit for headings, golden ratio (1.618:1) for artist card images, and a rule of no opacity on text. Every block supports the full color palette through admin select fields, so the organizer controls brand consistency from the CMS."
+              }
+            ],
+            "whatILearned": "PayloadCMS is a solid foundation for generic content management, but festival websites have domain-specific requirements that push against a general-purpose CMS at every turn. The 24 custom blocks, the replaced media system, and the external database integration represent significant engineering effort that would need to be repeated for every new festival site. This experiment validated that the Knokr data layer works well for powering external sites, but also made the case for purpose-built festival site tooling rather than adapting a generic CMS — a finding that's informing the next phase of the platform.",
+            "architecture": "Next.js 16 with Turbopack, PayloadCMS 3.80, dual PostgreSQL databases (Payload + Knokr read-only), AWS S3 for media, Leaflet with Stadia Maps for venue maps, Tailwind CSS 4, Lexical rich text editor, Sharp for image processing. 232 TypeScript files. Deployed to Railway with Nixpacks."
+          }
         },
         {
           "title": "Orchestra",
           "url": "/projects/orchestra",
           "status": "Live — no longer under active development",
-          "description": "A community-driven platform for documenting band member relationships within the music industry. Enables music fans to search for artists and contribute band member information through a curated submission process, establishing primary, secondary, and tertiary artist relationship networks for music scene discovery and business intelligence.",
+          "description": "A focused experiment in mapping artist relationships within the music industry. Enables users to search across 50,000+ artists and contribute band member connections through a curated submission process, building primary, secondary, and tertiary relationship networks. Built as a standalone platform to rapidly test community-driven data contribution workflows and graph-based artist discovery — learnings that directly informed the comparison models and artist relationship features in Knokr Base.",
           "image": {
             "src": "/orchestra/orchestra.webp",
             "alt": "Orchestra platform preview"
@@ -222,7 +329,7 @@
           "title": "Nuncio",
           "url": "/projects/nuncio",
           "status": "Live — no longer under active development",
-          "description": "An open event curation platform that enables users to create and share unlimited lists of musical events without claiming artist, venue, or festival associations. Features AI-powered image extraction for tour dates, embeddable widgets, SEO-optimized public pages, and export formats including JSON-LD, iCal, and RSS feeds.",
+          "description": "An open event curation platform built to test AI-powered data extraction and public content distribution at speed. Users create and share unlimited event lists with AI-assisted tour date extraction from images, embeddable widgets, and export formats including JSON-LD, iCal, and RSS feeds. Served as a proving ground for the image extraction pipeline and structured data patterns later adopted in Knokr's lineup extraction system.",
           "image": {
             "src": "/nuncio/nuncio.webp",
             "alt": "Nuncio platform preview"
@@ -245,7 +352,7 @@
           "title": "Connections Plus",
           "url": "https://connections-plus.jayfallon.com",
           "status": "No longer under active development",
-          "description": "Connections Plus is a sophisticated daily word puzzle game that reimagines NYT Connections with an innovative multi-level  progression system. Players must identify groups of four related words across four increasingly challenging levels, but with a strategic twist: \"red herring\" words intentionally placed to create misdirection carry forward and accumulate across levels building layers of complexity as players progress from Easy through Medium and Hard to the Final level. Built with Next.js 15.5.3, React 19, and Redis Cloud, the full-stack application features a polished game interface with animations and visual feedback, comprehensive admin tools for puzzle creation with AI assistance, and a calendar-based content management system. The privacy-first design tracks anonymous player progress while enforcing daily play limits, creating an engaging puzzle experience that combines familiar mechanics with fresh strategic depth.",
+          "description": "A daily word puzzle game inspired by NYT Connections, featuring a multi-level progression system where red herring words accumulate across four difficulty tiers. Full-stack build with an admin interface for AI-assisted puzzle creation, calendar-based content scheduling, and anonymous player progress tracking. A fun side project that still exercises the full stack — auth, state management, content tooling, and polished UI with animations.",
           "image": {
             "src": "/connections/connections-homescreen.png",
             "alt": "Connections Plus game interface preview"
@@ -262,89 +369,31 @@
           ]
         },
         {
-          "title": "KnokrBoss",
-          "url": "https://festival-builder.vercel.app/",
+          "title": "Knokr — Earlier Iterations",
+          "url": "#",
           "status": "No longer under active development",
-          "description": "KnokrBoss is the comprehensive backoffice platform powering Knokr, built from the ground up to manage the complex workflows of the live music industry. The platform enables festival organizers to coordinate multi-stage events, handle artist bookings, and manage venue relationships through intuitive administrative tools. Key features include lineup builders, demo submission systems, real-time messaging for artist negotiations, and organization-level analytics dashboards. By streamlining everything from booking requests to event scheduling, Festival Builder provides the operational backbone that allows Knokr to connect artists, venues, and music fans seamlessly.",
+          "description": "The original Knokr platform: a frontend for social music discovery, a back office supporting festival scheduling from single-day showcases to multi-day, multi-city, multi-stage events with 100+ artists, and KnokrFetch — a Python-based scraping system that pulled event data from Bandsintown, Songkick, and Seated alongside custom parsers for Wix, WordPress, Squarespace, and bespoke sites. These earlier builds established the domain model, data acquisition patterns, and scheduling complexity that the current Knokr and Knokr Base architecture is built on.",
           "image": {
-            "src": "/knokr-boss/knokrboss-venues.png",
-            "alt": "KnokrBoss venues page preview"
+            "src": "/knokr/knokr-artists.png",
+            "alt": "Knokr v1 artists page preview"
           },
           "technologies": [
             "Next.js",
-            "PostgreSQL",
-            "Redis",
-            "TypeScript",
-            "Tailwind CSS",
-            "HeroUI",
-            "Supabase",
-            "Redis",
-            "HTML2Canvas",
-            "Jest",
-            "Amplify",
-            "S3",
-            "CloudFront",
-            "Claude AI API",
-            "Tiptap",
-            "Zod",
-            "Puppeteer",
-            "Testing Libray",
-            "AWS Lambdas"
-          ]
-        },
-        {
-          "title": "KnokrFetch",
-          "url": "#",
-          "status": "Offline — no longer under active development",
-          "description": "KnokrFetch is an AI-driven event validation system that powers the Knokr Platform by automatically discovering, validating, and consolidating artist tour data from fragmented sources across the web. The system employs machine learning to identify and learn event posting patterns across platforms like Bandsintown, Seated, Songkick, and custom websites, then validates and deduplicates this data to create authoritative artist and venue calendars. Processing 100+ artists weekly with 99.2% accuracy, KnokrFetch's intelligent algorithms adapt to different data formats and posting behaviors while its venue matching engine eliminates 95% of duplicate events and reduces booking conflicts by 85%. The platform features a real-time web interface for monitoring validation workflows, managing batch processing of up to 20 concurrent artists, and reviewing AI-flagged duplicates, ultimately transforming chaotic multi-source event data into clean, validated calendars that enable accurate engagement analytics for the Knokr Platform.",
-          "image": {
-            "src": "/knokr-fetch/knokrfetch-01.png",
-            "alt": "KnokrFetch page preview"
-          },
-          "technologies": [
             "Python",
             "FastAPI",
             "Selenium",
             "BeautifulSoup",
             "PostgreSQL",
-            "Supabase",
-            "WebSockets",
-            "asyncio",
-            "uvicorn",
-            "ChromeDriver",
-            "Pandas",
-            "scikit-learn",
-            "Jinja2",
-            "HTML5",
-            "CSS3",
-            "JavaScript",
-            "Claude AI API"
-          ]
-        },
-        {
-          "title": "Knokr v1",
-          "url": "https://knokr-v2.vercel.app/",
-          "status": "No longer under active development",
-          "description": "Knokr is a social music discovery platform that serves as the public-facing frontend for connecting music fans with live events. Users can discover artists, venues, and festivals, then create derivative fan events based on existing shows to gather with friends and enjoy music together. The platform enables fans to build communities around shared musical interests and coordinate group attendance at concerts and festivals.",
-          "image": {
-            "src": "/knokr/knokr-artists.png",
-            "alt": "Knokr artists page preview"
-          },
-          "technologies": [
-            "Next.js",
-            "PostgreSQL",
             "Redis",
             "TypeScript",
             "Tailwind CSS",
             "HeroUI",
             "Supabase",
-            "Redis",
-            "HTML2Canvas",
             "Jest",
-            "Amplify",
-            "S3",
+            "AWS S3",
             "CloudFront",
-            "Claude AI API"
+            "Claude AI API",
+            "AWS Lambdas"
           ]
         },
         {

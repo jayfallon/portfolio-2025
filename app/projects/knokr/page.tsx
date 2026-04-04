@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Knokr | Jay Fallon",
   description:
-    "Knokr is a unified festival discovery and lineup management platform that consolidates festival information into a single searchable interface with AI-powered extraction.",
+    "Knokr is a festival discovery and social platform that consolidates lineup data, schedules, and artist information across 1,400+ festivals and 50,000+ artists into a single searchable interface.",
 };
 
 const technologies = [
@@ -32,100 +32,7 @@ const technologies = [
   "Railway",
 ];
 
-const features = [
-  {
-    title: "Festival Discovery",
-    items: [
-      "Browse and Search: Filter festivals by location, genre, artist, and dates",
-      "Semantic Search: Vector embedding-based search for natural language queries",
-      "Full-Text Search: PostgreSQL tsvector indexing for precise text matching",
-      "Festival Detail Pages: Comprehensive lineup information with artist profiles",
-      "Artist Navigation: A-Z alphabetical browsing with pagination",
-    ],
-  },
-  {
-    title: "AI-Powered Lineup Extraction",
-    items: [
-      "Poster Upload: Extract artist names from festival poster images using Claude Vision API",
-      "Artist Matching: Automatically match extracted names to existing database records",
-      "Genre Discovery: Derive genre information from artist self-reporting",
-      "Lineup Assembly: Build complete festival lineups from extracted data",
-      "Database Enrichment: Add new artists and festival data in near real-time",
-    ],
-  },
-  {
-    title: "Dream Lineup Builder",
-    items: [
-      "Custom Festival Creation: Build hypothetical festivals with names, descriptions, genres, and locations",
-      "Artist Search and Selection: Add artists from the Knokr database to custom lineups",
-      "Lineup Organization: Drag-and-drop reordering with billing assignments",
-      "Stage and Schedule Management: Assign artists to performance days and stages",
-      "Poster Export: Generate PNG exports of custom lineup posters",
-      "Public Sharing: Publish dream lineups via unique URLs",
-    ],
-  },
-  {
-    title: "AI Decision Engine",
-    items: [
-      "Conversational Interface: Claude-powered chat for festival recommendations",
-      "Preference Analysis: Budget, location, genre, and artist preference consideration",
-      "Festival Comparison: Multi-festival trade-off analysis and ranking",
-      "Personalized Recommendations: Intelligent matching based on user constraints",
-    ],
-  },
-];
-
-const audienceValue = [
-  {
-    title: "For Festival Attendees",
-    items: [
-      "Unified Discovery: Single platform replacing dozens of individual festival websites",
-      "Informed Decisions: Comprehensive lineup data, artist relationships, and genre analysis",
-      "Comparison Tools: Dream lineup builder and AI decision engine for evaluating options",
-      "Real-Time Updates: Near real-time lineup changes through automated extraction",
-    ],
-  },
-  {
-    title: "For Festival Organizers",
-    items: [
-      "Data Management: Centralized platform for lineup information with extraction capabilities",
-      "Audience Reach: Public-facing pages providing festival visibility",
-      "Analytics Foundation: Usage data and search patterns informing promotional strategies",
-    ],
-  },
-  {
-    title: "For Knokr Ecosystem",
-    items: [
-      "Mobile App Foundation: Festival data layer for the mobile application in development",
-      "Data Acquisition: Automated extraction maintaining database freshness at scale",
-      "User Engagement: Public discovery features building awareness and adoption",
-      "Intelligence Layer: Genre insights and artist relationships from self-reported data",
-    ],
-  },
-];
-
-const targetUsers = [
-  {
-    title: "Festival Attendees",
-    description:
-      "Music fans seeking comprehensive festival information to make informed purchasing decisions",
-  },
-  {
-    title: "Festival Organizers",
-    description:
-      "Event managers requiring up-to-date lineup data management and public visibility",
-  },
-  {
-    title: "Mobile App Users",
-    description: "Future users of the Knokr mobile festival application",
-  },
-  {
-    title: "Music Community",
-    description: "Contributors improving artist data through the contribution system",
-  },
-];
-
-export default function LineupsPage() {
+export default function KnokrPage() {
   return (
     <div className="max-w-3xl lg:py-24">
       <Link
@@ -141,7 +48,7 @@ export default function LineupsPage() {
           Knokr
         </h1>
         <p className="mt-4 text-lg text-slate-400">
-          Festival Discovery and Lineup Management Platform
+          Festival Discovery and Social Platform
         </p>
         <Link
           href="https://knokr.com/"
@@ -168,7 +75,7 @@ export default function LineupsPage() {
       <div className="mb-12">
         <Image
           src="https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/lineups/lineups-lg.webp"
-          alt="Knokr Lineups platform screenshot"
+          alt="Knokr platform screenshot"
           width={1200}
           height={675}
           className="rounded-lg border border-slate-700/50"
@@ -177,140 +84,107 @@ export default function LineupsPage() {
       </div>
 
       <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">Overview</h2>
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">The Problem</h2>
         <p className="text-slate-400 leading-relaxed">
-          Knokr Lineups is a unified festival discovery and lineup management platform that
-          consolidates festival information into a single searchable interface. Built as an
-          evolution from a Python-based poster extraction tool, the platform enables users
-          to browse festivals by location, genre, and artist—eliminating the need to visit
-          dozens of individual festival websites to make informed purchasing decisions.
+          Festival information is scattered across hundreds of individual websites, each with
+          different formats, incomplete lineups, and no way to compare options. A fan trying to
+          decide between festivals has to manually check dozens of sites, cross-reference artists,
+          and guess at genre overlap. There&apos;s no unified layer connecting festivals, artists,
+          and attendees — and no tooling that helps fans make informed purchasing decisions across
+          the entire landscape.
+        </p>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">What I Built</h2>
+        <p className="text-slate-400 leading-relaxed">
+          Knokr is a festival discovery and social platform that consolidates lineup data,
+          schedules, and artist information across 1,400+ festivals and 50,000+ artists into
+          a single searchable interface. Beyond discovery, it connects festival attendees with
+          each other for social coordination around shared events.
         </p>
         <p className="mt-4 text-slate-400 leading-relaxed">
-          The platform serves dual audiences: festival attendees seeking comprehensive
-          lineup information and festival organizers requiring up-to-date data management.
-          Knokr Lineups operates as the data acquisition and public-facing layer for the
-          broader Knokr festival ecosystem, feeding the mobile festival application
-          currently in development.
+          The platform evolved through multiple iterations — starting as a Python-based poster
+          extraction tool that output CSV and JSON, progressing through standalone experiments
+          (Orchestra for artist relationships, Nuncio for event data distribution), and arriving
+          at the current Next.js architecture with a shared PostgreSQL infrastructure. Each
+          iteration validated specific capabilities before they were integrated into the
+          production platform.
         </p>
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">Purpose</h2>
-        <div className="space-y-4 text-slate-400 leading-relaxed">
+        <h2 className="mb-6 text-xl font-semibold text-slate-200">Key Technical Decisions</h2>
+        <div className="space-y-8">
           <div>
-            <h3 className="font-medium text-slate-300">Centralized Festival Information</h3>
-            <p>
-              Replace the fragmented experience of visiting individual festival websites
-              with a unified platform providing real-time lineup data, artist relationships,
-              and festival comparisons. Users access comprehensive festival information—lineups,
-              dates, locations, genres—through a single interface with advanced search and
-              filtering.
+            <h3 className="mb-3 font-medium text-slate-300">AI-Powered Lineup Extraction</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Festival posters are the primary way lineups are announced, but extracting structured
+              data from them is messy — inconsistent typography, creative layouts, and hundreds of
+              artist names per image. I built an extraction pipeline using Claude Vision API that
+              identifies artists from poster images, matches them against the existing 50,000+
+              artist database, derives genre information from artist self-reporting, and assembles
+              complete lineups. This is what makes it possible to maintain 1,400+ festivals without
+              manual data entry — a scale that would be infeasible to manage by hand when individual
+              festivals can have 100+ artists each.
             </p>
           </div>
           <div>
-            <h3 className="font-medium text-slate-300">Rapid Data Acquisition</h3>
-            <p>
-              Leverage AI-powered lineup extraction from festival posters to populate the
-              database at scale. The extraction tool identifies artists, builds festival
-              lineups, and derives genre information from artist self-reporting—enabling
-              near real-time data updates that would be infeasible to maintain manually
-              across hundreds of festivals with 100+ artists each.
+            <h3 className="mb-3 font-medium text-slate-300">Dual Search Architecture</h3>
+            <p className="text-slate-400 leading-relaxed">
+              The platform implements both semantic search using pgvector embeddings (for natural
+              language queries like &ldquo;chill electronic festivals near the coast&rdquo;) and
+              full-text search using PostgreSQL tsvector indexing (for precise artist and festival
+              name matching). Each serves a different user intent — discovery vs. lookup — and both
+              operate against the same dataset without requiring separate search infrastructure.
             </p>
           </div>
           <div>
-            <h3 className="font-medium text-slate-300">Decision Support</h3>
-            <p>
-              Provide festival comparison and recommendation tools to help users navigate
-              purchasing decisions constrained by budget, time, and artist availability.
-              The AI decision engine cuts through marketing hype to deliver personalized
-              recommendations based on user preferences, festival characteristics, and
-              lineup composition.
+            <h3 className="mb-3 font-medium text-slate-300">Dream Lineup Builder</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Users can construct hypothetical festivals with drag-and-drop artist ordering, stage
+              assignments, and schedule management using @dnd-kit — then export lineup posters as
+              PNGs via html-to-image or share via public URLs. This required solving state management
+              for complex nested drag operations across days, stages, and billing tiers, where a
+              single festival can span multiple days with multiple stages and dozens of artists
+              per stage.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-3 font-medium text-slate-300">Conversational Recommendation Engine</h3>
+            <p className="text-slate-400 leading-relaxed">
+              A Claude-powered decision engine that takes user constraints (budget, location, genre
+              preferences, must-see artists) and provides personalized festival comparisons with
+              trade-off analysis. Rather than presenting raw data, the engine synthesizes lineup
+              composition, geographic convenience, genre balance, and cost to surface what actually
+              matters for purchasing decisions.
             </p>
           </div>
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">
-          Competitive Differentiation
-        </h2>
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">Architecture</h2>
         <p className="text-slate-400 leading-relaxed">
-          Unlike listing services such as Music Festival Wizard, Knokr Lineups provides
-          deeper data relationships—artist connections, festival similarities, genre
-          analysis, and recommendation intelligence. The platform&apos;s extraction capabilities
-          and unified data model enable rapid updates across the entire festival database,
-          maintaining accuracy without manual intervention. Once the mobile application
-          launches, users will access all festival information through a single ecosystem
-          rather than maintaining bookmarks across dozens of festival websites.
+          Built on Next.js 16 with React 19, TypeScript, PostgreSQL with pgvector extensions,
+          Prisma ORM, and Redis caching. The application shares its database infrastructure with
+          Knokr Base, enabling both applications to operate against a unified data model — lineup
+          updates in Base appear on Knokr without manual sync. Media storage uses AWS S3 with
+          CloudFront CDN. Authentication via Clerk. UI built with HeroUI, Tailwind CSS, and
+          Framer Motion. Deployed to Railway.
         </p>
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-6 text-xl font-semibold text-slate-200">Core Features</h2>
-        <div className="grid gap-8 md:grid-cols-2">
-          {features.map((feature) => (
-            <div key={feature.title}>
-              <h3 className="mb-3 font-medium text-slate-300">{feature.title}</h3>
-              <ul className="space-y-2">
-                {feature.items.map((item, index) => (
-                  <li key={index} className="text-sm text-slate-400 leading-relaxed">
-                    <span className="text-teal-300">•</span>{" "}
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="mb-6 text-xl font-semibold text-slate-200">Strategic Value</h2>
-        <div className="space-y-6">
-          {audienceValue.map((audience) => (
-            <div key={audience.title}>
-              <h3 className="mb-3 font-medium text-slate-300">{audience.title}</h3>
-              <ul className="space-y-2">
-                {audience.items.map((item, index) => (
-                  <li key={index} className="text-sm text-slate-400 leading-relaxed">
-                    <span className="text-teal-300">•</span>{" "}
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="mb-6 text-xl font-semibold text-slate-200">Target Users</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {targetUsers.map((user) => (
-            <div
-              key={user.title}
-              className="rounded-lg border border-slate-700/50 bg-slate-800/30 p-4"
-            >
-              <h3 className="font-medium text-slate-300">{user.title}</h3>
-              <p className="mt-1 text-sm text-slate-400">{user.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">Development Evolution</h2>
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">What This Enables</h2>
         <p className="text-slate-400 leading-relaxed">
-          Knokr Lineups originated as a Python-based application focused on extracting
-          festival lineups from posters into CSV and JSON formats. Migration to Next.js
-          and React enabled rich interactions like drag-and-drop lineup management, poster
-          generation, Claude-powered extraction and decision engine, scalable architecture
-          with shared database and Redis caching, and a modern component-based design
-          system with HeroUI.
-        </p>
-        <p className="mt-4 text-slate-400 leading-relaxed">
-          The platform now serves as both production data acquisition tool and public-facing
-          festival discovery interface.
+          The shared data layer has proven extensible beyond the core platform. It now powers
+          Mojo Boston — a white-label festival website built on PayloadCMS that pulls lineup,
+          schedule, and venue data directly from the Knokr database, demonstrating a turnkey
+          B2B product for festival organizers. The same infrastructure also feeds Orchestra
+          (artist relationship mapping) and Nuncio (event curation and distribution), validating
+          that the data model supports multiple distinct consumption patterns from a single
+          source of truth.
         </p>
       </section>
 

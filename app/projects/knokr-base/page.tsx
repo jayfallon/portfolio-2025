@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Knokr Base | Jay Fallon",
   description:
-    "Knokr Base is a multi-tenant content management system designed specifically for the music industry, providing artists, venues, festivals, and sponsors with a free CMS and hosting platform.",
+    "Knokr Base is a multi-tenant CMS and administrative platform designed specifically for the music industry, managing the full lifecycle of data across 50,000+ artists and 1,400+ festivals.",
 };
 
 const technologies = [
@@ -19,7 +19,7 @@ const technologies = [
   "Redis",
   "BullMQ",
   "HeroUI",
-  "Tailwind CSS",
+  "Tailwind CSS 4",
   "Clerk",
   "AWS S3",
   "CloudFront",
@@ -28,131 +28,13 @@ const technologies = [
   "Vitest",
   "Playwright",
   "Testcontainers",
+  "Memlab",
   "Sentry",
+  "Winston",
   "Railway",
 ];
 
-const coreFeatures = [
-  {
-    title: "Multi-Tenant CMS Architecture",
-    items: [
-      "User Namespacing: Each user receives a site at /f/[username] with complete data isolation",
-      "Database-Driven Routing: URLs stored in database records, enabling dynamic page creation without code deployments",
-      "Page Builder: Component-based content creation with templates and draft/publish workflow",
-      "Entity-Specific Sites: Dedicated branded presence for verified artists, venues, festivals, and sponsors",
-      "Premium Subdomains: Custom domains for verified entities",
-    ],
-  },
-  {
-    title: "Music Industry Entity Management",
-    items: [
-      "Four Entity Types: Artists, Venues, Festivals, Sponsors with type-specific workflows",
-      "Entity Request System: Fan-initiated verification requests reviewed by admins",
-      "Official vs Fan Content: Distinction between verified entity content and community contributions",
-      "Ownership Transfer: Transfer venue/artist/festival ownership between users",
-      "Pending Entity Workflow: Bulk selection, promotion, and linking for unverified entities",
-    ],
-  },
-  {
-    title: "Event Management",
-    items: [
-      "Three Event Types: Official events, fan standalone events, and satellite events",
-      "Multi-Entity Events: Link multiple artists, venues, and festivals to single events",
-      "Geographic Discovery: City-based event search with radius filtering",
-      "Real-Time RSVP: Attendance tracking with commemorative digital ticket generation",
-      "Event Filters: Genre, price, accessibility, date range, and custom criteria",
-    ],
-  },
-  {
-    title: "Festival Operations",
-    items: [
-      "Festival Builder: Complete stage, event, and lineup management",
-      "CSV Bulk Upload: Import lineups at scale",
-      "Cruise Festivals: Support for ship-based and floating events",
-      "Poster Extraction Integration: Automated artist name extraction from festival posters",
-    ],
-  },
-  {
-    title: "Community and Networking",
-    items: [
-      "Fan Clubs: Automatic clubs for each entity (artist clubs, venue clubs, festival clubs)",
-      "Following System: Unified UI for following users, artists, venues, festivals, and sponsors",
-      "Road Trips: Multi-city concert tour planning with stop sequencing",
-      "Organizations: Team collaboration with role-based permissions and project management",
-    ],
-  },
-  {
-    title: "Discovery and Intelligence",
-    items: [
-      "Vector Search: Semantic search using pgvector with OpenAI embeddings",
-      "Full-Text Search: PostgreSQL tsvector indexing across all content",
-      "Music Discovery Graph: Graph-based artist discovery using Node2Vec and Louvain scene detection",
-      "Home Page Discovery: Personalized and trending recommendations",
-      "Enhanced Embeddings: Artist embeddings include country, region, genres, gender for improved matching",
-    ],
-  },
-];
-
-const problemsSolved = [
-  {
-    title: "Data Fragmentation and Inaccuracy",
-    description:
-      "The music industry operates through multiple closed systems producing inconsistent, inaccurate data. Knokr provides a centralized, networked platform where artists, venues, and festivals host authoritative information.",
-  },
-  {
-    title: "Technical Barriers to Online Presence",
-    description:
-      "Artists and small venues lack access to affordable, music-specific web infrastructure. Knokr provides a free CMS with hosting, removing technical barriers while offering music industry-specific features.",
-  },
-  {
-    title: "Digital Press Kit Distribution",
-    description:
-      "Organizations require artist information but traditionally rely on manual collection. Knokr generates networked digital press kits that organizations can programmatically access.",
-  },
-  {
-    title: "Content Management Without Technical Expertise",
-    description:
-      "Traditional CMS platforms require web administrators. Knokr's database-driven routing engine enables users to create pages without technical knowledge.",
-  },
-];
-
-const targetUsers = [
-  {
-    title: "Artists",
-    description: "Musicians and bands seeking free online presence with music-specific features",
-  },
-  {
-    title: "Venues",
-    description: "Music venues managing events and building fan communities",
-  },
-  {
-    title: "Festivals",
-    description: "Festival organizers coordinating multi-day lineups and ticket distribution",
-  },
-  {
-    title: "Sponsors",
-    description: "Music industry sponsors establishing brand presence",
-  },
-  {
-    title: "Fans",
-    description: "Music enthusiasts discovering events and planning concert tours",
-  },
-  {
-    title: "Organizations",
-    description: "Music industry teams collaborating on projects with role-based access",
-  },
-];
-
-const permissionTiers = [
-  { role: "SUPER_ADMIN", description: "Full system access, user management, entity verification" },
-  { role: "ADMIN", description: "CMS operations, limited user management" },
-  { role: "EDITOR", description: "Create and edit content, publish drafts" },
-  { role: "CONTRIBUTOR", description: "Create drafts only, no publishing" },
-  { role: "MEMBER", description: "Basic access, no administrative privileges" },
-  { role: "VIEWER", description: "Read-only access (organizations)" },
-];
-
-export default function KnokrPage() {
+export default function KnokrBasePage() {
   return (
     <div className="max-w-3xl lg:py-24">
       <Link
@@ -168,7 +50,7 @@ export default function KnokrPage() {
           Knokr Base
         </h1>
         <p className="mt-4 text-lg text-slate-400">
-          Multi-Tenant CMS for the Music Industry
+          Music Industry Data Platform and Back Office
         </p>
         <Link
           href="https://base.knokr.com/"
@@ -195,7 +77,7 @@ export default function KnokrPage() {
       <div className="mb-12">
         <Image
           src="https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr-base/knokr-lg.webp"
-          alt="Knokr platform screenshot"
+          alt="Knokr Base platform screenshot"
           width={1200}
           height={675}
           className="rounded-lg border border-slate-700/50"
@@ -204,167 +86,160 @@ export default function KnokrPage() {
       </div>
 
       <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">Overview</h2>
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">The Problem</h2>
         <p className="text-slate-400 leading-relaxed">
-          Knokr is a multi-tenant content management system designed specifically for the
-          music industry. It provides artists, venues, festivals, and sponsors with a free
-          CMS and hosting platform where they can manage their data, deploy to websites,
-          and network their content across the ecosystem. Built with database-driven routing,
-          the platform enables users to create pages without web administration expertise.
+          Managing 50,000+ artists and 1,400+ festivals requires more than a spreadsheet. The
+          data relationships are complex — artists play at multiple festivals, festivals share
+          artists across years, genres overlap and evolve, and venues host events across different
+          promoters. The music industry needed a purpose-built back office that could handle entity
+          management, content publishing, team collaboration, and data enrichment at scale — while
+          feeding multiple consumer-facing applications from a single source of truth.
         </p>
         <p className="mt-4 text-slate-400 leading-relaxed">
-          The system operates as the administrative backbone for the Knokr ecosystem,
-          providing CRUD operations for all entities while sharing its PostgreSQL database
-          with experimental products (Orchestra, Lineups, Nuncio). As features prove
-          valuable in isolated applications, they are merged into the base platform.
+          Beyond data management, artists and small venues lack access to affordable, music-specific
+          web infrastructure. Generic website builders don&apos;t understand discographies, lineup
+          management, or cross-entity networking. The industry needed a platform that removes
+          technical barriers while providing domain-specific tooling.
         </p>
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-6 text-xl font-semibold text-slate-200">Problems Solved</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {problemsSolved.map((problem) => (
-            <div
-              key={problem.title}
-              className="rounded-lg border border-slate-700/50 bg-slate-800/30 p-4"
-            >
-              <h3 className="font-medium text-slate-300">{problem.title}</h3>
-              <p className="mt-2 text-sm text-slate-400">{problem.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="mb-6 text-xl font-semibold text-slate-200">Core Features</h2>
-        <div className="grid gap-8 md:grid-cols-2">
-          {coreFeatures.map((feature) => (
-            <div key={feature.title}>
-              <h3 className="mb-3 font-medium text-slate-300">{feature.title}</h3>
-              <ul className="space-y-2">
-                {feature.items.map((item, index) => (
-                  <li key={index} className="text-sm text-slate-400 leading-relaxed">
-                    <span className="text-teal-300">•</span>{" "}
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">Permission System</h2>
-        <p className="mb-4 text-slate-400 leading-relaxed">
-          Six-tier role-based access control with Redis caching, achieving 90-95% latency
-          reduction through three-layer route protection: middleware, layout, and component.
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">What I Built</h2>
+        <p className="text-slate-400 leading-relaxed">
+          Knokr Base is a multi-tenant CMS and administrative platform designed specifically for
+          the music industry. It manages the full lifecycle of festival, artist, venue, and sponsor
+          data — from image uploading and lineup management to graph-based discovery and AI-powered
+          data enrichment. Every entity gets its own managed presence with a branded site at
+          /f/[username], and the platform serves as the data backbone for the entire Knokr ecosystem.
         </p>
-        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-          {permissionTiers.map((tier) => (
-            <div
-              key={tier.role}
-              className="rounded-lg border border-slate-700/50 bg-slate-800/30 p-3"
-            >
-              <h3 className="font-medium text-teal-300">{tier.role}</h3>
-              <p className="mt-1 text-xs text-slate-400">{tier.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">
-          Ecosystem Integration
-        </h2>
-        <p className="mb-4 text-slate-400 leading-relaxed">
-          Knokr serves as the integration platform for the broader ecosystem. External
-          tools share the database but operate independently, enabling rapid feature
-          iteration:
-        </p>
-        <ul className="space-y-2 text-slate-400">
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Orchestra:</strong> Crowdsourced band member
-            data with admin moderation UI
-          </li>
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Lineups:</strong> Festival lineup extraction
-            and AI recommendation engines
-          </li>
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Nuncio:</strong> Event list curation and
-            distribution with embeddable widgets
-          </li>
-        </ul>
         <p className="mt-4 text-slate-400 leading-relaxed">
-          Proven features from isolated applications merge into the base platform, which
-          will ultimately serve as the unified user-facing platform.
+          The system also operates as an integration platform — Orchestra, Knokr, and Nuncio share
+          its PostgreSQL database but operate independently, enabling rapid feature iteration in
+          isolation. As features prove valuable in these experimental products, they merge into
+          Base, which will ultimately serve as the unified user-facing platform.
         </p>
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">
-          Competitive Differentiation
-        </h2>
-        <p className="mb-4 text-slate-400 leading-relaxed">
-          Knokr competes with generic website builders (Squarespace, Wix, WordPress) by
-          providing:
+        <h2 className="mb-6 text-xl font-semibold text-slate-200">Key Technical Decisions</h2>
+        <div className="space-y-8">
+          <div>
+            <h3 className="mb-3 font-medium text-slate-300">Database-Driven Routing</h3>
+            <p className="text-slate-400 leading-relaxed">
+              URLs are defined in the database via NavigationItem records rather than filesystem
+              paths. This means content changes don&apos;t require code deployments — users can
+              create pages, restructure navigation, and publish content entirely through the CMS
+              without web administration expertise. It required building a routing engine that
+              resolves database records at request time while maintaining performance through Redis
+              caching. This is a meaningful differentiator against generic website builders, where
+              page creation typically requires either technical knowledge or rigid templates.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-3 font-medium text-slate-300">Multi-Tenant Entity Architecture</h3>
+            <p className="text-slate-400 leading-relaxed">
+              I designed a two-layer system separating entity types (Artist, Venue, Festival,
+              Sponsor tables with type-specific fields) from a unified Project container that
+              provides common functionality — pages, media, navigation, and permissions. Each user
+              gets their own namespace at /f/[username], with strict data isolation enforced at the
+              query level. This lets the same infrastructure serve individual artists, festival
+              organizers, venue managers, and sponsors without cross-contamination, while enabling
+              cross-entity features like networked digital press kits and multi-entity event linking.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-3 font-medium text-slate-300">Six-Tier Permission System</h3>
+            <p className="text-slate-400 leading-relaxed">
+              SUPER_ADMIN, ADMIN, EDITOR, CONTRIBUTOR, MEMBER, and VIEWER roles with three-layer
+              route protection (middleware → layout → component). Permission checks are Redis-cached
+              with 1-hour TTL, achieving 90-95% latency reduction on authorization. The system
+              includes audit logging for sensitive actions, ownership transfer workflows between
+              users, and organization-level team collaboration with role-based project management.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-3 font-medium text-slate-300">Music Discovery Graph</h3>
+            <p className="text-slate-400 leading-relaxed">
+              This is where the data science gets interesting. I built a graph-based artist discovery
+              system using festival co-occurrence data — if two artists frequently appear at the same
+              festivals, they&apos;re likely related musically. The system uses Node2Vec embeddings
+              to learn artist representations from the co-occurrence graph, then applies Louvain
+              community detection to identify music &ldquo;scenes&rdquo; automatically. An
+              anti-popularity scoring mechanism ensures recommendations surface emerging artists
+              rather than defaulting to headliners. A separate Python service handles scene
+              detection and graph analysis.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-3 font-medium text-slate-300">Background Worker Architecture</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Four BullMQ workers handle computationally intensive tasks without blocking the main
+              application: a graph-worker for relationship computation, an embedding-worker for
+              vector generation, an insights-worker for analytics processing, and a social-card-worker
+              for automated social media image generation. This separation keeps the user-facing
+              application responsive while enabling heavy data processing — critical when regenerating
+              embeddings or recomputing graph relationships across 50,000+ artists.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-3 font-medium text-slate-300">Vector Search with Enhanced Embeddings</h3>
+            <p className="text-slate-400 leading-relaxed">
+              OpenAI text-embedding-3-small generates embeddings enriched with artist metadata —
+              country, region, genres, gender — enabling semantic search that understands queries
+              like &ldquo;female electronic artists from Berlin&rdquo; without exact keyword
+              matching. The same embedding infrastructure powers festival lineup matching, similar
+              artist surfacing, and the home page discovery feed with both personalized and
+              trending modes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">Festival Operations</h2>
+        <p className="text-slate-400 leading-relaxed">
+          The platform includes a complete festival builder supporting everything from single-day
+          showcases to multi-day, multi-city, multi-stage events with 100+ artists. Features
+          include stage and schedule management, CSV bulk lineup upload, poster extraction
+          integration for automated artist name extraction, cruise festival support for ship-based
+          events, and a pending entity workflow for bulk selection, promotion, and linking of
+          unverified artists and venues.
         </p>
-        <ul className="space-y-2 text-slate-400">
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Music Industry Specialization:</strong>{" "}
-            Artist discographies, venue capacity management, festival lineup builders
-          </li>
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Networked Data Model:</strong> Cross-entity
-            relationships and discovery features
-          </li>
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Database-Driven Routing:</strong> Dynamic
-            page creation without code deployments
-          </li>
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Free Hosting:</strong> No cost barrier for
-            emerging artists and small venues
-          </li>
-          <li>
-            <span className="text-teal-300">•</span>{" "}
-            <strong className="text-slate-300">Vector Search:</strong> Semantic discovery
-            unavailable in traditional CMSs
-          </li>
-        </ul>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">Community Features</h2>
+        <p className="text-slate-400 leading-relaxed">
+          Beyond data management, the platform builds engagement through fan clubs (automatic for
+          each entity), a following system across all entity types, road trip planning for
+          multi-city concert tours with stop sequencing, real-time RSVP with commemorative digital
+          ticket generation, and an artist contribution system for community-driven data
+          improvements with admin review.
+        </p>
       </section>
 
       <section className="mb-12">
         <h2 className="mb-4 text-xl font-semibold text-slate-200">Testing and Quality</h2>
         <p className="text-slate-400 leading-relaxed">
-          Comprehensive testing strategy with 2,300+ tests including Vitest for unit and
-          integration testing, Playwright for end-to-end testing, Testcontainers for
-          database integration tests, and Memlab for memory leak detection. ESLint 9
-          with flat config ensures code quality.
+          614 test files across Vitest, Playwright, and Testcontainers. Tests cover API endpoints
+          with real PostgreSQL instances via Testcontainers, permission and RBAC validation, data
+          isolation between tenants, organization workflows, and multi-tenant boundary enforcement.
+          Memlab handles memory leak detection. ESLint 9 with flat config and TypeScript strict
+          mode enforce code quality. The project maintains 106+ detailed implementation guides
+          in documentation.
         </p>
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-6 text-xl font-semibold text-slate-200">Target Users</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {targetUsers.map((user) => (
-            <div
-              key={user.title}
-              className="rounded-lg border border-slate-700/50 bg-slate-800/30 p-4"
-            >
-              <h3 className="font-medium text-slate-300">{user.title}</h3>
-              <p className="mt-1 text-sm text-slate-400">{user.description}</p>
-            </div>
-          ))}
-        </div>
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">What This Enables</h2>
+        <p className="text-slate-400 leading-relaxed">
+          Knokr Base&apos;s shared PostgreSQL infrastructure feeds every application in the
+          ecosystem — Knokr (public discovery and social features), Mojo Boston (white-label
+          festival websites), Orchestra (artist relationship mapping), and Nuncio (event curation
+          and distribution). The data model has proven robust enough to support four distinct
+          consumption patterns from a single source of truth, validating the architecture for the
+          planned mobile application and public API.
+        </p>
       </section>
 
       <section className="mb-12">

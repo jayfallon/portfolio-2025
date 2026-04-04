@@ -97,12 +97,12 @@ class RedisPool {
   }
 
   private async createConnection(): Promise<RedisClient> {
+    if (!process.env.REDIS_PUBLIC_URL) {
+      throw new Error("REDIS_PUBLIC_URL is not set");
+    }
+
     const client = createClient({
       url: process.env.REDIS_PUBLIC_URL,
-      socket: {
-        connectTimeout: 5000,
-        keepAlive: 10000,
-      },
       name: `portfolio-app-${Date.now()}`,
       commandsQueueMaxLength: 100,
       disableOfflineQueue: true,
