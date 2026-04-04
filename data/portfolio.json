@@ -156,7 +156,7 @@
           "url": "/projects/knokr",
           "description": "A festival discovery and social platform that consolidates lineup data, schedules, and artist information across 1,400+ festivals and 50,000+ artists into a single searchable interface — replacing the fragmented experience of browsing dozens of individual festival websites. Features AI-powered lineup extraction from festival posters using Claude Vision API, semantic search with pgvector embeddings, a dream lineup builder with drag-and-drop organization, and a conversational recommendation engine for personalized festival comparisons. Beyond discovery, the platform connects festival attendees with each other, enabling social coordination around shared lineups and events. Evolved from an earlier Python-based extraction tool through multiple architectural iterations, with features validated through standalone experimental platforms before integration.",
           "image": {
-            "src": "/lineups/lineups.webp",
+            "src": "/knokr/knok-01-sm.webp",
             "alt": "Knokr Lineups platform preview"
           },
           "technologies": [
