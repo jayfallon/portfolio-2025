@@ -202,7 +202,7 @@
           "url": "/projects/knokr-base",
           "description": "The administrative backbone of the Knokr ecosystem — a multi-tenant back office managing the full lifecycle of data across 50,000+ artists and 1,400+ festivals. Handles image uploading and processing, festival metadata, lineup and schedule management, and artist profiles including show and festival histories. Implements comparison models for surfacing similar artists and festivals using graph-based relationships and vector similarity. Features database-driven routing that lets pages be created from the database rather than the filesystem, a five-tier permission system for multi-tenant access control, and vector search powered by OpenAI embeddings. Shares a PostgreSQL infrastructure with Knokr, enabling both applications to operate against a unified data model while serving distinct audiences — public discovery and internal data management.",
           "image": {
-            "src": "/knokr-base/knokr.webp",
+            "src": "/base/base-01-sm.webp",
             "alt": "Knokr platform preview"
           },
           "technologies": [
@@ -259,7 +259,7 @@
           "status": "Demo — awaiting final content and visual design",
           "description": "A turnkey festival website exploring PayloadCMS as a white-label foundation for festival organizers. Built for a client's one-day festival, the project started from Payload's stock website template (blog + 4 basic blocks) and required substantial rework — 24 custom block components, a complete S3 media system replacing Payload's broken upload pipeline, live database integration pulling lineup, schedule, and venue data from Knokr's shared PostgreSQL infrastructure, interactive Leaflet venue maps, and a brand-specific design system. The experiment validated both the value of the Knokr data layer for powering external sites and the limitations of adapting a generic CMS for domain-specific use cases — informing the architecture for purpose-built festival site tooling. 232 TypeScript files, multi-database architecture, deployed to Railway.",
           "image": {
-            "src": "/mojo-boston/mojo-boston-home.webp",
+            "src": "/mojo-boston/mojo-01-sm.webp",
             "alt": "Mojo Boston festival website preview"
           },
           "technologies": [
@@ -309,7 +309,7 @@
           "status": "Live — no longer under active development",
           "description": "A focused experiment in mapping artist relationships within the music industry. Enables users to search across 50,000+ artists and contribute band member connections through a curated submission process, building primary, secondary, and tertiary relationship networks. Built as a standalone platform to rapidly test community-driven data contribution workflows and graph-based artist discovery — learnings that directly informed the comparison models and artist relationship features in Knokr Base.",
           "image": {
-            "src": "/orchestra/orchestra.webp",
+            "src": "/orchestra/orchestra-01-sm.webp",
             "alt": "Orchestra platform preview"
           },
           "technologies": [
@@ -331,7 +331,7 @@
           "status": "Live — no longer under active development",
           "description": "An open event curation platform built to test AI-powered data extraction and public content distribution at speed. Users create and share unlimited event lists with AI-assisted tour date extraction from images, embeddable widgets, and export formats including JSON-LD, iCal, and RSS feeds. Served as a proving ground for the image extraction pipeline and structured data patterns later adopted in Knokr's lineup extraction system.",
           "image": {
-            "src": "/nuncio/nuncio.webp",
+            "src": "/nuncio/nuncio-01-sm.webp",
             "alt": "Nuncio platform preview"
           },
           "technologies": [
