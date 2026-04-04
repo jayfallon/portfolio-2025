@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
+import { ImageCarousel, type CarouselImage } from "@/components/ui/image-carousel";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -96,6 +96,13 @@ const relationshipTiers = [
   },
 ];
 
+const images: CarouselImage[] = [
+  {
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/orchestra/orchestra-lg.webp",
+    alt: "Orchestra platform screenshot",
+  },
+];
+
 export default function OrchestraPage() {
   return (
     <div className="max-w-3xl lg:py-24">
@@ -137,14 +144,7 @@ export default function OrchestraPage() {
       </header>
 
       <div className="mb-12">
-        <Image
-          src="https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/orchestra/orchestra-lg.webp"
-          alt="Orchestra platform screenshot"
-          width={1200}
-          height={675}
-          className="rounded-lg border border-slate-700/50"
-          priority
-        />
+        <ImageCarousel images={images} priority />
       </div>
 
       <section className="mb-12">
