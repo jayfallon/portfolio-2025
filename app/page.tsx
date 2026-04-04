@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getHomepageFromRedis } from "@/app/actions/get-homepage-from-redis";
 import Header from "@/components/Header";
 import About from "@/components/sections/About";
