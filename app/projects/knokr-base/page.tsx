@@ -72,6 +72,14 @@ const images: CarouselImage[] = [
 export default function KnokrBasePage() {
   return (
     <div className="max-w-3xl lg:py-24">
+      <div className="mb-8">
+        <Link href="/" className="text-4xl font-bold tracking-tight text-slate-200 sm:text-5xl hover:text-teal-300">
+          Jay Fallon
+        </Link>
+        <h2 className="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+          Full Stack Software Engineer
+        </h2>
+      </div>
       <Link
         href="/#projects"
         className="group mb-8 inline-flex items-center gap-2 text-sm font-medium text-slate-400 hover:text-teal-300"
