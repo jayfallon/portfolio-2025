@@ -98,16 +98,12 @@ class RedisPool {
 
   private async createConnection(): Promise<RedisClient> {
     const client = createClient({
-      password: process.env.REDIS_PASSWORD,
+      url: process.env.REDIS_PUBLIC_URL,
       socket: {
-        host: process.env.REDIS_HOST,
-        port: Number(process.env.REDIS_PORT),
         connectTimeout: 5000,
         keepAlive: 10000,
       },
-      // Add connection name
-      name: `takostan-app-${Date.now()}`,
-      // Command retry strategy
+      name: `portfolio-app-${Date.now()}`,
       commandsQueueMaxLength: 100,
       disableOfflineQueue: true,
       readonly: false,
