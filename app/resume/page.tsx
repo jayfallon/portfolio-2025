@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, Download } from "lucide-react";
+import { ContactInfo } from "@/components/ContactInfo";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -71,9 +72,7 @@ export default function ResumePage() {
         <p className="mt-4 text-lg text-slate-400">
           Full-Stack Software Engineer · UX Designer · Product Strategist
         </p>
-        <p className="mt-2 text-sm text-slate-500">
-          617-406-8027 · jayfallon@gmail.com · jayfallon.com
-        </p>
+        <ContactInfo />
       </header>
 
       <section className="mb-12">
