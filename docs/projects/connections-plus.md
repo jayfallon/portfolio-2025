@@ -1,155 +1,60 @@
-s# Connections Plus - Portfolio Project
+# Connections Plus
 
-A sophisticated daily word puzzle game that reimagines NYT Connections with innovative multi-level progression and strategic "red herring" mechanics.
+**Daily Word Puzzle Game with Multi-Level Progression**
 
-## 🎯 Project Overview
+**Visit Site:** https://connections-plus.jayfallon.net
 
-**Connections Plus** is a full-stack web application that transforms the classic word connection game into a multi-level experience with accumulating complexity. Built as a daily puzzle platform with comprehensive admin tools and player tracking.
+**Hero Image:** https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/connections/connections-lg.webp
 
-### Key Innovation: The Red Herring Strategy
+## The Problem
 
-Unlike traditional Connections, this game introduces **red herring words** that carry forward across levels, creating layers of misdirection until they're revealed as their own "Double Meanings" group in the final level.
+NYT Connections is a great daily puzzle, but it's a single-level experience — four groups, sixteen words, done. There's no escalation, no accumulating complexity, and no strategic depth beyond pattern recognition within a flat grid. I wanted to build something that rewards sustained attention across multiple rounds, where early decisions carry consequences into later levels.
 
-## 🏗 Technical Architecture
+## What I Built
 
-### Frontend Excellence
+Connections Plus is a daily word puzzle game that reimagines NYT Connections with a multi-level progression system. Players work through four increasingly challenging levels (Easy, Medium, Hard, Final), but with a strategic twist: "red herring" words intentionally placed for misdirection carry forward and accumulate across levels, building layers of complexity as players progress.
 
-- **Next.js 15** with App Router for modern React development
-- **TypeScript** throughout for type safety and developer experience
-- **HeroUI** component library for polished, accessible UI components
-- **Tailwind CSS v4** for utility-first styling and responsive design
-- **Framer Motion** for smooth animations and transitions
+The game ships with a full admin interface for AI-assisted puzzle creation, a calendar-based content scheduling system, and anonymous player progress tracking — all backed by Redis on Railway.
 
-### Backend & Data
+### The Red Herring Mechanic
 
-- **Redis Cloud** for high-performance data storage and caching
-- **Next.js API Routes** for serverless backend functionality
-- **Claude AI API** integration for intelligent word generation
-- **Basic Authentication** middleware for admin security
+- Level 1: 17 words (16 regular + 1 red herring)
+- Level 2: 18 words (16 regular + 2 accumulated red herrings)
+- Level 3: 19 words (16 regular + 3 accumulated red herrings)
+- Level 4: 16 words (12 regular + 4 red herrings revealed as the final "Double Meanings" group)
 
-### Key Technical Features
+Red herrings from early levels might actually belong to groups in later levels, creating misdirection and "aha!" moments that culminate in the Level 4 reveal.
 
-- **Anonymous Player Tracking** using localStorage + cookies
-- **Daily Puzzle System** with UTC midnight cutoffs
-- **Real-time Progress Saving** to Redis
-- **Responsive Grid System** handling 17-19 dynamic word layouts
-- **Date-based Game Scheduling** with calendar interface
+## Key Technical Decisions
 
-## 🎮 Game Design & Logic
+### Redis as Primary Data Store
 
-### Multi-Level Progression System
+The entire application runs on Redis — no SQL database. Game data, puzzle content, player progress, and scheduling all live in Redis on Railway. This keeps the architecture simple and fast (sub-second load times) for a use case that's fundamentally key-value: daily puzzles keyed by date, player progress keyed by anonymous ID.
 
-```
-Level 1: 17 words (16 regular + 1 red herring)
-Level 2: 18 words (16 regular + 2 accumulated red herrings)
-Level 3: 19 words (16 regular + 3 accumulated red herrings)
-Level 4: 16 words (12 regular + 4 red herrings as final group)
-```
+### AI-Assisted Puzzle Creation
 
-### Strategic Complexity
+The admin panel integrates Claude API for word generation, but with a red-herring-first workflow — the strategic misdirection words are designed before the regular groups, ensuring the game's core mechanic isn't an afterthought. A live preview system lets the creator validate puzzle quality before publishing.
 
-- Red herrings from early levels might actually belong to groups in later levels
-- Creates sophisticated misdirection and "aha!" moments
-- Culminates in epic Level 4 reveal of the "Double Meanings" group
+### Anonymous Player Tracking
 
-## 🛠 Admin & Content Management
+Players are tracked via localStorage + cookies with no personal data collection. The system enforces daily play limits (one puzzle per day), persists progress across browser sessions, and tracks mistake counts for performance ratings — all without accounts or sign-up.
 
-### Sophisticated Admin Panel
+### Dynamic Grid Layouts
 
-- **HeroUI DatePicker** for flexible puzzle scheduling
-- **AI-Powered Word Generation** using Claude API
-- **Red-Herring-First Workflow** ensuring strategic game design
-- **Live Preview System** for puzzle validation
-- **Basic Authentication** protection
+The word grid handles variable counts (17-19 words across levels) with a responsive layout that works on all screen sizes. This required solving grid reflow for non-standard counts while keeping the UI clean and touch-friendly on mobile.
 
-### Calendar Management System
+### Calendar-Based Content Scheduling
 
-- **Monthly Overview** of scheduled puzzles
-- **Visual Indicators** for published vs. unpublished dates
-- **CRUD Operations** for puzzle management
-- **Statistics Dashboard** showing creation progress
+A monthly calendar view with a HeroUI DatePicker lets the admin schedule puzzles in advance, see published vs. unpublished dates at a glance, and manage content with full CRUD operations. Games are tied to UTC midnight cutoffs for consistent daily rotation.
 
-## 🚀 Production Features
+## Architecture
 
-### Performance & Scalability
+Built on Next.js 16 with React 19, TypeScript, HeroUI component library, Tailwind CSS, and Framer Motion for animations. Redis on Railway serves as the sole data store. Admin panel secured with basic authentication. Deployed to Railway.
 
-- **Redis Caching** for sub-second game loading
-- **Vercel Deployment** with automatic builds
-- **Turbopack** for faster development builds
-- **TypeScript** for compile-time error prevention
+## What I Learned
 
-### User Experience
+Building a game with accumulating state across levels is a different kind of state management problem than typical CRUD apps. The red herring mechanic means every level's word set depends on decisions made in earlier levels — puzzle creation is inherently sequential and constrained. The AI-assisted workflow helps generate candidates, but the strategic design still requires human judgment to ensure the misdirection actually works.
 
-- **Mobile-Responsive** design for all screen sizes
-- **Progressive Enhancement** with graceful degradation
-- **Accessible UI** using HeroUI's ARIA-compliant components
-- **Intuitive Navigation** between game, admin, and calendar
+## Technology Stack
 
-### Data Management
-
-- **Anonymous Privacy** - no personal data collection
-- **Daily Limitations** - one puzzle per player per day
-- **Progress Persistence** across browser sessions
-- **Mistake Tracking** with performance ratings
-
-## 💡 Development Highlights
-
-### Problem-Solving
-
-- **Dynamic Grid Layouts** handling variable word counts (17-19 words)
-- **State Management** for complex multi-level game progression
-- **Date Handling** with proper UTC timezone management
-- **Authentication Flow** balancing security and usability
-
-### Code Quality
-
-- **Full TypeScript** implementation with strict type checking
-- **Component Architecture** using modern React patterns
-- **API Design** following RESTful principles
-- **Error Handling** with graceful user feedback
-
-### Innovation
-
-- **AI Integration** for content generation while maintaining human oversight
-- **Anonymous Player System** providing personalization without privacy concerns
-- **Red Herring Strategy** creating unique gameplay mechanics
-- **Calendar Scheduling** enabling content planning and management
-
-## 🎨 Design & UX
-
-### Visual Design
-
-- **Modern Component Library** (HeroUI) for consistency
-- **Color-Coded Difficulty** system with brand-specific colors
-- **Responsive Typography** optimized for readability
-- **Smooth Animations** enhancing user engagement
-
-### User Journey
-
-- **Intuitive Game Flow** from selection to completion
-- **Clear Feedback Systems** for correct/incorrect guesses
-- **Progressive Disclosure** of complexity across levels
-- **Achievement Recognition** with performance ratings
-
-## 📊 Technical Metrics
-
-- **13 Files Changed** in final implementation
-- **1,100+ Lines Added** of production-ready code
-- **9 API Endpoints** for complete functionality
-- **3 Main UI Views** (Game, Admin, Calendar)
-- **Zero External Dependencies** for core game logic
-- **Sub-second Load Times** with Redis caching
-
-## 🔮 Future Enhancements
-
-- **Player Analytics Dashboard** for engagement insights
-- **Social Sharing Features** similar to Wordle
-- **Mobile PWA Version** for app-like experience
-- **Advanced Admin Tools** with puzzle analytics
-- **Theme System** for seasonal content
-
----
-
-**Technologies:** Next.js 15, TypeScript, Redis, HeroUI, Tailwind CSS, Claude AI API, Vercel  
-**Live Demo:** [connections-plus.jayfallon.com](https://connections-plus.jayfallon.com)  
-**Repository:** Private - Available upon request
+Next.js 16, React 19, TypeScript, Redis, HeroUI, Tailwind CSS, Claude AI API, Framer Motion, Railway

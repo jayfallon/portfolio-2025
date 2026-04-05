@@ -350,15 +350,15 @@
         },
         {
           "title": "Connections Plus",
-          "url": "https://connections-plus.jayfallon.com",
+          "url": "/projects/connections-plus",
           "status": "No longer under active development",
           "description": "A daily word puzzle game inspired by NYT Connections, featuring a multi-level progression system where red herring words accumulate across four difficulty tiers. Full-stack build with an admin interface for AI-assisted puzzle creation, calendar-based content scheduling, and anonymous player progress tracking. A fun side project that still exercises the full stack — auth, state management, content tooling, and polished UI with animations.",
           "image": {
-            "src": "/connections/connections-homescreen.png",
+            "src": "/connections/connections-01-sm.webp",
             "alt": "Connections Plus game interface preview"
           },
           "technologies": [
-            "Next.js 15",
+            "Next.js 16",
             "TypeScript",
             "Redis",
             "HeroUI",
