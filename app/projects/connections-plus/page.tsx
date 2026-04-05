@@ -146,6 +146,16 @@ export default function ConnectionsPlusPage() {
             </p>
           </div>
           <div>
+            <h3 className="mb-3 font-medium text-slate-300">Game State Persistence</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Game progress — solved groups, current level, mistakes — persists to localStorage
+              after every action. On page load, saved state is restored so the player picks up
+              exactly where they left off. State clears when the player clicks &ldquo;Play
+              Again&rdquo; or &ldquo;Start Over.&rdquo; No login or server-side player tracking
+              required — the browser holds the state.
+            </p>
+          </div>
+          <div>
             <h3 className="mb-3 font-medium text-slate-300">Content Scheduling</h3>
             <p className="text-slate-400 leading-relaxed">
               A calendar-based admin view for managing puzzle inventory across months. Each puzzle
