@@ -304,6 +304,58 @@
           }
         },
         {
+          "title": "Knokr Predictor",
+          "url": "/projects/knokr-predictor",
+          "status": "Ongoing development",
+          "description": "A festival lineup prediction system that generates probable artist bookings for upcoming festival editions using Knokr's music discovery graph. Queries 3.3M pre-computed artist co-occurrence edges weighted across eight signal types (shared festivals, shared venues, band members, local/national scene overlap), combined with Louvain community detection scoring and genre-depth multipliers to rank candidates against a festival's existing lineup profile. Features automatic similar festival discovery, weighted random sampling with square-root flattening for variety, confidence tiering, and per-artist contributing factor breakdowns. Python prediction engine (FastAPI, asyncpg) communicating with a Next.js frontend via Redis queue, both reading from the shared Knokr PostgreSQL database. Deployed to Railway.",
+          "image": {
+            "src": "/predictor/predictor-01-sm.webp",
+            "alt": "Predictor platform preview"
+          },
+          "technologies": [
+            "FastAPI",
+            "asyncpg",
+            "Redis",
+            "Next.js 16",
+            "React 19",
+            "TypeScript",
+            "Prisma",
+            "PostgreSQL",
+            "HeroUI",
+            "Tailwind CSS 4",
+            "Railway"
+          ],
+          "projectPage": {
+            "problem": "Fans want to know who's playing next year's festival before the lineup drops. Festival lineups aren't random — they follow patterns driven by genre, geography, booking relationships, and artist touring circuits. The question was whether Knokr's existing music discovery graph (3.3M artist co-occurrence edges, Louvain scene detection, weighted connection signals) contained enough signal to generate plausible lineup predictions without a traditional ML model.",
+            "whatIBuilt": "A two-service prediction system: a Python engine (FastAPI, asyncpg) that queries pre-computed graph data on demand, and a Next.js frontend for browsing festivals and viewing predictions. Both services read from the shared Knokr PostgreSQL database and communicate via Redis queue. Deployed to Railway as separate services within the Knokr project. The system does not train a model or load data into memory. It queries the existing graph data per-request — 3.3M ArtistConnection rows weighted across eight signal types, 27K SceneMember records from Louvain community detection, and 56K FestivalLineup entries — to score and rank candidates for each festival.",
+            "keyDecisions": [
+              {
+                "title": "Graph-based candidate scoring",
+                "detail": "The prediction starts with a festival's current lineup and automatically discovers up to 5 similar festivals based on shared artists and genre overlap. The combined lineups form a seed pool. For each seed artist, the engine queries their ArtistConnection edges (weighted co-occurrence) and SceneMember associations (Louvain communities) to build a candidate pool. Candidates are scored by connection weight sum, scene affinity (SceneMember.score × FestivalScene.strength), and a genre-depth multiplier that rewards artists matching multiple festival genres."
+              },
+              {
+                "title": "Eight-signal connection weights",
+                "detail": "The ArtistConnection table captures eight types of relationships, each with a different weight maintained by the graph worker in Knokr Base: LOCAL_SCENE (city + region + genre, weight 8), SHARED_MEMBER (band members, 7), SAME_EVENT (6), SAME_FESTIVAL_DAY (5), SAME_VENUE (4), SAME_FESTIVAL (3), NATIONAL_SCENE (country + genre, 2), and SAME_COUNTRY (1)."
+              },
+              {
+                "title": "Weighted random sampling with square-root flattening",
+                "detail": "Scores are flattened with square root to reduce dominance by heavily-connected artists, then sampled without replacement using weighted random selection. Each request gets a fresh random seed, so regenerating produces a different lineup. Confidence scores are relative — highest scorer in the batch gets 100%, not a probability of appearing."
+              },
+              {
+                "title": "Confidence tiering and factor breakdowns",
+                "detail": "Results are grouped into three tiers: High Confidence (≥70%), There's a Chance (40-70%), and Probably Not (<40%). Each predicted artist includes the top 5 contributing factors showing which lineup artists drove the prediction."
+              },
+              {
+                "title": "Hard filtering for quality",
+                "detail": "Candidates are hard-filtered: must share at least one genre with the festival, must have complete profile data (image, location, genres), must not be retired or a duplicate record. This ensures every prediction in the output is a plausible, presentable result."
+              }
+            ],
+            "currentAccuracy": "Based on manual review against known lineups: genre relevance ~70% (target 90%+), artist plausibility ~50% (target 75%+), geographic fit ~30% (target 70%+), confidence calibration poor (target meaningful), regeneration variety good.",
+            "knownWeaknesses": "Geographic weighting is the biggest gap — a Barcelona festival should predict more Spanish/European acts but geography isn't factored into scoring yet. Connection weight normalization is needed to prevent artists who appear at 20+ festivals from dominating every prediction. Other planned improvements include rebooking avoidance (penalizing artists from the most recent edition), top-3 genre filtering to prevent over-permissive matching on festivals with 30+ genre tags, billing tier prediction using popularity and career data, and a supervised ML layer once the graph-based predictions stabilize.",
+            "architecture": "FastAPI, asyncpg, Redis, Next.js 16, React 19, TypeScript, Prisma 6, PostgreSQL, HeroUI, Tailwind CSS 4, Railway. Python prediction engine communicating with a Next.js frontend via Redis queue, both reading from the shared Knokr PostgreSQL database."
+          }
+        },
+        {
           "title": "Orchestra",
           "url": "/projects/orchestra",
           "status": "Live — no longer under active development",

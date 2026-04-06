@@ -96,7 +96,7 @@ export default function Projects({ data }: { data: ProjectsSection }) {
               </ul>
             </div>
             <div className="relative order-first sm:order-1 sm:col-span-2">
-              {project.url && project.url.startsWith("/") ? (
+              {project.image && (project.url && project.url.startsWith("/") ? (
                 <Link href={project.url}>
                   <Image
                     src={project.image.src.startsWith('/images/') ? project.image.src : `${S3_PORTFOLIO_URL}${project.image.src}`}
@@ -116,7 +116,7 @@ export default function Projects({ data }: { data: ProjectsSection }) {
                   className="w-full rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:w-auto"
                   priority
                 />
-              )}
+              ))}
             </div>
           </div>
         ))}
