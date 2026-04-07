@@ -36,35 +36,35 @@ const technologies = [
 
 const images: CarouselImage[] = [
   {
-    src: "https://d381oh62lm94pz.cloudfront.net/base/carousel/base-01.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-01.webp",
     alt: "Knokr Base platform screenshot",
   },
   {
-    src: "https://d381oh62lm94pz.cloudfront.net/base/carousel/base-02.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-02.webp",
     alt: "Knokr Base platform screenshot",
   },
   {
-    src: "https://d381oh62lm94pz.cloudfront.net/base/carousel/base-03.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-03.webp",
     alt: "Knokr Base platform screenshot",
   },
   {
-    src: "https://d381oh62lm94pz.cloudfront.net/base/carousel/base-04.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-04.webp",
     alt: "Knokr Base platform screenshot",
   },
   {
-    src: "https://d381oh62lm94pz.cloudfront.net/base/carousel/base-05.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-05.webp",
     alt: "Knokr Base platform screenshot",
   },
   {
-    src: "https://d381oh62lm94pz.cloudfront.net/base/carousel/base-06.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-06.webp",
     alt: "Knokr Base platform screenshot",
   },
   {
-    src: "https://d381oh62lm94pz.cloudfront.net/base/carousel/base-07.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-07.webp",
     alt: "Knokr Base platform screenshot",
   },
   {
-    src: "https://d381oh62lm94pz.cloudfront.net/base/carousel/base-08.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/base/carousel/base-08.webp",
     alt: "Knokr Base platform screenshot",
   },
 ];

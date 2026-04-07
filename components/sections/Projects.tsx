@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ProjectsSection } from "@/types/portfolio";
 
-const CDN_URL = process.env.NEXT_PUBLIC_CLOUDFRONT_URL || "https://d381oh62lm94pz.cloudfront.net";
+const S3_PORTFOLIO_URL = "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com";
 
 export default function Projects({ data }: { data: ProjectsSection }) {
   return (
@@ -99,7 +99,7 @@ export default function Projects({ data }: { data: ProjectsSection }) {
               {project.image && (project.url && project.url.startsWith("/") ? (
                 <Link href={project.url}>
                   <Image
-                    src={project.image.src.startsWith('/images/') ? project.image.src : `${CDN_URL}${project.image.src}`}
+                    src={project.image.src.startsWith('/images/') ? project.image.src : `${S3_PORTFOLIO_URL}${project.image.src}`}
                     alt={project.image.alt}
                     width={200}
                     height={125}
@@ -109,7 +109,7 @@ export default function Projects({ data }: { data: ProjectsSection }) {
                 </Link>
               ) : (
                 <Image
-                  src={project.image.src.startsWith('/images/') ? project.image.src : `${CDN_URL}${project.image.src}`}
+                  src={project.image.src.startsWith('/images/') ? project.image.src : `${S3_PORTFOLIO_URL}${project.image.src}`}
                   alt={project.image.alt}
                   width={200}
                   height={125}

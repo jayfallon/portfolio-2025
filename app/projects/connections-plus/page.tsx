@@ -24,23 +24,23 @@ const technologies = [
 
 const images: CarouselImage[] = [
   {
-    src: "https://d381oh62lm94pz.cloudfront.net/connections/carousel/connections-01.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/connections/carousel/connections-01.webp",
     alt: "Connections Plus game interface",
   },
   {
-    src: "https://d381oh62lm94pz.cloudfront.net/connections/carousel/connections-02.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/connections/carousel/connections-02.webp",
     alt: "Connections Plus game interface",
   },
   {
-    src: "https://d381oh62lm94pz.cloudfront.net/connections/carousel/connections-03.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/connections/carousel/connections-03.webp",
     alt: "Connections Plus game interface",
   },
   {
-    src: "https://d381oh62lm94pz.cloudfront.net/connections/carousel/connections-3a.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/connections/carousel/connections-3a.webp",
     alt: "Connections Plus game interface",
   },
   {
-    src: "https://d381oh62lm94pz.cloudfront.net/connections/carousel/connections-04.webp",
+    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/connections/carousel/connections-04.webp",
     alt: "Connections Plus game interface",
   },
 ];
