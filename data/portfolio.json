@@ -356,6 +356,59 @@
           }
         },
         {
+          "title": "Knokr Fetch",
+          "url": "/projects/knokr-fetch",
+          "status": "Ongoing development",
+          "description": "An intelligent event data extraction system that automatically harvests, verifies, deduplicates, and stages concert and tour event data from artist websites across the music industry. Python FastAPI backend with a multi-strategy extraction pipeline: JSON-LD structured data first, then platform widget detection (Bandsintown, Songkick, Seated), custom HTML parsing, and Claude LLM fallback for unstructured pages. Headless Chrome via Selenium for JavaScript-rendered content. Parallel job processing with asyncio semaphore-gated concurrency, WebSocket real-time progress streaming, and subprocess isolation per artist. Processes 52K artists with 99%+ accuracy on structured sources, handles 13+ international date formats, and deduplicates by content composite key rather than URL. PostgreSQL for production data, SQLite for local job persistence.",
+          "image": {
+            "src": "/knokr-fetch/fetch-01-sm.webp",
+            "alt": "Knokr Fetch platform preview"
+          },
+          "technologies": [
+            "Python",
+            "FastAPI",
+            "asyncio",
+            "Selenium",
+            "BeautifulSoup 4",
+            "Anthropic Claude API",
+            "httpx",
+            "psycopg2",
+            "SQLite",
+            "WebSocket",
+            "PostgreSQL"
+          ],
+          "projectPage": {
+            "problem": "Knokr tracks 52K artists across 1,400+ festivals, but tour date data lives on thousands of individual artist websites in wildly different formats — JSON-LD structured data, Bandsintown widgets, Songkick embeds, Seated iframes, custom HTML tables, React SPAs, and plain text listings. No single API covers the full catalog. Information is fragmented across dozens of platforms, leading to duplicates, missing data, and inconsistency. Manual data collection doesn't scale. The system needed to automatically detect the page format, extract structured event data, handle JavaScript-rendered content, and keep data current without re-processing unchanged pages.",
+            "whatIBuilt": "A production-grade Python system built on FastAPI that implements a hierarchical, multi-strategy extraction pipeline. The core fetcher (4,142 lines) adapts its approach based on what it finds on each artist's website — trying the most reliable extraction method first and falling back through progressively less deterministic options. The system runs headless Chrome via Selenium for JavaScript-rendered widgets, uses the Anthropic Claude API as a last-resort fallback for unstructured pages, and processes all extracted events through a rigorous cleaning pipeline that handles 13+ international date formats and deduplicates by content rather than URL. Parallel job processing with asyncio, WebSocket progress streaming, and subprocess isolation ensure one failing artist site can't affect a batch of thousands.",
+            "keyDecisions": [
+              {
+                "title": "Six-strategy extraction cascade",
+                "detail": "The fetcher implements a hierarchical strategy: (1) JSON-LD structured data from schema.org tags, (2) Bandsintown API/widget extraction with iframe traversal, (3) Songkick widget detection with platform-specific wait conditions, (4) Seated widget API calls with sold-out status detection, (5) Custom HTML parsing with CSS selectors and regex patterns, (6) Claude LLM fallback with cost-optimized HTML preprocessing. The most reliable and cheapest methods run first — LLM is the last resort, not the first choice."
+              },
+              {
+                "title": "Deduplication by content, not URL",
+                "detail": "Events are keyed on (artist_id, venue, date, time) rather than source URL. This was a hard-won lesson: 25 Ed Sheeran events all shared a single source URL and were being incorrectly collapsed into one. Content-based deduplication catches true duplicates regardless of how many pages reference the same event."
+              },
+              {
+                "title": "Process isolation per artist",
+                "detail": "Each artist fetch runs as an independent Python subprocess with a 5-minute timeout. A crash, timeout, or unexpected HTML on one artist's site cannot affect others in the batch. The parallel job manager uses asyncio.Semaphore for concurrency control (configurable 1-20 simultaneous fetches) and asyncio.to_thread() to bridge blocking Selenium calls to the async event loop."
+              },
+              {
+                "title": "Cost-optimized LLM integration",
+                "detail": "When Claude is needed, HTML is preprocessed to strip scripts, styles, nav, footer, and ad containers — reducing token cost significantly. The default model is claude-haiku for cost efficiency, with automatic fallback to claude-sonnet for complex pages. Output is requested as CSV (fewer tokens than JSON). Max 4,000 tokens per request. Rate limit handling with 60-second retry and model escalation."
+              },
+              {
+                "title": "Selenium browser automation",
+                "detail": "Many artist sites render event widgets client-side with JavaScript. The fetcher runs headless Chrome via Selenium WebDriver with platform-specific wait strategies: Bandsintown widgets get 4-7 seconds, Seated widgets up to 12 seconds on retry, Songkick widgets 4-7 seconds. The integration handles iframe extraction, content switching, and JavaScript-heavy SPAs that HTTP requests alone cannot process."
+              }
+            ],
+            "currentAccuracy": "JSON-LD and widget-based extraction produces structured data with 99%+ accuracy. LLM-parsed events achieve ~85% accuracy on date extraction and ~90% on venue/location data, with output validation catching most parsing errors before database insertion. Date normalization handles 13+ international formats including ISO, US, EU, textual, and relative dates. Location parsing covers all 50 US states, 40+ countries, and common aliases.",
+            "knownWeaknesses": "Some artist tour pages use third-party ticketing iframes that don't expose event data in the accessible HTML. Date format ambiguity (MM/DD vs DD/MM) requires locale-aware parsing that isn't fully implemented for all regions. LLM extraction costs scale with the number of artists lacking widget integrations. Selenium browser instances consume significant memory at high concurrency.",
+            "architecture": "Python, FastAPI, asyncio, Selenium, BeautifulSoup 4, Anthropic Claude API, httpx, psycopg2, SQLite, WebSocket, PostgreSQL. Single-service deployment with parallel job processing, subprocess isolation, and persistent job storage."
+          }
+        },
+
+        {
           "title": "Orchestra",
           "url": "/projects/orchestra",
           "status": "Live — no longer under active development",
