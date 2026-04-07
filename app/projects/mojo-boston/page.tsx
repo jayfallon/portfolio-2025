@@ -26,35 +26,35 @@ const technologies = [
 
 const images: CarouselImage[] = [
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/mojo-boston/carousel/mojo-01.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/mojo-boston/carousel/mojo-01.webp",
     alt: "Mojo Boston festival website screenshot",
   },
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/mojo-boston/carousel/mojo-02.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/mojo-boston/carousel/mojo-02.webp",
     alt: "Mojo Boston festival website screenshot",
   },
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/mojo-boston/carousel/mojo-03.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/mojo-boston/carousel/mojo-03.webp",
     alt: "Mojo Boston festival website screenshot",
   },
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/mojo-boston/carousel/mojo-04.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/mojo-boston/carousel/mojo-04.webp",
     alt: "Mojo Boston festival website screenshot",
   },
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/mojo-boston/carousel/mojo-05.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/mojo-boston/carousel/mojo-05.webp",
     alt: "Mojo Boston festival website screenshot",
   },
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/mojo-boston/carousel/mojo-06.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/mojo-boston/carousel/mojo-06.webp",
     alt: "Mojo Boston festival website screenshot",
   },
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/mojo-boston/carousel/mojo-07.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/mojo-boston/carousel/mojo-07.webp",
     alt: "Mojo Boston festival website screenshot",
   },
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/mojo-boston/carousel/mojo-08.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/mojo-boston/carousel/mojo-08.webp",
     alt: "Mojo Boston festival website screenshot",
   },
 ];

@@ -25,11 +25,11 @@ const technologies = [
 
 const images: CarouselImage[] = [
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/predictor/carousel/predictor-01.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/predictor/carousel/predictor-01.webp",
     alt: "Knokr Predictor screenshot",
   },
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/predictor/carousel/predictor-02.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/predictor/carousel/predictor-02.webp",
     alt: "Knokr Predictor screenshot",
   },
 ];

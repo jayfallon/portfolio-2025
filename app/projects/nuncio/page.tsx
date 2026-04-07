@@ -86,15 +86,15 @@ const targetUsers = [
 
 const images: CarouselImage[] = [
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/nuncio/carousel/nuncio-01.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/nuncio/carousel/nuncio-01.webp",
     alt: "Nuncio platform screenshot",
   },
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/nuncio/carousel/nuncio-02.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/nuncio/carousel/nuncio-02.webp",
     alt: "Nuncio platform screenshot",
   },
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/nuncio/carousel/nuncio-03.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/nuncio/carousel/nuncio-03.webp",
     alt: "Nuncio platform screenshot",
   },
 ];

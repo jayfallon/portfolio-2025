@@ -100,15 +100,15 @@ const relationshipTiers = [
 
 const images: CarouselImage[] = [
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/orchestra/carousel/orchestra-01.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/orchestra/carousel/orchestra-01.webp",
     alt: "Orchestra platform screenshot",
   },
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/orchestra/carousel/orchestra-02.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/orchestra/carousel/orchestra-02.webp",
     alt: "Orchestra platform screenshot",
   },
   {
-    src: "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/orchestra/carousel/orchestra-03.webp",
+    src: "https://dbf43z1u0dmox.cloudfront.net/orchestra/carousel/orchestra-03.webp",
     alt: "Orchestra platform screenshot",
   },
 ];
