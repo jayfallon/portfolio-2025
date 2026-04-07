@@ -101,8 +101,8 @@ export default function Projects({ data }: { data: ProjectsSection }) {
                   <Image
                     src={project.image.src.startsWith('/images/') ? project.image.src : `${CDN_URL}${project.image.src}`}
                     alt={project.image.alt}
-                    width={200}
-                    height={125}
+                    width={600}
+                    height={371}
                     className="w-full rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:w-auto"
                     priority
                   />
@@ -111,8 +111,8 @@ export default function Projects({ data }: { data: ProjectsSection }) {
                 <Image
                   src={project.image.src.startsWith('/images/') ? project.image.src : `${CDN_URL}${project.image.src}`}
                   alt={project.image.alt}
-                  width={200}
-                  height={125}
+                  width={600}
+                  height={371}
                   className="w-full rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:w-auto"
                   priority
                 />
