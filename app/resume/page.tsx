@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Resume | Jay Fallon",
   description:
-    "Full-stack architect specializing in domain-specific platform development with expertise in multi-tenant systems, database architecture, and AI integration.",
+    "Full-stack architect specializing in domain-specific platform development. Designs and implements complex, multi-tenant systems that solve real industry problems.",
 };
 
 const technicalSkills = [
@@ -39,6 +39,11 @@ const technicalSkills = [
     skills:
       "Railway, AWS (S3, Lambda, CloudFront), Vercel, Docker Compose, CI/CD pipelines, Sentry, Winston",
   },
+  {
+    category: "Additional",
+    skills:
+      "Clerk authentication, Zod validation, MongoDB, MySQL, Firebase, Storybook, Prismic, Agile methodologies, Cassandra",
+  },
 ];
 
 const knokrComponents = [
@@ -53,9 +58,19 @@ const knokrComponents = [
       "Multi-tenant back office with database-driven routing, graph-based discovery, vector search, and six-tier permissions",
   },
   {
+    name: "Knokr Predictor",
+    description:
+      "Festival lineup prediction engine — Python/FastAPI service querying 3.3M co-occurrence edges with Louvain scene detection and weighted scoring",
+  },
+  {
     name: "Mojo Boston",
     description:
       "White-label festival website on PayloadCMS with 24 custom blocks, live Knokr data integration, and custom S3 media system",
+  },
+  {
+    name: "KnokrFetch",
+    description:
+      "Python-based event scraping system pulling data from Bandsintown, Songkick, Seated, and custom site parsers for Wix, WordPress, and Squarespace",
   },
   {
     name: "Orchestra",
@@ -102,11 +117,9 @@ export default function ResumePage() {
         <h2 className="mb-4 text-xl font-semibold text-slate-200">Summary</h2>
         <p className="text-slate-400 leading-relaxed">
           Full-stack architect specializing in domain-specific platform development. I design and
-          implement complex, multi-tenant systems that solve real industry problems — from
-          database-driven routing engines and AI-powered data extraction pipelines to graph-based
-          discovery algorithms and background worker architectures. My background combines
-          enterprise experience (Form Health, Dassault Systèmes, Bose, Cengage) with
-          interdisciplinary education — B.S. in Business Administration (International Business,
+          implement complex, multi-tenant systems that solve real industry problems. My background
+          combines enterprise experience (Form Health, Dassault Systèmes, Bose, Cengage) with
+          interdisciplinary education—B.S. in Business Administration (International Business,
           Finance) from Northeastern University and ALM in Digital Media Design from Harvard
           University.
         </p>
@@ -134,10 +147,10 @@ export default function ResumePage() {
             </h3>
             <p className="text-slate-500 text-sm">2017 – 2019</p>
             <p className="text-sm text-slate-400 mt-1">
-              Completed through Harvard Extension School, focusing on user experience design,
-              interaction design, and digital media production. Developed comprehensive
-              understanding of design principles, user research methodologies, and digital product
-              development.
+              Completed Master of Liberal Arts degree in Digital Media Design through Harvard
+              Extension School, focusing on user experience design, interaction design, and digital
+              media production. Developed comprehensive understanding of design principles, user
+              research methodologies, and digital product development.
             </p>
           </div>
           <div>
@@ -146,8 +159,10 @@ export default function ResumePage() {
             </h3>
             <p className="text-slate-500 text-sm">1993 – 1998</p>
             <p className="text-sm text-slate-400 mt-1">
-              Majors in International Business and Finance. Participated in cooperative education
-              program at Boston&apos;s Better Snacks, FMRC, and PictureTel, gaining hands-on
+              Completed Bachelor of Science degree in Business Administration with majors in
+              International Business and Finance, focusing on global operations and marketing.
+              Participated in Northeastern&apos;s renowned cooperative education program, completing
+              assignments at Boston&apos;s Better Snacks, FMRC, and PictureTel, gaining hands-on
               experience in operations, marketing, technical documentation, and
               internationalization.
             </p>
@@ -171,7 +186,8 @@ export default function ResumePage() {
             from a single data model. Features include AI-powered lineup extraction from festival
             posters, graph-based artist discovery using Node2Vec and Louvain scene detection,
             semantic vector search, a background worker architecture (BullMQ) for heavy data
-            processing, and 614+ test files across Vitest, Playwright, and Testcontainers.
+            processing, and 2,649 tests across 125 test files using Vitest, Playwright, and
+            Testcontainers.
           </p>
           <h4 className="text-sm font-medium text-slate-300 mb-2">Platform Components</h4>
           <div className="grid gap-2 sm:grid-cols-2">
@@ -187,8 +203,9 @@ export default function ResumePage() {
           </div>
           <p className="mt-4 text-xs text-slate-500">
             <span className="text-slate-400">Tech Stack:</span> Next.js 16, React 19, TypeScript,
-            PostgreSQL/Prisma, pgvector, Redis, BullMQ, PayloadCMS, Python, FastAPI, Selenium,
-            BeautifulSoup, Claude AI API, OpenAI API, Clerk, AWS S3/CloudFront, Railway
+            PostgreSQL/Prisma, pgvector, Redis, BullMQ, PayloadCMS, Python, FastAPI, asyncpg,
+            scikit-learn, Pandas, NumPy, Selenium, BeautifulSoup, Claude AI API, OpenAI API, Clerk,
+            AWS S3/CloudFront, Railway
           </p>
         </div>
 
@@ -225,9 +242,10 @@ export default function ResumePage() {
               <span className="font-medium text-slate-300">SOLIDWORKS Cloud Platform</span>
               <span className="text-slate-500"> (2021–2023)</span>
               <p className="text-slate-400 mt-1">
-                Implemented comprehensive design system technology and documentation systems.
-                Managed shared component libraries and design tokens. Coordinated feature rollouts
-                spanning Apps for Kids, xDesign, and 3DEXPERIENCE tools.
+                Implemented comprehensive design system technology and documentation systems across
+                multiple SolidWorks products. Managed shared component libraries and design tokens
+                across product teams. Coordinated feature rollouts and integration work spanning
+                Apps for Kids, xDesign, and 3DEXPERIENCE tools.
               </p>
             </div>
             <div>
@@ -235,8 +253,9 @@ export default function ResumePage() {
               <span className="text-slate-500"> (2019–2021)</span>
               <p className="text-slate-400 mt-1">
                 Rebuilt front-end and back-office systems for educational platform introducing
-                children ages 4-14 to 3D design. Developed admin tools for educators while
-                maintaining COPPA compliance.
+                children ages 4-14 to 3D design. Redesigned user interface balancing child-friendly
+                accessibility with educational depth. Developed admin tools for educators and
+                content management features while maintaining COPPA compliance.
               </p>
             </div>
           </div>
