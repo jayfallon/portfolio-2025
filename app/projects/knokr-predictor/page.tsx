@@ -10,9 +10,11 @@ export const metadata: Metadata = {
 };
 
 const technologies = [
+  "Python",
   "FastAPI",
   "asyncpg",
   "Redis",
+  "scikit-learn",
   "Next.js 16",
   "React 19",
   "TypeScript",
@@ -90,58 +92,95 @@ export default function KnokrPredictorPage() {
       <section className="mb-12">
         <h2 className="mb-4 text-xl font-semibold text-slate-200">The Problem</h2>
         <p className="text-slate-400 leading-relaxed">
-          Fans want to know who&apos;s playing next year&apos;s festival before the lineup drops.
-          Festival lineups aren&apos;t random — they follow patterns driven by genre, geography,
-          booking relationships, and artist touring circuits. The question was whether Knokr&apos;s
-          existing music discovery graph (3.3M artist co-occurrence edges, Louvain scene detection,
-          weighted connection signals) contained enough signal to generate plausible lineup
-          predictions without a traditional ML model.
+          Festival lineups follow patterns — genre affinity, geographic booking corridors, artist
+          touring circuits, and cross-festival co-occurrence. Knokr&apos;s existing music discovery
+          infrastructure (3.3M weighted artist connections, Louvain community detection, 1,400+
+          festival lineups, 52K artists) contained the signal to predict plausible future lineups.
+          The question was whether that signal could be extracted on demand, per festival, without
+          loading the entire dataset into memory or relying on traditional supervised learning.
         </p>
       </section>
 
       <section className="mb-12">
         <h2 className="mb-4 text-xl font-semibold text-slate-200">What I Built</h2>
         <p className="text-slate-400 leading-relaxed">
-          A two-service prediction system: a Python engine (FastAPI, asyncpg) that queries
-          pre-computed graph data on demand, and a Next.js frontend for browsing festivals and
-          viewing predictions. Both services read from the shared Knokr PostgreSQL database and
-          communicate via Redis queue. Deployed to Railway as separate services within the Knokr
-          project.
-        </p>
-        <p className="mt-4 text-slate-400 leading-relaxed">
-          The system does not train a model or load data into memory. It queries the existing graph
-          data per-request — 3.3M ArtistConnection rows weighted across eight signal types, 27K
-          SceneMember records from Louvain community detection, and 56K FestivalLineup entries — to
-          score and rank candidates for each festival.
+          A two-service prediction system built end-to-end and iteratively improved: a Python
+          prediction engine (FastAPI, asyncpg, Redis) that queries pre-computed graph data on
+          demand, and a Next.js 16 frontend for browsing festivals, viewing current lineups,
+          generating predictions, and regenerating for variety. Both services read from the shared
+          Knokr PostgreSQL database, communicate via Redis job queue, and deploy independently on
+          Railway.
         </p>
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">How It Works</h2>
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">The Engine — Three Iterations</h2>
+
+        <h3 className="mt-6 mb-2 text-lg font-medium text-slate-300">
+          Attempt 1: Gradient Boosting Classifier
+        </h3>
         <p className="text-slate-400 leading-relaxed">
-          The prediction starts with a festival&apos;s current lineup and automatically discovers up
-          to 5 similar festivals based on shared artists and genre overlap. The combined lineups
-          form a seed pool. For each seed artist, the engine queries their ArtistConnection edges
-          (weighted co-occurrence) and SceneMember associations (Louvain communities) to build a
-          candidate pool.
+          Built a scikit-learn GradientBoostingClassifier trained on 112K samples across 1,373
+          festivals. Nine engineered features: appearance count, billing tier trajectory, genre
+          overlap, geographic proximity, co-occurrence, recency, loyalty score, festival frequency,
+          and scene membership. Used CalibratedClassifierCV for probability calibration.
+          Cross-validation accuracy: 84%.
         </p>
-        <p className="mt-4 text-slate-400 leading-relaxed">
-          Candidates are hard-filtered: must share at least one genre with the festival, must have
-          complete profile data (image, location, genres), must not be retired or a duplicate
-          record. Surviving candidates are scored by connection weight sum, scene affinity
-          (SceneMember.score &times; FestivalScene.strength), and a genre-depth multiplier that
-          rewards artists matching multiple festival genres.
+        <p className="mt-3 text-slate-400 leading-relaxed">
+          The co-occurrence feature caused data leakage — it directly encoded whether an artist
+          shared festivals with the current lineup, perfectly predicting the training label. After
+          fixing leakage, scene membership absorbed 65% of feature importance. Every artist in the
+          same Louvain community got near-identical scores regardless of festival-specific fit.
+          Training loaded 3.3M rows into memory, blocking startup for 90+ seconds. The model was
+          abandoned.
         </p>
-        <p className="mt-4 text-slate-400 leading-relaxed">
-          Scores are flattened with square root to reduce dominance by heavily-connected artists,
-          then sampled without replacement using weighted random selection. Each request gets a
-          fresh random seed, so regenerating produces a different lineup. Confidence scores are
-          relative — highest scorer in the batch gets 100%, not a probability of appearing.
+
+        <h3 className="mt-8 mb-2 text-lg font-medium text-slate-300">
+          Attempt 2: Graph-Based Connection Scoring
+        </h3>
+        <p className="text-slate-400 leading-relaxed">
+          Replaced the ML model with direct ArtistConnection weight queries. For each lineup artist,
+          found connected artists filtered by genre overlap. Added scene membership scoring and
+          geographic multipliers. Results improved but were dominated by heavily-connected artists
+          who appeared in every prediction regardless of festival identity — a rock festival and a
+          folk festival with one shared artist got similar candidates. The scoring was purely
+          connection-driven; festival context was a filter, not a driver.
         </p>
-        <p className="mt-4 text-slate-400 leading-relaxed">
-          Results are grouped into three tiers: High Confidence (&ge;70%), There&apos;s a Chance
-          (40-70%), and Probably Not (&lt;40%). Each predicted artist includes the top 5
-          contributing factors showing which lineup artists drove the prediction.
+
+        <h3 className="mt-8 mb-2 text-lg font-medium text-slate-300">
+          Attempt 3: Festival-First Per-Artist Replacement
+        </h3>
+        <p className="text-slate-400 leading-relaxed">
+          Inverted the approach: the festival defines the pool, not artist connections. The engine
+          profiles the festival (type, tier, genre distribution from lineup, country distribution),
+          then finds 20 similar festivals in a 90-day window sharing genres. Their lineups form the
+          candidate pool — real artists booked at real festivals in the same season and genre space.
+        </p>
+        <p className="mt-3 text-slate-400 leading-relaxed">
+          For each lineup artist, the engine finds replacement candidates from the pool at
+          compatible rating levels (&plusmn;1 of the artist&apos;s level, within the festival&apos;s
+          tier range) with genre overlap. Candidates are scored by connection weight + genre depth
+          multiplier (2x at full overlap) + country distribution match. Slots are allocated
+          proportional to the lineup&apos;s geographic mix — a 30% Spanish lineup yields ~30%
+          Spanish predictions.
+        </p>
+        <p className="mt-3 text-slate-400 leading-relaxed">
+          A Redis-backed frequency penalty tracks how often each artist appears across predictions
+          (24-hour TTL), applying a 10% penalty per appearance to prevent over-prediction. Scores
+          are sqrt-flattened for more even distribution, then sampled with weighted random
+          selection. Each request gets a fresh seed so regenerating produces a different lineup.
+        </p>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">Classification System</h2>
+        <p className="text-slate-400 leading-relaxed">
+          Built an artist rating system (1-5 levels) auto-calculated from festival appearance count,
+          with manual override via admin UI. 51,953 artists auto-rated. Integrated with the existing
+          festival tier system (1-6, Local to Legendary). Bulk classification pages for both artists
+          and festivals with inline button controls and autosave. Festival type auto-set from venue
+          count (1 venue = standalone, 2+ = citywide). The classification data feeds directly into
+          the prediction engine&apos;s per-artist level matching.
         </p>
       </section>
 
@@ -214,17 +253,17 @@ export default function KnokrPredictorPage() {
             <tbody className="text-slate-400">
               <tr className="border-b border-slate-800">
                 <td className="py-2 pr-4">Genre relevance</td>
-                <td className="py-2 pr-4">~70%</td>
+                <td className="py-2 pr-4">~75%</td>
                 <td className="py-2">90%+</td>
               </tr>
               <tr className="border-b border-slate-800">
                 <td className="py-2 pr-4">Artist plausibility</td>
-                <td className="py-2 pr-4">~50%</td>
+                <td className="py-2 pr-4">~55%</td>
                 <td className="py-2">75%+</td>
               </tr>
               <tr className="border-b border-slate-800">
                 <td className="py-2 pr-4">Geographic fit</td>
-                <td className="py-2 pr-4">~30%</td>
+                <td className="py-2 pr-4">~50%</td>
                 <td className="py-2">70%+</td>
               </tr>
               <tr className="border-b border-slate-800">
@@ -243,18 +282,46 @@ export default function KnokrPredictorPage() {
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-4 text-xl font-semibold text-slate-200">
-          Known Weaknesses &amp; Next Steps
-        </h2>
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">Key Technical Decisions</h2>
+        <ul className="space-y-3 text-slate-400 leading-relaxed">
+          <li>
+            <span className="text-slate-300 font-medium">No ML model in production</span> — The
+            graph data already encodes the features a classifier would learn. Querying it directly
+            is faster, more transparent, and festival-specific. The scikit-learn model was built and
+            validated before being replaced.
+          </li>
+          <li>
+            <span className="text-slate-300 font-medium">Redis job queue</span> — Decouples request
+            from processing. Frontend submits a job, polls for completion. No HTTP timeouts on
+            long-running predictions.
+          </li>
+          <li>
+            <span className="text-slate-300 font-medium">Per-artist replacement</span> — Each lineup
+            slot gets its own candidate search scoped by genre and level, rather than one global
+            pool ranked by a single score.
+          </li>
+          <li>
+            <span className="text-slate-300 font-medium">Country-proportional sampling</span> — Hard
+            allocation by geographic distribution prevents international festivals from predicting
+            100% domestic acts.
+          </li>
+          <li>
+            <span className="text-slate-300 font-medium">Separate repos, separate services</span> —
+            Engine and frontend deploy independently. No shared build, no coupling.
+          </li>
+        </ul>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="mb-4 text-xl font-semibold text-slate-200">Next Steps</h2>
         <p className="text-slate-400 leading-relaxed">
-          Geographic weighting is the biggest gap — a Barcelona festival should predict more
-          Spanish/European acts but geography isn&apos;t factored into scoring yet. Connection
-          weight normalization is needed to prevent artists who appear at 20+ festivals from
-          dominating every prediction. Other planned improvements include rebooking avoidance
-          (penalizing artists from the most recent edition), top-3 genre filtering to prevent
-          over-permissive matching on festivals with 30+ genre tags, billing tier prediction using
-          popularity and career data, and a supervised ML layer once the graph-based predictions
-          stabilize.
+          Confidence calibration is the primary gap — scores cluster at the extremes rather than
+          distributing meaningfully. Rebooking avoidance will penalize artists from the most recent
+          edition. Billing tier prediction will assign headliner/main/support/opener using artist
+          level and festival tier data. Redis pool caching will store the candidate pool per
+          festival so regeneration resamples without re-querying. A supervised ML layer is planned
+          once classification data matures — training on graph scores as features rather than raw
+          co-occurrence data.
         </p>
       </section>
 
