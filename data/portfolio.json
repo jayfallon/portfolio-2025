@@ -256,6 +256,17 @@
           }
         },
         {
+          "title": "Knokr Experiments",
+          "category": "Active",
+          "url": "/projects/knokr-experiments",
+          "description": "Standalone applications built to test emerging technologies and validate ideas before integrating them into the Knokr platform. Each experiment is scoped to a specific problem, built fast, and deployed independently.",
+          "image": {
+            "src": "/experiments/knokr-experiments-01-sm.webp",
+            "alt": "Knokr Experiments preview"
+          },
+          "technologies": ["Next.js", "TypeScript", "Redis", "CSS", "Canvas"]
+        },
+        {
           "title": "Mojo Boston",
           "category": "In Development",
           "url": "/projects/mojo-boston",
