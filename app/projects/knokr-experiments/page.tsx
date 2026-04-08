@@ -47,6 +47,26 @@ export default function KnokrExperimentsPage() {
         <p className="mt-4 text-lg text-slate-400">
           Emerging Web Technologies for the Knokr Ecosystem
         </p>
+        <Link
+          href="https://experiments.knokr.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-teal-300 hover:text-teal-200"
+        >
+          Visit Site
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            className="h-4 w-4"
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0V6.75a.75.75 0 00-.75-.75H7.75a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </Link>
       </header>
 
       <div className="mb-12">
