@@ -62,6 +62,7 @@ export interface ProjectsSection {
 
 export interface ProjectItem {
   title: string;
+  category: "Active" | "In Development" | "Inactive" | "Past";
   url: string;
   status?: string;
   description: string;

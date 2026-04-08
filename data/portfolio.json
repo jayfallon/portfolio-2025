@@ -153,6 +153,7 @@
       "items": [
         {
           "title": "Knokr",
+          "category": "Active",
           "url": "/projects/knokr",
           "description": "A festival discovery and social platform that consolidates lineup data, schedules, and artist information across 1,400+ festivals and 50,000+ artists into a single searchable interface — replacing the fragmented experience of browsing dozens of individual festival websites. Features AI-powered lineup extraction from festival posters using Claude Vision API, semantic search with pgvector embeddings, a dream lineup builder with drag-and-drop organization, and a conversational recommendation engine for personalized festival comparisons. Beyond discovery, the platform connects festival attendees with each other, enabling social coordination around shared lineups and events. Evolved from an earlier Python-based extraction tool through multiple architectural iterations, with features validated through standalone experimental platforms before integration.",
           "image": {
@@ -199,6 +200,7 @@
         },
         {
           "title": "Knokr Base",
+          "category": "Active",
           "url": "/projects/knokr-base",
           "description": "The administrative backbone of the Knokr ecosystem — a multi-tenant back office managing the full lifecycle of data across 50,000+ artists and 1,400+ festivals. Handles image uploading and processing, festival metadata, lineup and schedule management, and artist profiles including show and festival histories. Implements comparison models for surfacing similar artists and festivals using graph-based relationships and vector similarity. Features database-driven routing that lets pages be created from the database rather than the filesystem, a five-tier permission system for multi-tenant access control, and vector search powered by OpenAI embeddings. Shares a PostgreSQL infrastructure with Knokr, enabling both applications to operate against a unified data model while serving distinct audiences — public discovery and internal data management.",
           "image": {
@@ -255,6 +257,7 @@
         },
         {
           "title": "Mojo Boston",
+          "category": "In Development",
           "url": "/projects/mojo-boston",
           "status": "Demo — awaiting final content and visual design",
           "description": "A turnkey festival website exploring PayloadCMS as a white-label foundation for festival organizers. Built for a client's one-day festival, the project started from Payload's stock website template (blog + 4 basic blocks) and required substantial rework — 24 custom block components, a complete S3 media system replacing Payload's broken upload pipeline, live database integration pulling lineup, schedule, and venue data from Knokr's shared PostgreSQL infrastructure, interactive Leaflet venue maps, and a brand-specific design system. The experiment validated both the value of the Knokr data layer for powering external sites and the limitations of adapting a generic CMS for domain-specific use cases — informing the architecture for purpose-built festival site tooling.",
@@ -305,6 +308,7 @@
         },
         {
           "title": "Knokr Predictor",
+          "category": "In Development",
           "url": "/projects/knokr-predictor",
           "status": "Ongoing development",
           "description": "A festival lineup prediction system that generates probable artist bookings for upcoming festival editions using Knokr's music discovery graph. Queries 3.3M pre-computed artist co-occurrence edges weighted across eight signal types (shared festivals, shared venues, band members, local/national scene overlap), combined with Louvain community detection scoring and genre-depth multipliers to rank candidates against a festival's existing lineup profile. Features automatic similar festival discovery, weighted random sampling with square-root flattening for variety, confidence tiering, and per-artist contributing factor breakdowns. Python prediction engine (FastAPI, asyncpg) communicating with a Next.js frontend via Redis queue, both reading from the shared Knokr PostgreSQL database. Deployed to Railway.",
@@ -357,6 +361,7 @@
         },
         {
           "title": "Knokr Fetch",
+          "category": "In Development",
           "url": "/projects/knokr-fetch",
           "status": "Ongoing development",
           "description": "An intelligent event data extraction system that automatically harvests, verifies, deduplicates, and stages concert and tour event data from artist websites across the music industry. Python FastAPI backend with a multi-strategy extraction pipeline: JSON-LD structured data first, then platform widget detection (Bandsintown, Songkick, Seated), custom HTML parsing, and Claude LLM fallback for unstructured pages. Headless Chrome via Selenium for JavaScript-rendered content. Parallel job processing with asyncio semaphore-gated concurrency, WebSocket real-time progress streaming, and subprocess isolation per artist. Processes 52K artists with 99%+ accuracy on structured sources, handles 13+ international date formats, and deduplicates by content composite key rather than URL. PostgreSQL for production data, SQLite for local job persistence.",
@@ -410,6 +415,7 @@
 
         {
           "title": "Orchestra",
+          "category": "Inactive",
           "url": "/projects/orchestra",
           "status": "Live — no longer under active development",
           "description": "A focused experiment in mapping artist relationships within the music industry. Enables users to search across 50,000+ artists and contribute band member connections through a curated submission process, building primary, secondary, and tertiary relationship networks. Built as a standalone platform to rapidly test community-driven data contribution workflows and graph-based artist discovery — learnings that directly informed the comparison models and artist relationship features in Knokr Base.",
@@ -432,6 +438,7 @@
         },
         {
           "title": "Nuncio",
+          "category": "Inactive",
           "url": "/projects/nuncio",
           "status": "Live — no longer under active development",
           "description": "An open event curation platform built to test AI-powered data extraction and public content distribution at speed. Users create and share unlimited event lists with AI-assisted tour date extraction from images, embeddable widgets, and export formats including JSON-LD, iCal, and RSS feeds. Served as a proving ground for the image extraction pipeline and structured data patterns later adopted in Knokr's lineup extraction system.",
@@ -455,6 +462,7 @@
         },
         {
           "title": "Connections Plus",
+          "category": "Inactive",
           "url": "/projects/connections-plus",
           "status": "No longer under active development",
           "description": "A daily word puzzle game inspired by NYT Connections, featuring a multi-level progression system where red herring words accumulate across four difficulty tiers. Full-stack build with an admin interface for AI-assisted puzzle creation, calendar-based content scheduling, and anonymous player progress tracking. A fun side project that still exercises the full stack — auth, state management, content tooling, and polished UI with animations.",
@@ -475,6 +483,7 @@
         },
         {
           "title": "Knokr — Earlier Iterations",
+          "category": "Inactive",
           "url": "#",
           "status": "No longer under active development",
           "description": "The original Knokr platform: a frontend for social music discovery, a back office supporting festival scheduling from single-day showcases to multi-day, multi-city, multi-stage events with 100+ artists, and KnokrFetch — a Python-based scraping system that pulled event data from Bandsintown, Songkick, and Seated alongside custom parsers for Wix, WordPress, Squarespace, and bespoke sites. These earlier builds established the domain model, data acquisition patterns, and scheduling complexity that the current Knokr and Knokr Base architecture is built on.",
@@ -503,6 +512,7 @@
         },
         {
           "title": "FormHealth Website",
+          "category": "Past",
           "url": "https://www.formhealth.co",
           "description": "Collaborated with FormHealth to develop their new design system and rebuild the front-end implementation within their existing Next.js, Prismic, and Storybook stack. Handled ongoing website maintenance typical of a small startup environment while working closely with the marketing team to support their growth initiatives and content needs.",
           "image": {
@@ -513,6 +523,7 @@
         },
         {
           "title": "SOLIDWORKS Cloud Platform",
+          "category": "Past",
           "url": "https://www.solidworks.com",
           "description": "Collaborated closely with the platform services team to implement comprehensive design system technology and documentation systems across multiple SolidWorks products. Managed product feature requests, system maintenance, and cross-platform integration work spanning the entire SolidWorks ecosystem including Apps for Kids, xDesign, and 3DEXPERIENCE tools. Contributed to prototyping new product concepts while maintaining consistent user experience standards through shared component libraries and design tokens. Handled the critical but often invisible work of keeping multiple products aligned—from updating design system documentation to coordinating feature rollouts across different teams and ensuring seamless integration between desktop and cloud-based applications.",
           "image": {
@@ -523,6 +534,7 @@
         },
         {
           "title": "Apps for Kids Platform",
+          "category": "Past",
           "url": "https://www.3ds.com/products/apps-for-kids",
           "description": "Collaborated on rebuilding the front-end and back-office systems for SolidWorks' educational platform that introduces children ages 4-14 to 3D design and engineering concepts. Redesigned and implemented the user interface to balance child-friendly accessibility with educational depth, while developing comprehensive admin tools for educators to manage classrooms and track student progress. Built new content management features and newsletter tools, creating a seamless learning environment that serves students worldwide while maintaining COPPA compliance for child safety.",
           "image": {

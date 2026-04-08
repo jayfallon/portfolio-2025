@@ -1,10 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ProjectsSection } from "@/types/portfolio";
+import { ProjectsSection, ProjectItem } from "@/types/portfolio";
 
 const CDN_URL = process.env.NEXT_PUBLIC_CLOUDFRONT_URL || "https://dbf43z1u0dmox.cloudfront.net";
 
+const CATEGORY_ORDER = ["Active", "In Development", "Inactive", "Past"] as const;
+
 export default function Projects({ data }: { data: ProjectsSection }) {
+  const grouped = CATEGORY_ORDER.map((category) => ({
+    category,
+    projects: data.items.filter((item) => item.category === category),
+  })).filter((group) => group.projects.length > 0);
+
   return (
     <section
       className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
@@ -15,7 +22,15 @@ export default function Projects({ data }: { data: ProjectsSection }) {
         <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200">{data.title}</h2>
       </div>
       <div className="relative">
-        {data.items.map((project, index) => (
+        {grouped.map((group) => (
+          <div key={group.category}>
+            <div className="flex items-center gap-4 mb-8 mt-4 first:mt-0">
+              <h3 className="text-xs font-semibold uppercase tracking-widest text-teal-300 whitespace-nowrap">
+                {group.category}
+              </h3>
+              <div className="h-px flex-1 bg-slate-700/50" />
+            </div>
+            {group.projects.map((project, index) => (
           <div
             key={index}
             className="mb-12 group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50"
@@ -118,6 +133,8 @@ export default function Projects({ data }: { data: ProjectsSection }) {
                 />
               ))}
             </div>
+          </div>
+            ))}
           </div>
         ))}
       </div>
