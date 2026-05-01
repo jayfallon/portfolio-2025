@@ -114,7 +114,7 @@ export default function Projects({ data }: { data: ProjectsSection }) {
               {project.image && (project.url && project.url.startsWith("/") ? (
                 <Link href={project.url}>
                   <Image
-                    src={project.image.src.startsWith('/images/') ? project.image.src : `${CDN_URL}${project.image.src}`}
+                    src={project.image.src.startsWith('/images/') || project.image.src.startsWith('http') ? project.image.src : `${CDN_URL}${project.image.src}`}
                     alt={project.image.alt}
                     width={600}
                     height={371}
@@ -124,7 +124,7 @@ export default function Projects({ data }: { data: ProjectsSection }) {
                 </Link>
               ) : (
                 <Image
-                  src={project.image.src.startsWith('/images/') ? project.image.src : `${CDN_URL}${project.image.src}`}
+                  src={project.image.src.startsWith('/images/') || project.image.src.startsWith('http') ? project.image.src : `${CDN_URL}${project.image.src}`}
                   alt={project.image.alt}
                   width={600}
                   height={371}

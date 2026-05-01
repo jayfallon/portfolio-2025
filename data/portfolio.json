@@ -256,6 +256,70 @@
           }
         },
         {
+          "title": "Knokr Media",
+          "category": "In Development",
+          "url": "/projects/knokr-media",
+          "status": "Live — iterating in isolation before integration into Knokr core",
+          "description": "A photo and video album platform for the Knokr ecosystem — every album links explicitly to a Knokr entity (artist, festival, venue, or city), turning scattered fan media into structured visual coverage of the music industry. Standalone Next.js app sharing production Postgres, Redis, Clerk, and S3 with knokr-base and knokr-lineups so it deploys and iterates in isolation on Railway. Every uploaded photo runs through a CLIP embedding pipeline served by a separate worker service, powering semantic text search, \"more like this\" recommendations, NSFW moderation, and near-duplicate detection against pgvector HNSW indexes. Includes JIT Clerk profile sync, three-tier album contribution policies, denormalized rating rollups, golden-ratio client-side cropping, and a save-to-album action that re-uses S3 keys instead of copying objects. Covered by 376 tests across web and worker suites.",
+          "image": {
+            "src": "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr-media/knokr-media.webp",
+            "alt": "Knokr Media platform preview"
+          },
+          "technologies": [
+            "Next.js 16",
+            "React 19",
+            "TypeScript",
+            "PostgreSQL",
+            "pgvector",
+            "Prisma 6",
+            "Redis",
+            "BullMQ",
+            "HeroUI",
+            "Tailwind CSS 4",
+            "Clerk",
+            "AWS S3",
+            "@xenova/transformers",
+            "Railway"
+          ],
+          "projectPage": {
+            "problem": "Knokr tracks 50,000+ artists, 1,400+ festivals, and thousands of venues and cities — but every photo and video documenting a show or festival lives outside the system, scattered across personal feeds with no link back to the entities it actually depicts. There was no way for fans to contribute visual coverage to the platform, and no infrastructure to moderate, deduplicate, or surface that media at scale.",
+            "whatIBuilt": "A standalone Next.js application that lets signed-in users create photo and video albums explicitly linked to Knokr entities (artists, festivals, venues, cities). Albums support ratings, contributors, configurable contribution policies, and abuse flagging. Photos run through a CLIP embedding pipeline that powers semantic text search, near-duplicate detection, NSFW moderation, and \"more like this\" recommendations. The app shares production Postgres, Clerk, and S3 with knokr-base and knokr-lineups, but deploys as its own Railway service so it can be iterated in isolation before features get rolled into the core platform.",
+            "keyDecisions": [
+              {
+                "title": "CLIP embedding worker as a separate Railway service",
+                "detail": "Every uploaded photo gets a 512-dim CLIP embedding plus quality, NSFW, and near-duplicate scores. The web service produces jobs to a BullMQ queue; a standalone Node worker (own Dockerfile, own railway.toml, no Next.js imports) consumes them. The worker boots four `@xenova/transformers` pipelines on startup — CLIP image-feature-extraction, CLIPTextModelWithProjection for query encoding, zero-shot quality classification, and an ONNX NSFW classifier — and writes the embedding into a pgvector column via a single raw-SQL UPDATE. PM2 supervises one process with a 1 GB memory cap; BullMQ retries failed jobs with exponential backoff."
+              },
+              {
+                "title": "Synchronous text encoding for search",
+                "detail": "Search queries need an embedding too. Rather than running CLIP twice (once on the web service, once on the worker), the worker exposes a token-protected `/encode-text` endpoint on its Express health server. The search route calls the worker over HTTP, gets back a 512-dim vector, and runs an HNSW cosine-distance query against the same `MediaItem.embedding` column the worker populated. One model, two consumption paths."
+              },
+              {
+                "title": "Content-keyed deduplication and S3 key reuse",
+                "detail": "The save-to-album feature creates a new MediaItem row pointing at the same S3 key as the source — no S3 copy, no duplicated bytes, no extra storage cost. The PHOTO clone gets re-enqueued for embedding so duplicate detection runs against the new album's siblings, not the original's. Near-duplicate detection itself is a cosine-distance query against the album's existing items at upload time; matches inside 0.05 get tagged with `nearDuplicateOfId`."
+              },
+              {
+                "title": "Three-tier contribution policy",
+                "detail": "Each album carries a `contributionPolicy` enum: CLOSED (creator + admins only), INVITE_ONLY (default; explicit MediaAlbumContributor rows), or OPEN (any signed-in non-banned profile). The NSFW + moderation pipeline runs on every uploaded photo regardless of policy, so opening an album up doesn't weaken safety. Banned users are hard-blocked from contributing, rating, or tagging — but can still browse and flag abuse."
+              },
+              {
+                "title": "Denormalized rating rollups",
+                "detail": "MediaAlbum carries `ratingAvg` and `ratingCount` columns indexed `(ratingAvg DESC, ratingCount DESC)`. Rate writes recompute the rollup off MediaAlbumRating and write it back inline, so the home query is a single `ORDER BY ratingAvg DESC, ratingCount DESC LIMIT 20` against the index — no per-request groupBy, constant-time at any rating volume. The MediaAlbumRating table is only touched on writes and on the per-album detail page."
+              },
+              {
+                "title": "JIT profile sync with Clerk",
+                "detail": "Profile creation is just-in-time on first authenticated request — keyed by `clerkId` first, then by email match so a Clerk login lands on the existing base/lineups Profile without overwriting the linkage. `Profile.imageUrl` is re-synced from Clerk on every request, so a GitHub avatar set in Clerk replaces the default initials immediately. MediaLibrary is auto-provisioned on the same hot path."
+              },
+              {
+                "title": "Golden-ratio client-side cropping",
+                "detail": "Photos are forced to a 1:0.618 landscape aspect ratio cropped in-browser before the S3 PUT, using a custom react-image-crop wrapper. Tiles and full-size viewers all share `aspect-[1/0.618]` so the entire app speaks one shape — covers pin to `object-top` so faces don't get cropped off the bottom. Anti-grab (right-click and drag disabled) on full-size images keeps casual scraping out."
+              }
+            ],
+            "testing": "376 tests total — 355 web tests across 64 files (Vitest + React Testing Library + jsdom) plus 21 worker tests across 3 files (Vitest + supertest). Coverage spans every API route (presign, flags, ratings, albums CRUD, contributors, items, share-to-album, similar, like, search), all major components (cropper, rating slider, contributor picker, share-to-album modal), Server Components rendered by awaiting the component and inspecting its returned tree, and the worker's CLIP, NSFW, embedding, processor, and health paths. Prisma, Clerk, AWS SDK, HeroUI, BullMQ, `@xenova/transformers`, and `react-image-crop` are mocked per file.",
+            "architecture": "Next.js 16, React 19, TypeScript, Prisma 6 with its own schema mirroring the shared DB, HeroUI on Tailwind CSS 4, Clerk auth, AWS S3 via @aws-sdk/client-s3 with presigned PUTs, BullMQ on the shared Redis instance (also used for caching and rate-limiting), pgvector with an HNSW (vector_cosine_ops) index on the embedding column, `@xenova/transformers` for local CLIP and NSFW inference. Two-service Railway deploy: a Next.js web service and a standalone Node worker (own Dockerfile + railway.toml) for embedding, moderation, and synchronous text encoding.",
+            "whatItEnables": "Knokr Media validates the pattern of building a focused experimental app against shared production infrastructure — same Postgres, Clerk, and S3 as base/lineups, but deployed and iterated independently. The embedding pipeline, moderation gates, and contribution policies can graduate into the core platform once stable, without disturbing existing users. Linked albums turn previously orphaned fan media into structured coverage of every entity in the Knokr graph — artists, festivals, venues, and cities — opening up downstream features like media-driven recommendations, lineup imagery, and venue galleries."
+          }
+        },
+        {
           "title": "Knokr Experiments",
           "category": "Active",
           "url": "/projects/knokr-experiments",
