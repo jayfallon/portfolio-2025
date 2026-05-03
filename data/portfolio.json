@@ -259,7 +259,7 @@
           "title": "Knokr Media",
           "category": "In Development",
           "url": "/projects/knokr-media",
-          "status": "Live — iterating in isolation before integration into Knokr core",
+          "status": "Integrated into knokr.com after testing",
           "description": "A photo and video album platform for the Knokr ecosystem — every album links explicitly to a Knokr entity (artist, festival, venue, or city), turning scattered fan media into structured visual coverage of the music industry. Standalone Next.js app sharing production Postgres, Redis, Clerk, and S3 with knokr-base and knokr-lineups so it deploys and iterates in isolation on Railway. Every uploaded photo runs through a CLIP embedding pipeline served by a separate worker service, powering semantic text search, \"more like this\" recommendations, NSFW moderation, and near-duplicate detection against pgvector HNSW indexes. Includes JIT Clerk profile sync, three-tier album contribution policies, denormalized rating rollups, golden-ratio client-side cropping, and a save-to-album action that re-uses S3 keys instead of copying objects. Covered by 376 tests across web and worker suites.",
           "image": {
             "src": "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr-media/knokr-media.webp",
