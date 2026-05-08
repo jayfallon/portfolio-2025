@@ -268,6 +268,74 @@
           }
         },
         {
+          "title": "Knokr Guestlist",
+          "category": "In Development",
+          "url": "/projects/knokr-guestlist",
+          "status": "Public at guestlist.knokr.com — single-user mode while the moderation flows are exercised",
+          "description": "A request-and-approval RSVP service at guestlist.knokr.com — fans search artists, venues, festivals, and cities, claim \"I'm going\" on up to five active event standbys at a time, and watch each request move through Standby → Approved or Denied as a manager (or the same user, in this app's single-user mode) triages the queue from a per-event approval grid. Built as a standalone Rails 8 + Hotwire app sharing the same Railway Postgres and Clerk instance as knokr-base and knokr-lineups, with the schema owned by Prisma so Rails reads and writes camelCase columns through a thin ActiveRecord shim and never runs its own migrations. Real-time status flips broadcast via Turbo Streams + Action Cable, and a small LLM service (qwen3.5:4b running on Ollama on Railway) drives both admin triage suggestions and per-event approval-likelihood scores for users deciding which five slots to spend.",
+          "image": {
+            "src": "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr-guestiist/knokr-guestlist-01.webp",
+            "alt": "Knokr Guestlist platform preview"
+          },
+          "technologies": [
+            "Rails 8.1",
+            "Ruby 4.0",
+            "Hotwire",
+            "Turbo",
+            "Stimulus",
+            "Action Cable",
+            "Tailwind CSS 4",
+            "Propshaft",
+            "PostgreSQL",
+            "Prisma",
+            "ActiveRecord",
+            "Redis",
+            "Clerk",
+            "AWS S3",
+            "Ollama",
+            "Qwen 3.5",
+            "Adobe Typekit",
+            "Railway"
+          ],
+          "projectPage": {
+            "problem": "Knokr already covers discovery (knokr-lineups), administration (knokr-base), and visual coverage (knokr-media), but there was no surface for the actual transactional moment between fan and venue: \"I want to be on this guestlist.\" Existing apps in the ecosystem are all Next.js — there was no proof the shared Postgres + Clerk + S3 infrastructure could feed a different stack, no pattern for slotting in a Rails surface, and no place to test small-LLM triage in production without disturbing the rest of the platform.",
+            "whatIBuilt": "A standalone Rails 8 + Hotwire application that lets a signed-in fan search across every artist, venue, festival, and city in the Knokr graph, claim up to five active standbys, see each request rendered as a status pill (Standby / Approved / Denied) on a homepage grid, and click through to the per-event approval grid where a manager (or the same user) flips status with one button. Status flips broadcast over Turbo Streams + Action Cable so every open tab on the same event updates live. An LLM service running qwen3.5:4b on Ollama drives an admin \"Suggest\" button that classifies pending requests into pre-approve / standby / ignore buckets, and renders a per-event likelihood score on every search ticket card so the user can pick which five slots to spend.",
+            "keyDecisions": [
+              {
+                "title": "Prisma-owned schema, ActiveRecord-read",
+                "detail": "The Postgres database is shared with knokr-base and knokr-lineups, where Prisma is the schema owner. Rails reads and writes the same tables via ActiveRecord through a small `PrismaModel` concern that sets `primary_key = \"id\"` (cuid strings, not integers), turns off AR's auto-timestamp magic (column names are camelCase), and mints a cuid-shaped id in a `before_create` callback to mirror Prisma's `@default(cuid())`. `config.active_record.maintain_test_schema = false` enforces that Rails never runs its own migrations against the shared DB."
+              },
+              {
+                "title": "Three-status app over a five-value enum",
+                "detail": "The schema enum has `PENDING / PROMOTED / DEMOTED / BLOCKED / IGNORED`, but this app uses three (`PENDING / PROMOTED / BLOCKED`) mapped to user-facing labels (Standby / Approved / Denied) and action verbs (Standby / Approve / Deny). `EventAttendee::STATUSES`, `STATUS_LABELS`, and `STATUS_ACTIONS` constants drive every piece of copy. The other two enum values stay reserved in the schema for future surfaces without re-migration."
+              },
+              {
+                "title": "Small LLM on Railway for triage and likelihood",
+                "detail": "`app/services/llm.rb` wraps two operations: `LLM.triage` classifies every PENDING attendee for an event, `LLM.likelihood` returns a 0-100 approval score for a (profile, event) pair. Both POST to Ollama's `/api/generate` with `format: \"json\"` and `temperature: 0.2`, asking qwen3.5:4b for structured output. A second mode keyed off `LLM_FAKE=1` returns deterministic in-process stubs (VIP/repeat profiles → pre-approve, unknowns spread across the three buckets, scores 88/72/42 base ± jitter) so the integration ships before the Ollama service is up and tests stay fast."
+              },
+              {
+                "title": "Per-event triage cache via Rails.cache",
+                "detail": "`POST /events/:id/manage/suggest` runs the LLM over every PENDING attendee, indexes the result by attendee_id, and writes the map to `Rails.cache` for an hour. The manage page reads from cache and renders an `AI: Pre-approve` / `AI: Standby` / `AI: Ignore` pill on each tile. Expensive LLM call happens once per click; subsequent renders are free. Test environment switches `cache_store` from `:null_store` to `:memory_store` so the round-trip is exercised in integration tests."
+              },
+              {
+                "title": "Patron tier bars (gold VIP, green repeat)",
+                "detail": "Admins triaging 100+ requests need a visual signal for repeat customers and VIPs. `Profile#tier` returns `\"vip\"`, `\"repeat\"`, or `nil` from a hard-coded `SEED_TIERS` map; the manage tile prepends a 1.5px-tall colored bar at the top — `bg-amber-400` for VIP, `bg-emerald-500` for repeat, blank for unknown. Render-time only, no schema change. Promotes from a demo to a real signal by swapping the constant for a derived count of past Approved EventAttendee rows or a dedicated `tier` column."
+              },
+              {
+                "title": "CSRF skip on state-changing button_to forms",
+                "detail": "The dev Clerk bypass (`DEV_CLERK_USER_ID` env) doesn't keep the Rails session cookie sticky across requests, which silently 422'd every RSVP create/destroy and admin Suggest. Auth is already enforced by the `Authed` concern via the Clerk session, so `skip_forgery_protection` on `RsvpsController` and `EventManageController#suggest` removes the false negative without weakening the real auth boundary. Other moderation routes keep default CSRF protection."
+              },
+              {
+                "title": "turbo_action: \"advance\" to surface silent failures",
+                "detail": "Search submits as a Turbo Frame request scoped to `<turbo-frame id=\"search_results\">` — by default frame nav doesn't push history, so on prod a silent auth-timeout or 5xx looked identical to a successful search. Adding `data-turbo-action=\"advance\"` to the form and pagination links makes each frame nav push `/search?q=…` into the address bar; the URL freezing on a stale value is now a visible signal that the request actually failed."
+              }
+            ],
+            "testing": "76 tests across 13 files (Minitest + ActionDispatch integration tests + ActiveSupport for the LLM service). Coverage spans every controller (search, RSVP create/destroy with the cap, standbys page, event-manage three-section grid + filter pagination + suggest endpoint + AI badge render, venue-admin moderation + event toggle, events guestlist panel, Authed redirect/allow), every model (Event#hero_image_url priority, EventAttendee defaults + active_for scope + status validator + Turbo Stream broadcast callbacks, Profile#by_clerk_id + tier method), and the LLM service in fake mode (VIP / repeat / unknown classification, score buckets, every attendee covered). Clerk is stubbed by overriding `clerk_user_id_from_session` per test; tests run against the shared Railway DB inside a transactional rollback so prod data is never touched.",
+            "architecture": "Rails 8.1 with Hotwire (Turbo + Stimulus), Propshaft, and Tailwind CSS 4. Ruby 4.0 (Homebrew). PostgreSQL on the existing Railway shared instance — schema owned by Prisma in knokr-base, accessed through ActiveRecord via the PrismaModel concern. Redis for Action Cable broadcasts and Rails.cache. Clerk authentication, same instance and `.knokr.com` cookie domain as knokr.com / base.knokr.com. AWS S3 via `@aws-sdk/client-s3` for any uploaded media. Adobe Typekit kit `smq4wqc` loads the Ganache wordmark used in the header and `/knokr.svg` footer. Ollama running qwen3.5:4b deployed as its own Railway service alongside the Rails app, reached via Railway internal DNS (`ollama.railway.internal:11434`). CI runs Brakeman, bundler-audit, importmap-audit, and RuboCop; tests run locally against the shared DB.",
+            "whatItEnables": "Knokr Guestlist proves the Knokr platform isn't tied to a single web stack — the shared Postgres + Clerk + S3 + Redis infrastructure that backs Next.js apps (knokr-base, knokr-lineups, knokr-media) also feeds a Rails + Hotwire surface, with Prisma still in charge of the schema and Rails staying a polite reader. The pattern unblocks slotting in different stacks per surface where it makes sense — a Sinatra microservice, a Phoenix LiveView screen, anything that speaks Postgres — without renegotiating the data model. The LLM integration also doubles as a sandbox for small-model deployment patterns (Ollama on Railway, fake-mode toggles, cached structured-output prompts) that can graduate into the larger platform once stable."
+          }
+        },
+        {
           "title": "Knokr Media",
           "category": "In Development",
           "url": "/projects/knokr-media",
