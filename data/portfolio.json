@@ -269,10 +269,10 @@
         },
         {
           "title": "Knokr Guestlist",
-          "category": "In Development",
+          "category": "Inactive",
           "url": "/projects/knokr-guestlist",
-          "status": "Public at guestlist.knokr.com — single-user mode while the moderation flows are exercised",
-          "description": "A request-and-approval RSVP service at guestlist.knokr.com — fans search artists, venues, festivals, and cities, claim \"I'm going\" on up to five active event standbys at a time, and watch each request move through Standby → Approved or Denied as a manager (or the same user, in this app's single-user mode) triages the queue from a per-event approval grid. Built as a standalone Rails 8 + Hotwire app sharing the same Railway Postgres and Clerk instance as knokr-base and knokr-lineups, with the schema owned by Prisma so Rails reads and writes camelCase columns through a thin ActiveRecord shim and never runs its own migrations. Real-time status flips broadcast via Turbo Streams + Action Cable, and a small LLM service (qwen3.5:4b running on Ollama on Railway) drives both admin triage suggestions and per-event approval-likelihood scores for users deciding which five slots to spend.",
+          "status": "No longer under active development",
+          "description": "A request-and-approval RSVP service — fans search artists, venues, festivals, and cities, claim \"I'm going\" on up to five active event standbys at a time, and watch each request move through Standby → Approved or Denied as a manager (or the same user, in this app's single-user mode) triages the queue from a per-event approval grid. Built as a standalone Rails 8 + Hotwire app sharing the same Railway Postgres and Clerk instance as knokr-base and knokr-lineups, with the schema owned by Prisma so Rails reads and writes camelCase columns through a thin ActiveRecord shim and never runs its own migrations. Real-time status flips broadcast via Turbo Streams + Action Cable, and a small LLM service (qwen3.5:4b running on Ollama on Railway) drives both admin triage suggestions and per-event approval-likelihood scores for users deciding which five slots to spend.",
           "image": {
             "src": "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr-guestiist/knokr-guestlist-01.webp",
             "alt": "Knokr Guestlist platform preview"
@@ -337,9 +337,9 @@
         },
         {
           "title": "Knokr Media",
-          "category": "In Development",
+          "category": "Inactive",
           "url": "/projects/knokr-media",
-          "status": "Integrated into knokr.com after testing",
+          "status": "No longer under active development",
           "description": "A photo and video album platform for the Knokr ecosystem — every album links explicitly to a Knokr entity (artist, festival, venue, or city), turning scattered fan media into structured visual coverage of the music industry. Standalone Next.js app sharing production Postgres, Redis, Clerk, and S3 with knokr-base and knokr-lineups so it deploys and iterates in isolation on Railway. Every uploaded photo runs through a CLIP embedding pipeline served by a separate worker service, powering semantic text search, \"more like this\" recommendations, NSFW moderation, and near-duplicate detection against pgvector HNSW indexes. Includes JIT Clerk profile sync, three-tier album contribution policies, denormalized rating rollups, golden-ratio client-side cropping, and a save-to-album action that re-uses S3 keys instead of copying objects. Covered by 376 tests across web and worker suites.",
           "image": {
             "src": "https://jf-portfolio-2025.s3.us-east-1.amazonaws.com/knokr-media/knokr-media.webp",
@@ -412,9 +412,9 @@
         },
         {
           "title": "Mojo Boston",
-          "category": "In Development",
+          "category": "Inactive",
           "url": "/projects/mojo-boston",
-          "status": "Demo — awaiting final content and visual design",
+          "status": "No longer under active development",
           "description": "A turnkey festival website exploring PayloadCMS as a white-label foundation for festival organizers. Built for a client's one-day festival, the project started from Payload's stock website template (blog + 4 basic blocks) and required substantial rework — 24 custom block components, a complete S3 media system replacing Payload's broken upload pipeline, live database integration pulling lineup, schedule, and venue data from Knokr's shared PostgreSQL infrastructure, interactive Leaflet venue maps, and a brand-specific design system. The experiment validated both the value of the Knokr data layer for powering external sites and the limitations of adapting a generic CMS for domain-specific use cases — informing the architecture for purpose-built festival site tooling.",
           "image": {
             "src": "/mojo-boston/mojo-01-sm.webp",
@@ -516,9 +516,9 @@
         },
         {
           "title": "Knokr Fetch",
-          "category": "In Development",
+          "category": "Inactive",
           "url": "/projects/knokr-fetch",
-          "status": "Ongoing development",
+          "status": "No longer under active development",
           "description": "An intelligent event data extraction system that automatically harvests, verifies, deduplicates, and stages concert and tour event data from artist websites across the music industry. Python FastAPI backend with a multi-strategy extraction pipeline: JSON-LD structured data first, then platform widget detection (Bandsintown, Songkick, Seated), custom HTML parsing, and Claude LLM fallback for unstructured pages. Headless Chrome via Selenium for JavaScript-rendered content. Parallel job processing with asyncio semaphore-gated concurrency, WebSocket real-time progress streaming, and subprocess isolation per artist. Processes 52K artists with 99%+ accuracy on structured sources, handles 13+ international date formats, and deduplicates by content composite key rather than URL. PostgreSQL for production data, SQLite for local job persistence.",
           "image": {
             "src": "/knokr-fetch/fetch-01-sm.webp",
