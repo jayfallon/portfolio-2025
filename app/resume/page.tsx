@@ -101,10 +101,12 @@ export default function ResumePage() {
         <h2 className="mb-4 text-xl font-semibold text-slate-200">Summary</h2>
         <p className="text-slate-400 leading-relaxed">
           Principal-level engineer who designs and operates multi-service production platforms
-          end-to-end. Currently building Knokr, a music-industry platform managing 60,000+ artists,
-          1,500+ festivals, 1,000+ venues, and 25,000+ events across a federated architecture: three
-          Next.js apps, a Python/FastAPI prediction service, and four BullMQ background workers
-          sharing a single Postgres/Redis/S3 backbone.
+          end-to-end. Currently contracting at GitHub as a senior software engineer across the
+          Rails monolith and React/TypeScript frontend — Copilot, in-product messaging, billing,
+          and platform architecture — while building Knokr, a music-industry platform managing
+          60,000+ artists, 1,500+ festivals, 1,000+ venues, and 25,000+ events across a federated
+          architecture: three Next.js apps, a Python/FastAPI prediction service, and four BullMQ
+          background workers sharing a single Postgres/Redis/S3 backbone.
         </p>
         <p className="mt-4 text-slate-400 leading-relaxed">
           Twenty-plus years of engineering experience across enterprise (Dassault Systèmes, Bose,
@@ -166,6 +168,40 @@ export default function ResumePage() {
 
       <section className="mb-12">
         <h2 className="mb-6 text-xl font-semibold text-slate-200">Experience</h2>
+
+        <div className="mb-8">
+          <div className="flex justify-between items-baseline mb-1">
+            <h3 className="font-medium text-slate-300">Senior Software Engineer</h3>
+            <span className="text-sm text-slate-500">May 2026 – Present</span>
+          </div>
+          <p className="text-teal-300 mb-3">GitHub</p>
+          <p className="text-slate-400 mb-4 leading-relaxed">
+            Software engineer working across GitHub&apos;s production Ruby on Rails monolith and
+            React/TypeScript frontend, focused on Copilot, in-product messaging, billing, and
+            platform architecture. Shipped end-to-end product flows spanning Rails controllers and
+            models, React interfaces, ERB views, SCSS, SQL-backed data models and migrations,
+            background jobs, stream processors, caching, email notifications, and staff tooling.
+            Built canonical nudge registries and priority-coordination systems while preserving
+            eligibility, placement, dismissal, analytics, and rendering contracts across
+            organization, enterprise, dashboard, and Copilot surfaces.
+          </p>
+          <p className="text-slate-400 mb-4 leading-relaxed">
+            Operated production changes through actor-scoped feature flags, cohort gates, kill
+            switches, A/B experiments, staged rollouts, parity harnesses, and explicit rollback
+            paths. Added Hydro analytics and Datadog metrics, isolated exception reporting in
+            Sentry, and designed resilient behavior around billing and service dependencies.
+            Maintained quality through Sorbet, Minitest, integration and end-to-end testing,
+            RuboCop, ERB linting, GitHub Actions, Codespaces, and deterministic regression
+            coverage. Merged 92 pull requests and reviewed 171, contributing implementation and
+            architectural, reliability, testing, and rollout guidance across the codebase.
+          </p>
+          <p className="text-xs text-slate-500">
+            <span className="text-slate-400">Tech Stack:</span> Ruby, Ruby on Rails, Sorbet,
+            TypeScript, React, JavaScript, ERB, HTML, SCSS, SQL, Minitest, Vitest, Hydro, Datadog,
+            Sentry, Vexi, Feature Flags, A/B Experimentation, Background Jobs, Stream Processors,
+            Caching, GitHub Actions, Codespaces
+          </p>
+        </div>
 
         <div className="mb-8">
           <div className="flex justify-between items-baseline mb-1">
