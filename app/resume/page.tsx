@@ -101,12 +101,10 @@ export default function ResumePage() {
         <h2 className="mb-4 text-xl font-semibold text-slate-200">Summary</h2>
         <p className="text-slate-400 leading-relaxed">
           Principal-level engineer who designs and operates multi-service production platforms
-          end-to-end. Currently contracting at GitHub as a senior software engineer across the
-          Rails monolith and React/TypeScript frontend — Copilot, in-product messaging, billing,
-          and platform architecture — while building Knokr, a music-industry platform managing
-          60,000+ artists, 1,500+ festivals, 1,000+ venues, and 25,000+ events across a federated
-          architecture: three Next.js apps, a Python/FastAPI prediction service, and four BullMQ
-          background workers sharing a single Postgres/Redis/S3 backbone.
+          end-to-end. Currently building Knokr, a music-industry platform managing 60,000+ artists,
+          1,500+ festivals, 1,000+ venues, and 25,000+ events across a federated architecture: three
+          Next.js apps, a Python/FastAPI prediction service, and four BullMQ background workers
+          sharing a single Postgres/Redis/S3 backbone.
         </p>
         <p className="mt-4 text-slate-400 leading-relaxed">
           Twenty-plus years of engineering experience across enterprise (Dassault Systèmes, Bose,
@@ -172,7 +170,7 @@ export default function ResumePage() {
         <div className="mb-8">
           <div className="flex justify-between items-baseline mb-1">
             <h3 className="font-medium text-slate-300">Senior Software Engineer</h3>
-            <span className="text-sm text-slate-500">May 2026 – Present</span>
+            <span className="text-sm text-slate-500">May 2026 – September 2026</span>
           </div>
           <p className="text-teal-300 mb-3">GitHub</p>
           <p className="text-slate-400 mb-4 leading-relaxed">
