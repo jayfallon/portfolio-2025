@@ -108,7 +108,7 @@ export default function ResumePage() {
         </p>
         <p className="mt-4 text-slate-400 leading-relaxed">
           Twenty-plus years of engineering experience across enterprise (Dassault Systèmes, Bose,
-          State Street, Cengage) and consumer health (Form Health). Deep on backend architecture,
+          State Street, Cengage, GitHub) and consumer health (Form Health). Deep on backend architecture,
           data modeling, and applied ML — pgvector and HNSW indexes, graph algorithms (Node2Vec,
           Louvain), AI-powered recommendation systems — with a long front-end track record that
           informs how I build APIs and design systems.
