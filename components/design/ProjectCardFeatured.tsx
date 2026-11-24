@@ -30,16 +30,18 @@ export default function ProjectCardFeatured({
       href={url}
       className="group flex flex-wrap overflow-hidden rounded-card border border-line bg-surface-1 transition-all duration-200 hover:-translate-y-0.5 hover:border-line-2"
     >
-      <div className="relative flex min-w-0 flex-[1_1_560px] border-r border-line">
+      <div className="min-w-0 flex-[1_1_560px] border-r border-line">
         {image ? (
-          <Image
-            src={resolveImageSrc(image.src)}
-            alt={image.alt}
-            width={1120}
-            height={700}
-            className="h-auto w-full"
-            style={{ aspectRatio: "1.6" }}
-          />
+          <div className="relative w-full" style={{ aspectRatio: "1.6" }}>
+            <Image
+              src={resolveImageSrc(image.src)}
+              alt={image.alt}
+              fill
+              sizes="(min-width: 1024px) 700px, 100vw"
+              className="object-cover object-top"
+              priority
+            />
+          </div>
         ) : (
           <Placeholder
             caption={`screenshot · ${title.toLowerCase()}`}

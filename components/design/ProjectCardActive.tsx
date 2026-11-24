@@ -27,14 +27,15 @@ export default function ProjectCardActive({
     >
       <div className="border-b border-line">
         {image ? (
-          <Image
-            src={resolveImageSrc(image.src)}
-            alt={image.alt}
-            width={800}
-            height={500}
-            className="h-auto w-full"
-            style={{ aspectRatio: "1.6" }}
-          />
+          <div className="relative w-full" style={{ aspectRatio: "1.6" }}>
+            <Image
+              src={resolveImageSrc(image.src)}
+              alt={image.alt}
+              fill
+              sizes="(min-width: 1024px) 400px, 100vw"
+              className="object-cover object-top"
+            />
+          </div>
         ) : (
           <Placeholder caption={`screenshot · ${title.toLowerCase()}`} aspect="1.6" />
         )}

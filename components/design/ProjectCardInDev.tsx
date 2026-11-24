@@ -24,14 +24,15 @@ export default function ProjectCardInDev({
     >
       <div className="flex-[0_0_200px] overflow-hidden rounded-md border border-line">
         {image ? (
-          <Image
-            src={resolveImageSrc(image.src)}
-            alt={image.alt}
-            width={400}
-            height={250}
-            className="h-auto w-full"
-            style={{ aspectRatio: "1.6" }}
-          />
+          <div className="relative w-full" style={{ aspectRatio: "1.6" }}>
+            <Image
+              src={resolveImageSrc(image.src)}
+              alt={image.alt}
+              fill
+              sizes="200px"
+              className="object-cover object-top"
+            />
+          </div>
         ) : (
           <Placeholder caption="screenshot" aspect="1.6" />
         )}

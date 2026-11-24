@@ -25,14 +25,15 @@ export default function ProjectCardInactive({
     >
       <div className="border-b border-line">
         {image ? (
-          <Image
-            src={resolveImageSrc(image.src)}
-            alt={image.alt}
-            width={550}
-            height={250}
-            className="h-auto w-full"
-            style={{ aspectRatio: "2.2" }}
-          />
+          <div className="relative w-full" style={{ aspectRatio: "2.2" }}>
+            <Image
+              src={resolveImageSrc(image.src)}
+              alt={image.alt}
+              fill
+              sizes="(min-width: 1024px) 280px, 100vw"
+              className="object-cover object-top"
+            />
+          </div>
         ) : (
           <Placeholder caption="screenshot" aspect="2.2" />
         )}
