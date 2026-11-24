@@ -170,35 +170,28 @@ export default function ResumePage() {
 
         <div className="mb-8">
           <div className="flex justify-between items-baseline mb-1">
-            <h3 className="font-medium text-slate-300">Senior Software Engineer</h3>
-            <span className="text-sm text-slate-500">May 2026 – September 2026</span>
+            <h3 className="font-medium text-slate-300">
+              Senior Software Engineer, In-Product Messaging
+            </h3>
+            <span className="text-sm text-slate-500">May 2026 – Sep 2026</span>
           </div>
           <p className="text-teal-300 mb-3">GitHub</p>
           <p className="text-slate-400 mb-4 leading-relaxed">
-            Software engineer working across GitHub&apos;s production Ruby on Rails monolith and
-            React/TypeScript frontend, focused on Copilot, in-product messaging, billing, and
-            platform architecture. Shipped end-to-end product flows spanning Rails controllers and
-            models, React interfaces, ERB views, SCSS, SQL-backed data models and migrations,
-            background jobs, stream processors, caching, email notifications, and staff tooling.
-            Built canonical nudge registries and priority-coordination systems while preserving
-            eligibility, placement, dismissal, analytics, and rendering contracts across
-            organization, enterprise, dashboard, and Copilot surfaces.
-          </p>
-          <p className="text-slate-400 mb-4 leading-relaxed">
-            Operated production changes through actor-scoped feature flags, cohort gates, kill
-            switches, A/B experiments, staged rollouts, parity harnesses, and explicit rollback
-            paths. Added Hydro analytics and Datadog metrics, isolated exception reporting in
-            Sentry, and designed resilient behavior around billing and service dependencies.
-            Maintained quality through Sorbet, Minitest, integration and end-to-end testing,
-            RuboCop, ERB linting, GitHub Actions, Codespaces, and deterministic regression
-            coverage. Merged 92 pull requests and reviewed 171, contributing implementation and
-            architectural, reliability, testing, and rollout guidance across the codebase.
+            On GitHub&apos;s in-product messaging team I owned the nudges, banners and prompts that
+            guide users toward Copilot, billing actions and new features. That work covered
+            GitHub&apos;s Ruby on Rails monolith and its React/TypeScript frontend. I built a
+            canonical nudge registry and a priority-coordination system so competing messages
+            resolve predictably. Each message kept its contract for eligibility, placement,
+            dismissal, analytics and rendering across organization, enterprise, dashboard and
+            Copilot surfaces. Every change shipped behind actor-scoped feature flags, cohort gates
+            and kill switches, through A/B experiments and staged rollouts with explicit rollback
+            paths. I instrumented it with Hydro analytics and Datadog metrics. Over the role I
+            merged more than 100 pull requests and reviewed more than 200.
           </p>
           <p className="text-xs text-slate-500">
-            <span className="text-slate-400">Tech Stack:</span> Ruby, Ruby on Rails, Sorbet,
-            TypeScript, React, JavaScript, ERB, HTML, SCSS, SQL, Minitest, Vitest, Hydro, Datadog,
-            Sentry, Vexi, Feature Flags, A/B Experimentation, Background Jobs, Stream Processors,
-            Caching, GitHub Actions, Codespaces
+            <span className="text-slate-400">Tech Stack:</span> Ruby on Rails, Sorbet, React,
+            TypeScript, SQL, Hydro, Datadog, Sentry, Feature Flags, A/B Experimentation,
+            Background Jobs, Stream Processors
           </p>
         </div>
 
