@@ -7,7 +7,7 @@
       "Full Stack Software Engineer",
       "Tool Builder"
     ],
-    "summary": "Principal-level engineer who designs and operates multi-service production platforms end-to-end. Currently building Knokr, a music-industry platform managing 60,000+ artists, 1,500+ festivals, 1,000+ venues, and 25,000+ events across a federated architecture: three Next.js apps, a Python/FastAPI prediction service, and four BullMQ background workers sharing a single Postgres/Redis/S3 backbone.",
+    "summary": "Principal-level engineer who designs and operates multi-service production platforms end-to-end: schema design and entity resolution, service boundaries, background processing, applied ML, and the rollout discipline to change any of it safely in production. Recent work spans a contract on GitHub's Ruby on Rails monolith and React/TypeScript frontend, and Knokr — a federated music-industry platform I architected and built solo across Next.js, Python/FastAPI, and a shared Postgres/Redis/S3 backbone.",
     "socialLinks": [
       {
         "platform": "GitHub",
@@ -54,7 +54,7 @@
       "content": [
         "I'm a principal-level engineer who designs and operates multi-service production platforms end-to-end. Twenty-plus years of engineering experience across enterprise ([Dassault Systèmes](https://www.3ds.com), [Bose](https://www.bose.com), [State Street](https://www.statestreet.com), [Cengage](https://www.cengagegroup.com), [GitHub](https://github.com)) and consumer health ([Form Health](https://www.formhealth.co)), with interdisciplinary education — a [BS in Business Administration](https://www.northeastern.edu/) (International Business, Finance) from Northeastern and an [MLA in Digital Media Design](https://extension.harvard.edu/academics/programs/digital-media-design-graduate-program/) from Harvard Extension School.",
 
-        "Currently building [Knokr](https://www.knokr.com), a music-industry platform managing 60,000+ artists, 1,500+ festivals, 1,000+ venues, and 25,000+ events. Federated architecture from day one: three Next.js apps (admin CMS, public site, media library) and a Python/FastAPI prediction service, all backed by four BullMQ workers sharing a single Postgres/Redis/S3 backbone. Solo architect and engineer — sole owner of schema, services, infrastructure, and the ~2,800 tests that hold it all together.",
+        "Currently building [Knokr](https://knokr.com), a music-industry platform managing 60,000+ artists, 1,500+ festivals, 1,000+ venues, and 25,000+ events. Federated architecture from day one: three Next.js apps (admin CMS, public site, media library) and a Python/FastAPI prediction service, all backed by four BullMQ workers sharing a single Postgres/Redis/S3 backbone. Solo architect and engineer — sole owner of schema, services, infrastructure, and the ~2,800 tests that hold it all together.",
 
         "Deep on backend architecture, data modeling, and applied ML. pgvector with HNSW indexes power sub-100ms semantic search, CLIP image search, and \"more like this\" recommendations across the platform. A graph engine over 3.3M festival co-occurrence edges runs Node2Vec embeddings and Louvain community detection to surface emerging artists. Database-driven routing (URLs defined in the database, not the filesystem), six-tier RBAC with Redis-cached permissions delivering 90–95% latency reduction, and a multi-strategy data ingestion pipeline aggregating festival, venue, and event data from dozens of sources.",
 
@@ -99,7 +99,7 @@
         {
           "title": "Founder & Principal Engineer",
           "company": "Knokr",
-          "url": "https://www.knokr.com",
+          "url": "https://knokr.com",
           "dateRange": "2024 — Present",
           "description": "Sole architect and engineer of a federated music-industry platform spanning a consumer-facing application and an operator/CMS backend. Chose multi-service over monolith from day one: separate Next.js apps, a Python/FastAPI prediction service, and BullMQ workers sharing Postgres, Redis, and S3. Designed the schema for a complex domain — entity resolution across artists, venues, festivals, and events; slug stability; ownership transfer; multi-tenant isolation; six-tier RBAC with three-layer route protection. pgvector + HNSW for sub-100ms semantic search. Node2Vec + Louvain on 3.3M co-occurrence edges for artist discovery. Anthropic Claude API for AI festival recommendations and lineup extraction from posters. ~2,800 tests across the system (Vitest, Playwright, Testcontainers, Supertest, Memlab).",
           "technologies": [

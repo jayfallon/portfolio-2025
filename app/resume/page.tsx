@@ -101,10 +101,11 @@ export default function ResumePage() {
         <h2 className="mb-4 text-xl font-semibold text-slate-200">Summary</h2>
         <p className="text-slate-400 leading-relaxed">
           Principal-level engineer who designs and operates multi-service production platforms
-          end-to-end. Currently building Knokr, a music-industry platform managing 60,000+ artists,
-          1,500+ festivals, 1,000+ venues, and 25,000+ events across a federated architecture: three
-          Next.js apps, a Python/FastAPI prediction service, and four BullMQ background workers
-          sharing a single Postgres/Redis/S3 backbone.
+          end-to-end: schema design and entity resolution, service boundaries, background
+          processing, applied ML, and the rollout discipline to change any of it safely in
+          production. Recent work spans a contract on GitHub&apos;s Ruby on Rails monolith and
+          React/TypeScript frontend, and Knokr — a federated music-industry platform I architected
+          and built solo across Next.js, Python/FastAPI, and a shared Postgres/Redis/S3 backbone.
         </p>
         <p className="mt-4 text-slate-400 leading-relaxed">
           Twenty-plus years of engineering experience across enterprise (Dassault Systèmes, Bose,
