@@ -196,6 +196,30 @@
       "title": "Projects",
       "items": [
         {
+          "title": "Zaaber",
+          "category": "Active",
+          "url": "/projects/zaaber",
+          "description": "A geography learning platform for schools. Pupils learn the world by finding places on a blank map — pressing a country, dragging its outline into place, dropping a pin on a city or picking its flag. There are no multiple-choice lists to guess from. Teachers build lessons and courses from more than 600 quiz sets covering every country, continent and ocean, and follow their class's progress in live reports. It works in 22 languages, including right-to-left Arabic and Urdu, and is designed from the first day for children's privacy: no advertising, no trackers, no leaderboards, and pupils' names are encrypted so that only their own teacher can read them.",
+          "technologies": [
+            "Next.js 16",
+            "React 19",
+            "TypeScript",
+            "HeroUI v3",
+            "Tailwind CSS 4",
+            "PostgreSQL 17",
+            "Prisma 7",
+            "Redis",
+            "d3-geo",
+            "mapshaper",
+            "visx",
+            "Stripe",
+            "Sentry",
+            "Vitest",
+            "GitHub Actions",
+            "Railway"
+          ]
+        },
+        {
           "title": "Knokr",
           "category": "Active",
           "url": "/projects/knokr",

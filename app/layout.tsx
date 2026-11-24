@@ -1,6 +1,7 @@
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { fontClasses } from "./fonts";
+import UploadPortfolioButton from "@/components/upload-portfolio-button";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -65,6 +66,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <ThemeProvider attribute="data-theme" defaultTheme="dark" disableTransitionOnChange>
           {children}
+          <div className="fixed bottom-4 right-4 z-50">
+            <UploadPortfolioButton />
+          </div>
         </ThemeProvider>
       </body>
     </html>
