@@ -26,7 +26,8 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-markdown": "^9.0.3",
-    "redis": "^4.7.0"
+    "redis": "^4.7.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",

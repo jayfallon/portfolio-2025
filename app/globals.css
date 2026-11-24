@@ -91,3 +91,13 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+.case-study-body {
+  counter-reset: cs-section;
+}
+.case-study-body h2 {
+  counter-increment: cs-section;
+}
+.case-study-body h2 .case-study-section-number::before {
+  content: counter(cs-section, decimal-leading-zero);
+}
