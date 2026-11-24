@@ -10,16 +10,16 @@ export function ContactInfo() {
   }, []);
 
   return (
-    <p className="mt-2 text-sm text-slate-500">
-      <a href="tel:+16174068027" className="hover:text-teal-300 transition">
+    <p className="mt-4 font-mono text-mono-sm uppercase tracking-[.08em] text-fg-3">
+      <a href="tel:+16174068027" className="hover:text-accent-text transition-colors">
         617-406-8027
       </a>
       {" · "}
-      <a href="mailto:jayfallon@gmail.com" className="hover:text-teal-300 transition">
+      <a href="mailto:jayfallon@gmail.com" className="hover:text-accent-text transition-colors">
         jayfallon@gmail.com
       </a>
       {" · "}
-      <a href={`https://${domain}`} className="hover:text-teal-300 transition">
+      <a href={`https://${domain}`} className="hover:text-accent-text transition-colors">
         {domain}
       </a>
     </p>

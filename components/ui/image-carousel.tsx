@@ -32,10 +32,10 @@ export function ImageCarousel({ images, priority = false }: ImageCarouselProps) 
             alt={images[0].alt}
             width={2254}
             height={1393}
-            className="rounded-lg border border-slate-700/50"
+            className="rounded-panel border border-line"
             {...(priority ? { priority: true } : {})}
           />
-          <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-slate-900/0 transition group-hover/zoom:bg-slate-900/30">
+          <div className="absolute inset-0 flex items-center justify-center rounded-panel bg-transparent transition group-hover/zoom:bg-black/30">
             <ZoomIn className="h-8 w-8 text-white opacity-0 transition group-hover/zoom:opacity-100" />
           </div>
         </button>
@@ -109,7 +109,7 @@ function Carousel({
       aria-label="Project screenshots"
       tabIndex={0}
     >
-      <div className="overflow-hidden rounded-lg border border-slate-700/50" ref={emblaRef}>
+      <div className="overflow-hidden rounded-panel border border-line" ref={emblaRef}>
         <div className="flex">
           {images.map((image, index) => (
             <div key={index} className="min-w-0 flex-[0_0_100%]">
@@ -126,7 +126,7 @@ function Carousel({
                   className="w-full h-auto"
                   {...(priority && index === 0 ? { priority: true } : {})}
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-slate-900/0 transition group-hover/zoom:bg-slate-900/30">
+                <div className="absolute inset-0 flex items-center justify-center bg-transparent transition group-hover/zoom:bg-black/30">
                   <ZoomIn className="h-8 w-8 text-white opacity-0 transition group-hover/zoom:opacity-100" />
                 </div>
               </button>
@@ -139,7 +139,7 @@ function Carousel({
         onClick={scrollPrev}
         disabled={!canScrollPrev}
         className={cn(
-          "absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-slate-900/60 p-2 text-slate-200 transition hover:bg-slate-900/80 hover:text-teal-300",
+          "absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-surface-1/80 border border-line p-2 text-fg transition hover:bg-surface-1 hover:text-accent-text",
           !canScrollPrev && "opacity-0 pointer-events-none"
         )}
         aria-label="Previous image"
@@ -151,7 +151,7 @@ function Carousel({
         onClick={scrollNext}
         disabled={!canScrollNext}
         className={cn(
-          "absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-slate-900/60 p-2 text-slate-200 transition hover:bg-slate-900/80 hover:text-teal-300",
+          "absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-surface-1/80 border border-line p-2 text-fg transition hover:bg-surface-1 hover:text-accent-text",
           !canScrollNext && "opacity-0 pointer-events-none"
         )}
         aria-label="Next image"
@@ -166,7 +166,7 @@ function Carousel({
             onClick={() => scrollTo(index)}
             className={cn(
               "h-2 w-2 rounded-full transition",
-              index === selectedIndex ? "bg-teal-300" : "bg-slate-600 hover:bg-slate-500"
+              index === selectedIndex ? "bg-accent" : "bg-fg-3 hover:bg-fg-2"
             )}
             aria-label={`Go to image ${index + 1}`}
           />
@@ -211,7 +211,7 @@ function LightboxModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -219,7 +219,7 @@ function LightboxModal({
     >
       <button
         onClick={onClose}
-        className="absolute right-4 top-4 rounded-full bg-slate-800/80 p-2 text-slate-300 transition hover:bg-slate-700 hover:text-white"
+        className="absolute right-4 top-4 rounded-full bg-surface-1 border border-line p-2 text-fg-2 transition hover:bg-surface-2 hover:text-white"
         aria-label="Close lightbox"
       >
         <X className="h-6 w-6" />
@@ -234,7 +234,7 @@ function LightboxModal({
           alt={images[currentIndex].alt}
           width={2254}
           height={1393}
-          className="max-h-[90vh] w-auto rounded-lg object-contain"
+          className="max-h-[90vh] w-auto rounded-panel object-contain"
         />
       </div>
 
@@ -247,7 +247,7 @@ function LightboxModal({
             }}
             disabled={currentIndex === 0}
             className={cn(
-              "absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-slate-800/80 p-3 text-slate-200 transition hover:bg-slate-700 hover:text-teal-300",
+              "absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-surface-1 border border-line p-3 text-fg transition hover:bg-surface-2 hover:text-accent-text",
               currentIndex === 0 && "opacity-0 pointer-events-none"
             )}
             aria-label="Previous image"
@@ -262,7 +262,7 @@ function LightboxModal({
             }}
             disabled={currentIndex === images.length - 1}
             className={cn(
-              "absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-slate-800/80 p-3 text-slate-200 transition hover:bg-slate-700 hover:text-teal-300",
+              "absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-surface-1 border border-line p-3 text-fg transition hover:bg-surface-2 hover:text-accent-text",
               currentIndex === images.length - 1 && "opacity-0 pointer-events-none"
             )}
             aria-label="Next image"
@@ -280,7 +280,7 @@ function LightboxModal({
                 }}
                 className={cn(
                   "h-2.5 w-2.5 rounded-full transition",
-                  index === currentIndex ? "bg-teal-300" : "bg-slate-500 hover:bg-slate-400"
+                  index === currentIndex ? "bg-accent" : "bg-fg-3 hover:bg-fg-2"
                 )}
                 aria-label={`Go to image ${index + 1}`}
               />
@@ -289,7 +289,7 @@ function LightboxModal({
         </>
       )}
 
-      <p className="absolute bottom-12 left-1/2 -translate-x-1/2 text-sm text-slate-400">
+      <p className="absolute bottom-12 left-1/2 -translate-x-1/2 text-sm text-fg-2">
         {currentIndex + 1} / {images.length}
       </p>
     </div>

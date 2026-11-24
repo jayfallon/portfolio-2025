@@ -2,68 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-  }
+/* Jay Fallon portfolio — design tokens. Dark is default; light via [data-theme="light"] on <html>. */
+:root,
+[data-theme="dark"] {
+  --bg: #0c0d0f;
+  --bg-glass: rgba(12, 13, 15, 0.82);
+  --surface-1: #131518;
+  --surface-2: #1a1d21;
+  --code-bg: #0f1113;
+  --border: #24272c;
+  --border-2: #363a41;
+  --text: #ecebe8;
+  --text-2: #a9a7a1;
+  --text-3: #878580;
+  --accent: #f0b03f;
+  --accent-text: #f0b03f;
+  --accent-bg: rgba(240, 176, 63, 0.1);
+  --on-accent: #1a1204;
+  --live: #4cc985;
+  --live-bg: rgba(76, 201, 133, 0.14);
+  --grid-line: rgba(255, 255, 255, 0.05);
+  --focus: #f0b03f;
+  color-scheme: dark;
+}
 
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+[data-theme="light"] {
+  --bg: #f6f5f1;
+  --bg-glass: rgba(246, 245, 241, 0.85);
+  --surface-1: #ffffff;
+  --surface-2: #efede8;
+  --code-bg: #fbfaf7;
+  --border: #e2dfd8;
+  --border-2: #ccc8bf;
+  --text: #16171a;
+  --text-2: #4f4d48;
+  --text-3: #6b6862;
+  --accent: #e8a43a;
+  --accent-text: #8f5b00;
+  --accent-bg: rgba(232, 164, 58, 0.14);
+  --on-accent: #1a1204;
+  --live: #1d8a4f;
+  --live-bg: rgba(29, 138, 79, 0.12);
+  --grid-line: rgba(0, 0, 0, 0.055);
+  --focus: #8f5b00;
+  color-scheme: light;
+}
+
+:root {
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius-tag: 4px;
+  --radius-btn: 6px;
+  --radius-panel: 10px;
+  --radius-card: 12px;
+  --radius-full: 999px;
+
+  --container: 1200px;
+  --gutter: 24px;
+  --header-h: 56px;
+
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast: 150ms;
+  --dur: 200ms;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+.case-study-body {
+  counter-reset: cs-section;
+}
+.case-study-body h2 {
+  counter-increment: cs-section;
+}
+.case-study-body h2 .case-study-section-number::before {
+  content: counter(cs-section, decimal-leading-zero);
 }
