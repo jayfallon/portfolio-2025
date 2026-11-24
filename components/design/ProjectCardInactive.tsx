@@ -25,7 +25,7 @@ export default function ProjectCardInactive({
     >
       <div className="border-b border-line">
         {image ? (
-          <div className="relative w-full" style={{ aspectRatio: "2.2" }}>
+          <div className="relative w-full" style={{ aspectRatio: "1.6" }}>
             <Image
               src={resolveImageSrc(image.src)}
               alt={image.alt}
@@ -35,7 +35,7 @@ export default function ProjectCardInactive({
             />
           </div>
         ) : (
-          <Placeholder caption="screenshot" aspect="2.2" />
+          <Placeholder caption="screenshot" aspect="1.6" />
         )}
       </div>
       <div className="flex flex-col gap-1.5 px-4 pb-4 pt-3.5">
