@@ -210,7 +210,7 @@
         },
         {
           "title": "Knokr",
-          "category": "Active",
+          "category": "Featured",
           "url": "/projects/knokr",
           "description": "The public-facing knokr.com — a music-industry discovery and social platform consolidating 60,000+ artists, 1,500+ festivals, 1,000+ venues, and 25,000+ events into one searchable surface. City-context homepage threads through every section — Hottest Ticket, What's On, Hottest Venues, Latest Updated, Social Events — so picking a city reshapes the whole site. Discovery via semantic vector search and full-text PostgreSQL indexes; CLIP-based image search across user-contributed albums. Calendar with RSVPs ties into a BullMQ-backed reminder pipeline that DMs attendees at T−7d, T−1d, and T−1h in the venue's local timezone. Albums link explicitly to entities (artists, festivals, venues, cities, events) with NSFW + near-duplicate moderation, three-tier contribution policies, and save-to-album that re-uses S3 keys. User-to-user messaging gated by mutual-friend checks, with image upload through CloudFront. Animated Leaflet festival map, dream lineup builder, geographic radius-based discovery, and a conversational recommendation engine round out the consumer surface.",
           "image": {
