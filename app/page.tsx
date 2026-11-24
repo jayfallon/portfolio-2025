@@ -197,6 +197,8 @@ export default async function Home() {
             degree: e.degree,
             institution: e.institution,
             institutionUrl: e.institutionUrl,
+            description: e.description,
+            specializations: e.specializations,
           }))}
         />
       </main>
