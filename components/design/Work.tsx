@@ -21,7 +21,11 @@ export type FeaturedProject = WorkProject & {
   stats?: FeaturedStat[];
 };
 
-export type InactiveProject = WorkProject & {
+export type InactiveProject = {
+  title: string;
+  url: string;
+  description: string;
+  image?: { src: string; alt: string };
   year?: string;
   tagline?: string;
 };
