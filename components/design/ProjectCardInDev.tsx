@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Tag from "./Tag";
 import Placeholder from "./Placeholder";
+import { resolveImageSrc } from "@/lib/images";
 
 export default function ProjectCardInDev({
   title,
@@ -24,7 +25,7 @@ export default function ProjectCardInDev({
       <div className="flex-[0_0_200px] overflow-hidden rounded-md border border-line">
         {image ? (
           <Image
-            src={image.src}
+            src={resolveImageSrc(image.src)}
             alt={image.alt}
             width={400}
             height={250}

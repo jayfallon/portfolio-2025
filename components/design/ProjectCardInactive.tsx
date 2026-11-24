@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Placeholder from "./Placeholder";
+import { resolveImageSrc } from "@/lib/images";
 
 export default function ProjectCardInactive({
   title,
@@ -25,7 +26,7 @@ export default function ProjectCardInactive({
       <div className="border-b border-line">
         {image ? (
           <Image
-            src={image.src}
+            src={resolveImageSrc(image.src)}
             alt={image.alt}
             width={550}
             height={250}

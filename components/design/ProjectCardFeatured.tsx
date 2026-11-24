@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Tag from "./Tag";
 import Placeholder from "./Placeholder";
+import { resolveImageSrc } from "@/lib/images";
 
 export type FeaturedStat = { value: string; label: string; accent?: string };
 
@@ -32,7 +33,7 @@ export default function ProjectCardFeatured({
       <div className="relative flex min-w-0 flex-[1_1_560px] border-r border-line">
         {image ? (
           <Image
-            src={image.src}
+            src={resolveImageSrc(image.src)}
             alt={image.alt}
             width={1120}
             height={700}

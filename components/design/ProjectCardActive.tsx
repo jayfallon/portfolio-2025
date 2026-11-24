@@ -3,6 +3,7 @@ import Image from "next/image";
 import Tag from "./Tag";
 import Placeholder from "./Placeholder";
 import StatusDot, { Status } from "./StatusDot";
+import { resolveImageSrc } from "@/lib/images";
 
 export default function ProjectCardActive({
   title,
@@ -27,7 +28,7 @@ export default function ProjectCardActive({
       <div className="border-b border-line">
         {image ? (
           <Image
-            src={image.src}
+            src={resolveImageSrc(image.src)}
             alt={image.alt}
             width={800}
             height={500}
